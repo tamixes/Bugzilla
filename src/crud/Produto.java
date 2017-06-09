@@ -20,35 +20,35 @@ public class Produto {
 		this.codigo = codigo; 
 	}
 
-	public int getPedido() {
+	public int getPedido(){
 		return pedido;
 	}
 
-	public void setPedido(int pedido) {
+	public void setPedido(int pedido){
 		this.pedido = pedido;
 	}
 
-	public String getTipo() {
+	public String getTipo(){
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(String tipo){
 		this.tipo = tipo;
 	}
 
-	public double getPeso() {
+	public double getPeso(){
 		return peso;
 	}
 
-	public void setPeso(double peso) {
+	public void setPeso(double peso){
 		this.peso = peso;
 	}
 
-	public int getCodigo() {
+	public int getCodigo(){
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(int codigo){
 		this.codigo = codigo;
 	}
 	
@@ -61,7 +61,7 @@ public class Produto {
 		return resultado; 
 	}
 
-	public String toString() {
+	public String toString(){
 		return "Produto [pedido=" + pedido + ", tipo=" + tipo + ", peso=" + peso + ", codigo=" + codigo + "]";
 	}
 	
