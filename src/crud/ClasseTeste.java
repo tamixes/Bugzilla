@@ -6,18 +6,7 @@ public class ClasseTeste {
 		
 		// eae vamo testa
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		
 		

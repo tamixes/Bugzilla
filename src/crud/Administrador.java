@@ -2,7 +2,9 @@ package crud;
 
 public class Administrador {
 	
-	private Pessoa pessoa; 
+	private Pessoa pessoa;
+	private Funcionario funcionarios[] = new Funcionario[100];
+	private int proxima = 0;
 	private int id; 
 	private String login; 
 	private String senha;
@@ -39,6 +41,12 @@ public class Administrador {
 		this.senha = senha;
 	}
 	
+	public void criaFuncionario(Funcionario func){
+		
+		this.funcionarios[this.proxima] = func;
+        this.proxima = this.proxima + 1;
+	}
+
 	public boolean equals(Administrador outro){
 		boolean resultado = false; 
 		
