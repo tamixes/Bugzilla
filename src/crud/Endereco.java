@@ -96,7 +96,5 @@ public class Endereco {
 				+ cep + ", numero=" + numero + "]";
 	}
 	
-	
-	
 
 }
