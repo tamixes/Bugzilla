@@ -2,7 +2,6 @@ package crud;
 
 // ESSA CLASSE REPRESENTA A ENCOMENDA
 
-
 public class Produto {
 
 	private int pedido; 
@@ -52,20 +51,21 @@ public class Produto {
 		this.codigo = codigo;
 	}
 	
+	public boolean IsEntregue(){
+		return entregue;
+	}
+	
 	public boolean equals(Produto outro){
 		boolean resultado = false;
 		
-		if(this.pedido == outro.pedido && this.codigo == outro.codigo){
-			resultado = true;
-		}
+		if(outro != null){
+				resultado = (this.pedido == outro.pedido) && (this.codigo == outro.codigo);
+			}
 		return resultado; 
 	}
 
 	public String toString(){
 		return "Produto [pedido=" + pedido + ", tipo=" + tipo + ", peso=" + peso + ", codigo=" + codigo + "]";
 	}
-	
-	
-	
-	
+		
 }

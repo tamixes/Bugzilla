@@ -78,7 +78,7 @@ public class Endereco {
 	public boolean equals(Endereco outroEndereco){
 		boolean resultado = false; 
 		
-		if(this.rua.equals(outroEndereco.getRua()) &&
+		if(outroEndereco != null && this.rua.equals(outroEndereco.getRua()) &&
 			this.bairro.equals(outroEndereco.getBairro()) &&
 			this.cidade.equals(outroEndereco.getCidade()) &&
 			this.estado.equals(outroEndereco.getEstado()) &&

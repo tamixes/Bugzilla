@@ -80,8 +80,8 @@ public class Pessoa {
 	public boolean equals(Pessoa outro){
 		boolean resultado = false; 
 		
-		if(this.cpf.equals(outro.cpf)){
-			resultado = true;
+		if(outro != null && this.cpf != null){
+			resultado = this.cpf.equals(outro.cpf);
 		}
 		
 		return resultado; 
