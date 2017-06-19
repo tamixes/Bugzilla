@@ -1,2 +1,17 @@
 # Bugzilla
-Projeto para desenvolvimento de um sistema de controle de encomendas, para a cadeira de Introdução a Programação 2 na UFRPE.
+_Projeto para desenvolvimento de um sistema de controle de encomendas._
+
+
+:point_right: Introdução à Programação II (Java)
+
+:computer: Bacharelado em Ciência da Computação da UFRPE
+
+
+# Contribuidores:
+
+:boom: Diego Patrik
+:boom: Tamires Carvalho
+:boom: Thyerry Nunes
+
+
+
