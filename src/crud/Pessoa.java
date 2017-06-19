@@ -1,6 +1,8 @@
 package crud;
 import java.time.LocalDate;
 
+import br.ufrpe.bugzilla.negocio.beans.Endereco;
+
 public class Pessoa {
   
   private String nome;

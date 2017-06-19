@@ -1,4 +1,4 @@
-package crud;
+package br.ufrpe.bugzilla.negocio.beans;
 
 public class Endereco {
 	

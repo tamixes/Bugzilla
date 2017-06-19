@@ -2,6 +2,8 @@ package crud;
 
 import java.time.LocalDate;
 
+import br.ufrpe.bugzilla.negocio.beans.Endereco;
+
 public class ClasseTeste {
 
 	public static void main(String [] args){
@@ -16,7 +18,7 @@ public class ClasseTeste {
 		Funcionario func =  new Funcionario(p2, "func", "func");
 		adm.criaFuncionario(func);
 		
-		
+		//...
 		
 	}
 }

@@ -2,6 +2,8 @@ package crud;
 
 import java.time.LocalDate;
 
+import br.ufrpe.bugzilla.negocio.beans.Endereco;
+
 public class Funcionario {
 
 	private static int nextId = 1;
