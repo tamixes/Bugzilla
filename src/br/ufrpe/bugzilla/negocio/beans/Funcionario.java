@@ -14,6 +14,7 @@ public class Funcionario extends Pessoa{
 		String senha; 
 		// falta fazer a parte da senha receber o cpf e o login receber o nome do funcionario
 		
+		
 	}
 
 	public Login getLog() {
