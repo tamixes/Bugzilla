@@ -1,5 +1,7 @@
 package old;
 
+import br.ufrpe.bugzilla.negocio.beans.Pessoa;
+
 public class Administrador {
 	
 	private Pessoa pessoa;

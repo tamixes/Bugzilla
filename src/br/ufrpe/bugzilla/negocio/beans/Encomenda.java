@@ -3,8 +3,6 @@ package br.ufrpe.bugzilla.negocio.beans;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import old.Pessoa;
-
 public class Encomenda {
 	private static int geraCodigo = 1;
 

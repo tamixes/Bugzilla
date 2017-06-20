@@ -90,11 +90,12 @@ public class Endereco {
 		
 		return resultado;
 	}
-
+	
 	public String toString() {
-		return "Endereco [rua=" + rua + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep="
-				+ cep + ", numero=" + numero + "]";
+		String resultado = String.format("\nRua: %s\nBairro: %s\nCidade: %s\nEstado: %s\nCEP: %s\nNumero: %i", rua, bairro, cidade, estado, cep, numero);
+		return resultado; 
 	}
+	
 	
 
 }

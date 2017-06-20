@@ -1,7 +1,5 @@
-package old;
+package br.ufrpe.bugzilla.negocio.beans;
 import java.time.LocalDate;
-
-import br.ufrpe.bugzilla.negocio.beans.Endereco;
 
 public class Pessoa {
   
@@ -11,12 +9,7 @@ public class Pessoa {
   private String telefone; 
   private Endereco end; 
   
-  
-  public Pessoa(){
-	  nome ="";
-	  cpf ="";
-	  telefone = "";
-  }
+ 
   
   
   public Pessoa(String nome, String cpf, LocalDate dataNascimento, String telefone, Endereco end){
@@ -73,20 +66,33 @@ public class Pessoa {
 		this.end = end;
 	}
 
-	public String toString() {
-		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + 
-				", telefone=" + telefone + ", end=" + end + "]";
-	}
-
-
-	public boolean equals(Pessoa outro){
-		boolean resultado = false; 
+	public String dataAnivo(){
+		int dia = dataNascimento.getDayOfMonth();
+		int mes = dataNascimento.getMonthValue();
+		int ano = dataNascimento.getYear(); 
 		
-		if(outro != null && this.cpf != null){
-			resultado = this.cpf.equals(outro.cpf);
-		}
+		String resultado = Integer.toString(dia) + '/' + mes + '/' + ano; 
+		
+		return resultado;
+		
+	}
+	
+	public String toString(){
+		
+		String resultado = String.format("Nome: %s\nCPF: %s\nData de Nascimento: %s\nEndereco: %s", nome, cpf, this.dataAnivo(), end);
 		
 		return resultado; 
+	}
+
+	public boolean equals(Pessoa outro){
+		
+		if(this.cpf.equals(outro.getCpf())){
+			return true;
+		}
+		else{
+			return false;
+		}
+
 	}
 	  
   

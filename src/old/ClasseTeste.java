@@ -3,6 +3,7 @@ package old;
 import java.time.LocalDate;
 
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
+import br.ufrpe.bugzilla.negocio.beans.Pessoa;
 
 public class ClasseTeste {
 
