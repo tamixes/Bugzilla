@@ -12,8 +12,8 @@ public class Encomenda {
 	private String tipoDoProduto;
 	private boolean entregue = false;
 	private int pedido;
-	private Endereco localAtual;
-	private String relatorioDeRastreio = "";
+	private String localAtual;
+	private String relatorioDeRastreio = "Relatório de rastreio\n";
 
 	public Encomenda(Pessoa destinatario, double peso, String tipo, int pedido) {
 		this.codigo = geraCodigo;
@@ -49,9 +49,6 @@ public class Encomenda {
 		return entregue;
 	}
 
-	public void setEntregue(boolean entregue) {
-		this.entregue = entregue;
-	}
 
 	public int getPedido() {
 		return pedido;
@@ -99,6 +96,7 @@ public class Encomenda {
 	
 	public String atualizaRelatorio(String local, String situacao) {
 		//No caso, local seria o endereço de onde está atualmente, e situação se está postado, encaminhado, indo pra entrega e etc.
+		//Esse metodo vai pegar o que tem no atributo relatorioDeRastreio e concatenar com novas informações de relatório
 		
 		LocalDate data = LocalDate.now();
 		String resultado = this.relatorioDeRastreio;
@@ -112,10 +110,10 @@ public class Encomenda {
 			resultado = resultado + local + "| " + situacao + "\n";
 
 			this.relatorioDeRastreio = resultado;
-			localAtual.setRua(local);
+			this.localAtual = local;
 			
-			if(localAtual.getRua() == destinatario.getEnd().getRua()){
-				entregue = true;
+			if(this.localAtual.equals(this.destinatario.getEnd().getRua())){
+				this.entregue = true;
 			}
 			
 			return this.relatorioDeRastreio;
@@ -125,7 +123,7 @@ public class Encomenda {
 			return this.relatorioDeRastreio;
 		}
 	}
-	
+
 		
 
 	public String toString() {
