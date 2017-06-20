@@ -92,8 +92,8 @@ public class Endereco {
 	}
 
 	public String toString() {
-		return "Endereco [rua=" + rua + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep="
-				+ cep + ", numero=" + numero + "]";
+		return "Rua " + rua + ", " + bairro +" Nº " + numero + ", " + cidade + "-" + estado + ", CEP: "
+				+ cep ;
 	}
 	
 
