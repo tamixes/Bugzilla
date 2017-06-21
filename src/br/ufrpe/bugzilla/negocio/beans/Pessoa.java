@@ -75,10 +75,20 @@ public class Pessoa {
 		return resultado;
 		
 	}
-	
+	public String formataCpf(String cpf){
+		
+		String p1 = cpf.substring(0, 3);
+		String p2 = cpf.substring(3, 6);
+		String p3 = cpf.substring(6, 9);
+		String p4 = cpf.substring(9, 11);
+
+		this.cpf = String.format("%s.%s.%s-%s", p1, p2, p3, p4);
+		return this.cpf;	
+	}
+	 
 	public String toString(){
 		
-		String resultado = String.format("Nome: %s\nCPF: %s\nData de Nascimento: %s\nEndereco: %s", nome, cpf, this.dataAnivo(), end);
+		String resultado = String.format("Nome: %s\nCPF: %s\nData de Nascimento: %s\nEndereco: %s", nome, this.formataCpf(this.cpf), this.dataAnivo(), end);
 		
 		return resultado; 
 	}
