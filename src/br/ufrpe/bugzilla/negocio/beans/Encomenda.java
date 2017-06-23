@@ -1,20 +1,18 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Encomenda {
 	private static long geraCodigo = 1;
-	
+
 	private long pedido;
 	private long codigo;
 	private Pessoa destinatario;
 	private double peso;
 	private String tipoDoProduto;
 	private boolean entregue = false;
-	
-	private String localAtual;
-	private String relatorioDeRastreio = "Relatório de rastreio\n";
+	private ArrayList<Rastreio> rastreio = new ArrayList<Rastreio>();
 
 	public Encomenda(Pessoa destinatario, double peso, String tipo, int pedido) {
 		this.codigo = geraCodigo;
@@ -50,25 +48,24 @@ public class Encomenda {
 		return entregue;
 	}
 
-
 	public long getPedido() {
 		return pedido;
 	}
 
-	//Por causa do construtor vazio que inicia o numero de pedido em 0, eu fiz o setPedido desse jeito;
+	// Por causa do construtor vazio que inicia o numero de pedido em 0, eu fiz
+	// o setPedido desse jeito;
 	public void setPedido(int pedido) {
-		if (this.codigo == 0){
+		if (this.codigo == 0) {
 			this.pedido = pedido;
-		}
-		else
-			System.out.println("Esta entrega já possui um código de pedido definido!");
-		
+		} else
+			System.out.println("Esta entrega jÃ¡ possui um cÃ³digo de pedido definido!");
+
 	}
 
 	public long getCodigo() {
 		return codigo;
 	}
-	
+
 	public Pessoa getDestinatario() {
 		return destinatario;
 	}
@@ -77,62 +74,61 @@ public class Encomenda {
 		this.destinatario = destinatario;
 	}
 
-	public String getRelatorioDeRastreio() {
-		return relatorioDeRastreio;
+	public ArrayList<Rastreio> getRastreio() {
+		return rastreio;
 	}
-	
-	
-	public String Status(){
+
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
+	}
+
+
+	public String Status() {
 		String resultado;
-		if(this.entregue == false){
+		if (this.entregue == false) {
 			resultado = "ENCOMENDA A CAMINHO";
-		}
-		else{
+		} else {
 			resultado = "ENCOMENDA ENTREGUE";
 		}
-		
+
 		return resultado;
 	}
-	
-	
-	public String atualizaRelatorio(String local, String situacao) {
-		//No caso, local seria o endereço de onde está atualmente, e situação se está postado, encaminhado, indo pra entrega e etc.
-		//Esse metodo vai pegar o que tem no atributo relatorioDeRastreio e concatenar com novas informações de relatório
-		
-		LocalDate data = LocalDate.now();
-		String resultado = this.relatorioDeRastreio;
 
-		if (this.entregue == false) {
-			data = LocalDate.now();
-			DateTimeFormatter format = DateTimeFormatter.ofPattern("dd MM yyyy");
-			String date = data.format(format);
+	public void atualizaRelatorio(String situacao, Endereco local, LocalDateTime dataHora) {
+		Rastreio rastreio = new Rastreio(situacao, local, dataHora);
 
-			resultado = resultado + date + "| ";
-			resultado = resultado + local + "| " + situacao + "\n";
-
-			this.relatorioDeRastreio = resultado;
-			this.localAtual = local;
-			
-			if(this.localAtual.equals(this.destinatario.getEnd().getRua())){
-				this.entregue = true;
-			}
-			
-			return this.relatorioDeRastreio;
-		}
-
-		else {
-			return this.relatorioDeRastreio;
-		}
+		this.rastreio.add(rastreio);
 	}
 
-		
+	public void atualizaRelatorio(Rastreio rastreio) {
+		this.rastreio.add(rastreio);
+	}
+
+	public String getRelatorio() {
+		String result = "";
+
+		for (int i = 0; i < this.rastreio.size(); i++) {
+			result = result + rastreio.get(i) + "\n";
+		}
+		return result;
+	}
+
+	public String getRelatorioPorData(LocalDateTime data) {
+		String result = "NÃ£o houve nada nessa data";
+		for (int i = 0; i < this.rastreio.size(); i++) {
+			if (data.equals(this.rastreio.get(i).getDataHora()) == true) {
+				result = this.rastreio.get(i).toString();
+			}
+		}
+		return result;
+	}
 
 	public String toString() {
 		String resultado = new String("EUAHEUAH");
 		
 		resultado =
 				  "Dados da encomenda:\n" 
-				+ "\t Nome do destinatário: " 	+ this.destinatario.getNome() + "\n"
+				+ "\t Nome do destinatÃ¡rio: " 	+ this.destinatario.getNome() + "\n"
 				+ "\t Destino do produto: " 	+ this.destinatario.getEnd() + "\n"
 				+ "\t Status da entrega: " 		+ this.Status() + "\n"
 				+ "\t Tipo de produto: " 		+ this.tipoDoProduto + "\n"
