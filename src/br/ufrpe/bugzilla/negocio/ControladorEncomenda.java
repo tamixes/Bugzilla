@@ -11,10 +11,13 @@ public class ControladorEncomenda {
 	private RepositorioEncomenda repositorio;
 	
 	private ControladorEncomenda(){
-		
+		this.repositorio = RepositorioEncomenda.getInstance();
 	}
 	
 	public static ControladorEncomenda getInstance(){
+		if(instance == null){
+			instance = new ControladorEncomenda();
+		}
 		return instance;
 	}
 	
