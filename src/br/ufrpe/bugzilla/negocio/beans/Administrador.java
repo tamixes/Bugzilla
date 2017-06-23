@@ -36,17 +36,4 @@ public class Administrador extends Pessoa{
 		return resultado;
 	}
 	
-	//temp
-//	public static void main(String[] args) {
-//		
-//		
-//		Administrador p1 = new Administrador("Tamires", "15869525420",
-//				LocalDate.of(2017, 6, 22),
-//				"81985445236", new Endereco("muito engraçada", "Ibura", 
-//						"Hellcife", "PE", "53674-095", 54),"admin",123456789);
-//		
-//		System.out.println(p1);
-//	}
-//	
-	
 }
