@@ -4,14 +4,15 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Encomenda {
-	private static int geraCodigo = 1;
-
-	private int codigo;
+	private static long geraCodigo = 1;
+	
+	private long pedido;
+	private long codigo;
 	private Pessoa destinatario;
 	private double peso;
 	private String tipoDoProduto;
 	private boolean entregue = false;
-	private int pedido;
+	
 	private String localAtual;
 	private String relatorioDeRastreio = "Relatório de rastreio\n";
 
@@ -50,7 +51,7 @@ public class Encomenda {
 	}
 
 
-	public int getPedido() {
+	public long getPedido() {
 		return pedido;
 	}
 
@@ -64,7 +65,7 @@ public class Encomenda {
 		
 	}
 
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 	
