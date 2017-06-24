@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
 
-public class RepositorioAdministrador implements IRepositorioAdministrador{
+public class RepositorioAdministrador{
 	
 	private List<Administrador> administrador = new ArrayList<Administrador>();
 	private static RepositorioAdministrador instance; 
 
-	public RepositorioAdministrador getInstance() {
+	public static RepositorioAdministrador getInstance() {
 		
 		if(instance == null){
 			instance = new RepositorioAdministrador();

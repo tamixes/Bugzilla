@@ -4,12 +4,12 @@ import java.util.List;
 
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 
-public class RepositorioFuncionario implements IRepositorioFuncionario {
+public class RepositorioFuncionario{
 	
 	private List<Funcionario> funcionario = new ArrayList<Funcionario>();
 	private static RepositorioFuncionario instance; 
 	
-	public RepositorioFuncionario getInstance() {
+	public static RepositorioFuncionario getInstance() {
 		if(instance == null ){
 			instance = new RepositorioFuncionario();
 		}

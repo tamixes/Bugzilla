@@ -4,15 +4,16 @@ import java.util.List;
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.bugzilla.dao.*;
 
-public class CadastroFuncionario implements ICadastroFuncionario{
+public class CadastroFuncionario{
 
-	private static CadastroFuncionario instance; 
-	private IRepositorioFuncionario repositorio;
+	private static CadastroFuncionario instance;
+	private RepositorioFuncionario repositorio;
 	
 	private CadastroFuncionario(){
-		repositorio.getInstance();
+		this.repositorio = RepositorioFuncionario.getInstance();
 	}
-	public CadastroFuncionario getInstance() {
+	
+	public static CadastroFuncionario getInstance() {
 		if(instance == null){
 			instance = new CadastroFuncionario();
 		}

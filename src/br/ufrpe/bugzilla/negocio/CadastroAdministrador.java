@@ -5,16 +5,16 @@ import java.util.List;
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.bugzilla.dao.*;
 
-public class CadastroAdministrador implements ICadastroAdministrador{
+public class CadastroAdministrador{
 	
-	private ICadastroAdministrador repositorio;
-	private CadastroAdministrador instance;
+	private RepositorioAdministrador repositorio;
+	private static CadastroAdministrador instance;
 	
 	private CadastroAdministrador(){
-		repositorio.getInstance();
+		this.repositorio = RepositorioAdministrador.getInstance();
 	}
 	
-	public CadastroAdministrador getInstance() {
+	public static CadastroAdministrador getInstance() {
 		if(instance == null){
 			instance = new CadastroAdministrador();
 		}
@@ -32,18 +32,18 @@ public class CadastroAdministrador implements ICadastroAdministrador{
 	public void alterarAdministrador(Administrador adm) {
 		if(adm != null){
 		
-			this.repositorio.alterarAdministrador(adm);
+			this.repositorio.alteraAdministrador(adm);
 		}
 	}
-	public void removerAdminstrador(Administrador adm) {
-		if(adm != null){
-			this.repositorio.removerAdminstrador(adm);
+	public void removerAdminstrador(String cpf) {
+		if(cpf != null){
+			this.repositorio.removerAdministrador(cpf);
 		}
 		
 	}
-	public List<Administrador> mostraAdministrador() {
+	public List<Administrador> listaAdministrador() {
 		
-		return this.repositorio.mostraAdministrador();
+		return this.repositorio.listaAdministrador();
 	
 	}
 	

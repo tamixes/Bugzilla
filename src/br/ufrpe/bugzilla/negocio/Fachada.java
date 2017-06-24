@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Fachada implements IFachada{
 	
-	private ICadastroAdministrador cadastroAdministrador;
-	private ICadastroFuncionario cadastroFuncionario; 
+	private CadastroAdministrador cadastroAdministrador;
+	private CadastroFuncionario cadastroFuncionario; 
 	private static Fachada instance;
 	
 	
 	private Fachada(){
-		this.cadastroAdministrador.getInstance();
-		this.cadastroFuncionario.getInstance();
+		this.cadastroAdministrador = CadastroAdministrador.getInstance();
+		this.cadastroFuncionario = CadastroFuncionario.getInstance();
 	}
 	
 	public static Fachada getInstance(){
@@ -43,7 +43,7 @@ public class Fachada implements IFachada{
 	}
 
 	public List<Administrador> listarAdministradores() {
-		return this.cadastroAdministrador.mostraAdministrador();
+		return this.cadastroAdministrador.listaAdministrador();
 	}
 
 	public void addFuncionario(Funcionario func) {
