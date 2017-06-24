@@ -72,6 +72,7 @@ public class TelaTextual {
 				
 			case 5:
 				bugentregas.removeEncomenda(enc1.getCodigo());
+				break;
 				
 			default:
 				if(user!=6)
