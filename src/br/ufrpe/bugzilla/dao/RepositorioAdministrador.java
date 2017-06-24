@@ -8,8 +8,13 @@ public class RepositorioAdministrador{
 	
 	private List<Administrador> administrador = new ArrayList<Administrador>();
 	private static RepositorioAdministrador instance; 
+	
+	private RepositorioAdministrador(){
 
-	public static RepositorioAdministrador getInstance() {
+		
+	}
+
+	public static RepositorioAdministrador getInstance(){
 		
 		if(instance == null){
 			instance = new RepositorioAdministrador();
