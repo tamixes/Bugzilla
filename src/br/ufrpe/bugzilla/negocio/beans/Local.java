@@ -6,7 +6,12 @@ public class Local {
 	//vai ser utilizada para calcular tarifa e tempo (distancia em km da central)
 	private int localizacao;
 	
-	Local(String nome, int localizacao){
+	public Local(){
+		this.nome = "";
+		localizacao = 0;
+	}
+	
+	public Local(String nome, int localizacao){
 		
 		this.nome = nome;
 		this.localizacao = localizacao;
@@ -30,6 +35,11 @@ public class Local {
 
 	public String toString() {
 		return "Local: " + nome + ", Localização=" + localizacao;
+	}
+	
+	public boolean equals(Object obj){
+		//TODO implementar equals
+		return true;
 	}
 	
 }
