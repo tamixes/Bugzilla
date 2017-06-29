@@ -34,7 +34,7 @@ public class Local {
 	}
 
 	public String toString() {
-		return "Local: " + nome + ", Localização=" + localizacao;
+		return "Local: " + nome + ", Localização: " + localizacao;
 	}
 	
 	public boolean equals(Object obj){
