@@ -7,11 +7,13 @@ import br.ufrpe.bugzilla.negocio.beans.*;
 public class RepositorioLocal {
 	
 	private ArrayList<Local> locais;
+	private Tarifa tarifa;
 	private static RepositorioLocal instance;
 	
 	private RepositorioLocal(){
 		
 		locais = new ArrayList<Local>();
+		tarifa = new Tarifa(3);
 	}
 	
 	public static RepositorioLocal getinstance(){
@@ -77,6 +79,19 @@ public class RepositorioLocal {
 		
 	}
 	
+	public boolean existe(Local l){
+		
+		boolean i = false;
+		
+		for(int j=0;j<locais.size();j++){
+			if(locais.get(j).equals(l)){
+				i = true;
+			}
+		}
+		
+		return i;
+	}
+	
 	public int procurarIndice(String nome){
 	
 		int i = -1;
@@ -95,6 +110,59 @@ public class RepositorioLocal {
 		return locais;
 	}
 	
-	//TODO comparar dois locais para obter tarifa e tempo.
+	// Tarifa e Tempo
+	
+	public void defineTarifa(Tarifa t){
+		
+		this.tarifa = t;
+	}
+	
+	public void atualizaTarifa(Tarifa t){
+		
+		this.tarifa = t;
+	}
+	
+	public void atualizaTarifa(int preco, String entrega){
+		
+		this.tarifa = new Tarifa(preco,entrega);
+	}
+	
+	public int getTarifa(Local l){
+		int t=0;
+		
+		t = l.getLocalizacao() * this.tarifa.getPreco();
+		
+		return t;
+	}
+	
+	public int getPrazo(Local l){
+		int prazo=0;
+		
+		prazo = l.getLocalizacao() / this.tarifa.getTempo();
+		
+		return prazo;
+	}
+	
+	public int getTarifaDois(Local l1, Local l2){
+		int t=0;
+		int distancia=0;
+		
+		distancia = Math.abs(l1.getLocalizacao() - l2.getLocalizacao());
+		
+		t = distancia * this.tarifa.getPreco();
+		
+		return t;
+	}
+	
+	public int getPrazoDois(Local l1, Local l2){
+		int prazo=0;
+		int distancia=0;
+		
+		distancia = Math.abs(l1.getLocalizacao() - l2.getLocalizacao());
+		prazo = distancia / this.tarifa.getTempo();
+		
+		return prazo;
+	}
+	
 
 }

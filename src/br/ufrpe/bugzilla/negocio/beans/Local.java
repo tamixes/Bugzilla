@@ -3,8 +3,8 @@ package br.ufrpe.bugzilla.negocio.beans;
 public class Local {
 	
 	private String nome;
-	//vai ser utilizada para calcular tarifa e tempo (distancia em km da central)
 	private int localizacao;
+	//vai ser utilizada para calcular tarifa/tempo (distancia em km da central)
 	
 	public Local(){
 		this.nome = "";
@@ -38,8 +38,14 @@ public class Local {
 	}
 	
 	public boolean equals(Object obj){
-		//TODO implementar equals
-		return true;
+		if(this == obj)
+			return true;
+		Local other = (Local) obj;
+		
+		if(this.nome.equals(other.getNome()) && this.localizacao == 
+				other.getLocalizacao()){
+			return true;
+		}
+		return false;
 	}
-	
 }

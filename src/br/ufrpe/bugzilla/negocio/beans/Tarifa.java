@@ -20,21 +20,7 @@ public class Tarifa {
 		this.tempo = 1;
 	}
 	
-	public int getTarifa(Local l){
-		int tarifa=0;
-		
-		tarifa = l.getLocalizacao() * this.preco;
-		
-		return tarifa;
-	}
 	
-	public int getPrazo(Local l){
-		int prazo=0;
-		
-		prazo = l.getLocalizacao() / this.tempo;
-		
-		return prazo;
-	}
 
 	public int getPreco() {
 		return preco;
@@ -80,8 +66,6 @@ public class Tarifa {
 		System.out.println(t1);
 		System.out.println();
 		System.out.println(l1);
-		System.out.println("Preço: R$" + t1.getTarifa(l1));
-		System.out.println("Prazo: " + t1.getPrazo(l1) + " dias");
 	}
 
 }
