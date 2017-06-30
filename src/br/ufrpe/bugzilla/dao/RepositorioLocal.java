@@ -13,7 +13,7 @@ public class RepositorioLocal {
 	private RepositorioLocal(){
 		
 		locais = new ArrayList<Local>();
-		tarifa = new Tarifa(3);
+		tarifa = new Tarifa(2);
 	}
 	
 	public static RepositorioLocal getinstance(){
