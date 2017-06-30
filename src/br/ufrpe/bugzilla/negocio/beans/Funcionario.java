@@ -11,8 +11,11 @@ public class Funcionario extends Pessoa{
 		
 		super(nome, cpf, nascimento, telefone, endereco);
 		this.salario = salario; 
-		String senha; 
-		// falta fazer a parte da senha receber o cpf e o login receber o nome do funcionario
+		int senha; 
+		senha = Integer.parseInt(cpf);
+		String login[];
+		login = nome.split(" ");
+		log = new Login(login[0], senha);
 		
 	}
 

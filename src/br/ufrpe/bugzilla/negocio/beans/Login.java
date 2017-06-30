@@ -2,9 +2,9 @@ package br.ufrpe.bugzilla.negocio.beans;
 
 public class Login {
 	private String login;
-	private long senha; 
+	private int senha; 
 	
-	public Login(String login, long senha){
+	public Login(String login, int senha){
 		this.login = login;
 		this.senha = senha;
 		
@@ -22,7 +22,7 @@ public class Login {
 		return senha;
 	}
 
-	public void setSenha(long senha) {
+	public void setSenha(int senha) {
 		this.senha = senha;
 	}
 	

@@ -60,7 +60,14 @@ public class CadastroFuncionario{
 		return this.repositorio.mostrarFuncio();
 	}
 
-	
+	public boolean login(String login, int senha) {
+		Login log = new Login(login, senha);
+		boolean resultado = false;
+		if(this.repositorio.checarLogin(log)){
+			resultado = true;
+		}
+		return resultado;
+	}
 
 	
 }

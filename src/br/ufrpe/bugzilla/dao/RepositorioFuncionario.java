@@ -1,5 +1,6 @@
 package br.ufrpe.bugzilla.dao;
 import java.util.ArrayList;
+import br.ufrpe.bugzilla.negocio.beans.Login;
 import java.util.List;
 
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
@@ -71,7 +72,16 @@ public class RepositorioFuncionario{
 		return this.funcionario;
 	}
 
+	public boolean checarLogin(Login l) {
+		boolean resultado = false;
+		for(int i = 0; i < funcionario.size();i++){
+			if(this.funcionario.get(i) instanceof Funcionario){
+				if (((Funcionario) this.funcionario.get(i)).getLog().equals(l)) {
+					resultado =  true;
+				}
+			}
+		}
+		return resultado;
 	
-	
-
+	}
 }
