@@ -58,14 +58,5 @@ public class Tarifa {
 		
 		return texto;
 	}
-	//temp
-	public static void main(String[] args) {
-		Local l1 = new Local("São Paulo",50);
-		Tarifa t1 = new Tarifa(3,"expressa");
-		
-		System.out.println(t1);
-		System.out.println();
-		System.out.println(l1);
-	}
 
 }
