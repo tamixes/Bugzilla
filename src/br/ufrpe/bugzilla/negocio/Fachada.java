@@ -10,12 +10,14 @@ public class Fachada implements IFachada{
 	private CadastroAdministrador cadastroAdministrador;
 	private CadastroFuncionario cadastroFuncionario;
 	private ControladorEncomenda controleEncomenda;
+	private ControladorLocal controleLocal;
 	private static Fachada instance;
 	
 	private Fachada(){
 		this.cadastroAdministrador = CadastroAdministrador.getInstance();
 		this.cadastroFuncionario = CadastroFuncionario.getInstance();
 		this.controleEncomenda = ControladorEncomenda.getInstance();
+		this.controleLocal = ControladorLocal.getInstance();
 	}
 	
 	
@@ -27,7 +29,7 @@ public class Fachada implements IFachada{
 		return instance;
 	}
 	
-	//Encomenda
+	//ENCOMENDA
 	public void novaEncomenda(Encomenda encomenda) {
 		controleEncomenda.novaEncomenda(encomenda);
 	}
@@ -49,7 +51,7 @@ public class Fachada implements IFachada{
 	}
 
 	
-	//Adm
+	//ADMINISTRADOR
 	public void cadastrarAdministrador(Administrador adm) {
 		this.cadastroAdministrador.cadastrarAdministrador(adm);
 		
@@ -73,7 +75,7 @@ public class Fachada implements IFachada{
 		return this.cadastroAdministrador.listaAdministrador();
 	}
 	
-	//Funcionario
+	//FUNCIONÁRIO
 	public void addFuncionario(Funcionario func) {
 		this.cadastroFuncionario.cadastrarFuncionario(func);
 		
@@ -96,6 +98,80 @@ public class Fachada implements IFachada{
 	public List<Funcionario> listarFuncionarios() {
 		return this.cadastroFuncionario.mostrarfunc();
 	}
+
+	//LOCAL
+
+	public void cadastrarLocal(Local l) {
+		
+		this.controleLocal.cadastrarLocal(l);
+		}
+
+
+	public Local procurarLocal(String nome) {
+		
+		return this.controleLocal.procurarLocal(nome);
+	}
+
+
+	public void atualizarLocal(Local l) {
+		
+		this.controleLocal.atualizarLocal(l);
+	}
+
+
+	public void removerLocal(String nome) {
+		
+		this.controleLocal.removerLocal(nome);
+	}
+
+
+	public ArrayList<Local> listarLocais() {
+		
+		return this.controleLocal.listarLocais();
+	}
+
+
+	//TEMPO E TARIFA
 	
+	public void defineTarifa(Tarifa t) {
+		
+		this.controleLocal.defineTarifa(t);
+	}
+
+
+	public void atualizaTarifa(Tarifa t) {
+		
+		this.controleLocal.atualizaTarifa(t);
+	}
+
+
+	public void atualizaTarifa(int preco, String entrega) {
+		
+		this.atualizaTarifa(new Tarifa(preco,entrega));
+	}
+
+
+	public int getTarifa(Local l) {
+		
+		return this.controleLocal.getTarifa(l);
+	}
+
+
+	public int getPrazo(Local l) {
+		
+		return this.controleLocal.getPrazo(l);
+	}
+
+
+	public int getTarifaDois(Local l1, Local l2) {
+		
+		return this.controleLocal.getTarifaDois(l1, l2);
+	}
+
+
+	public int getPrazoDois(Local l1, Local l2) {
+		
+		return this.controleLocal.getPrazoDois(l1, l2);
+	}
 	
 }
