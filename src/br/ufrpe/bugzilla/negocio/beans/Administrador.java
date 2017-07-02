@@ -8,15 +8,15 @@ public class Administrador extends Pessoa{
 	private Login log;
 
 	public Administrador(String nome, String cpf, LocalDate nascimento, String telefone,
-			Endereco endereco) {
+			Endereco endereco,String senha) {
 		super(nome, cpf, nascimento, telefone, endereco);
-		int senha; 
-		senha = Integer.parseInt(cpf);
-		String login[];
-		login = nome.split(" ");
-		log = new Login(login[0], senha);
-			
 		
+		log = new Login(cpf, senha);
+	}
+	
+	public Administrador(){
+		this(null, null, null, null, null, null);
+		log = new Login();
 	}
 
 	public Login getLog() {

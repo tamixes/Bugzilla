@@ -3,6 +3,7 @@ package br.ufrpe.bugzilla.dao;
 import java.util.List;
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
+import br.ufrpe.bugzilla.negocio.beans.Login;
 
 public class RepositorioAdministrador{
 	
@@ -74,6 +75,15 @@ public class RepositorioAdministrador{
 		
 	}
 	
+	public boolean verificaLogin(Login login){
+		boolean resultado = false; 
+		for(int i = 0; i<this.administrador.size(); i++){
+			if(login.equals(this.administrador.get(i).getLog())){
+				resultado = true;
+			}
+		}
+		return resultado;
+	}
 
 	public List<Administrador> listaAdministrador() {
 		return this.administrador;

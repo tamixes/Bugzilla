@@ -82,8 +82,8 @@ public class Pessoa {
 		String p3 = cpf.substring(6, 9);
 		String p4 = cpf.substring(9, 11);
 
-		this.cpf = String.format("%s.%s.%s-%s", p1, p2, p3, p4);
-		return this.cpf;	
+		cpf = String.format("%s.%s.%s-%s", p1, p2, p3, p4);
+		return cpf;	
 	}
 	 
 	public String toString(){

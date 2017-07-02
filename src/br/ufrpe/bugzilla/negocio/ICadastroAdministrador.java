@@ -1,6 +1,7 @@
 package br.ufrpe.bugzilla.negocio;
 import java.util.List;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
+import br.ufrpe.bugzilla.negocio.beans.Login;
 
 public interface ICadastroAdministrador {
 		
@@ -10,6 +11,7 @@ public interface ICadastroAdministrador {
 		void removerAdminstrador(Administrador adm);
 		public List<Administrador> mostraAdministrador();
 		Administrador buscaAdministrador(String cpf);
+		boolean verificaLogin(Login login);
 		
 	
 }

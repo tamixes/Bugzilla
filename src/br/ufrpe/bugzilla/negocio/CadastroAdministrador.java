@@ -55,12 +55,13 @@ public class CadastroAdministrador{
 		return resultado; 
 	}
 
+	public boolean verificaLogin(Login login){
+		boolean resultado = false;
+		
+		if(login != null)
+			resultado = this.repositorio.verificaLogin(login);
+		
+		return resultado;
+	}
 
-	
-	
-	
-	
-	
-	
-	
 }

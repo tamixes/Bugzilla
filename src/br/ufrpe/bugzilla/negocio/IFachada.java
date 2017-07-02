@@ -8,6 +8,7 @@ public interface IFachada {
 	//Administrador
 	void cadastrarAdministrador(Administrador adm);
 	Administrador buscarAdministrador(String cpf);
+	boolean verificaLoginAdministrador(Login login);
 	void removerAdministrador(Administrador adm);
 	void alterarAdministrador(Administrador adm);
 	List<Administrador> listarAdministradores();
@@ -15,6 +16,7 @@ public interface IFachada {
 	//Funcionario
 	void addFuncionario(Funcionario func);
 	Funcionario buscarFuncionario(String cpf);
+	boolean verificaLoginFuncionario(Login login);
 	void removerFuncionario(Funcionario func);
 	void alterarFuncionario(Funcionario func);
 	List<Funcionario> listarFuncionarios();

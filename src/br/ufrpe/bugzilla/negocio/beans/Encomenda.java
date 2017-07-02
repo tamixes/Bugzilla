@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Encomenda {
 	private static long geraCodigo = 1;
 
-	private long pedido;
+	/*private long pedido;*/
 	private long codigo;
 	private Pessoa destinatario;
 	private double peso;
@@ -14,18 +14,18 @@ public class Encomenda {
 	private boolean entregue = false;
 	private ArrayList<Rastreio> rastreio = new ArrayList<Rastreio>();
 
-	public Encomenda(Pessoa destinatario, double peso, String tipo, int pedido) {
+	public Encomenda(Pessoa destinatario, double peso, String tipo/*, int pedido*/) {
 		this.codigo = geraCodigo;
 		geraCodigo++;
 
 		this.peso = peso;
 		this.destinatario = destinatario;
 		this.tipoDoProduto = tipo;
-		this.pedido = pedido;
+		//this.pedido = pedido;
 	}
 
 	public Encomenda() {
-		this(null, 0, null, 0);
+		this(null, 0, null/*, 0*/);
 	}
 
 	public double getPeso() {
@@ -48,7 +48,7 @@ public class Encomenda {
 		return entregue;
 	}
 
-	public long getPedido() {
+	/*public long getPedido() {
 		return pedido;
 	}
 
@@ -60,7 +60,7 @@ public class Encomenda {
 		} else
 			System.out.println("Esta entrega já possui um código de pedido definido!");
 
-	}
+	}*/
 
 	public long getCodigo() {
 		return codigo;
@@ -134,7 +134,7 @@ public class Encomenda {
 				+ "\t Tipo de produto: " 		+ this.tipoDoProduto + "\n"
 				+ "\t Peso do produto: " 		+ this.peso + "kg\n"
 				+ "\t Codigo de entrega: " 		+ this.codigo + "\n"
-				+ "\t Codigo de pedido: " 		+ this.pedido + "\n";
+				/*+ "\t Codigo de pedido: " 		+ this.pedido + "\n"*/;
 		
 		return resultado;
 	}
