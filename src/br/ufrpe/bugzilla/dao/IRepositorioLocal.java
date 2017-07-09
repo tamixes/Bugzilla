@@ -1,12 +1,12 @@
-package br.ufrpe.bugzilla.negocio;
+package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Tarifa;
 
-public interface IControladorLocal {
-
+public interface IRepositorioLocal {
+	
 	void cadastrarLocal(Local l);
 	Local procurarLocal(String nome);
 	void atualizarLocal(Local l);
@@ -22,5 +22,6 @@ public interface IControladorLocal {
 	int getPrazo(Local l);
 	int getTarifaDois(Local l1, Local l2);
 	int getPrazoDois(Local l1, Local l2);
+	boolean existe(Local l);
 
 }

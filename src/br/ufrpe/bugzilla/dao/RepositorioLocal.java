@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
 
-public class RepositorioLocal {
+public class RepositorioLocal implements IRepositorioLocal {
 	
 	private ArrayList<Local> locais;
 	private Tarifa tarifa;

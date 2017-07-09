@@ -2,14 +2,15 @@ package br.ufrpe.bugzilla.negocio;
 
 import java.util.ArrayList;
 
+import br.ufrpe.bugzilla.dao.IRepositorioLocal;
 import br.ufrpe.bugzilla.dao.RepositorioLocal;
 import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Tarifa;
 
-public class ControladorLocal implements IControladorLocal {
+public class ControladorLocal {
 
 	private static ControladorLocal instance;
-	private RepositorioLocal repositorio;
+	private IRepositorioLocal repositorio;
 	
 	private ControladorLocal(){
 		
