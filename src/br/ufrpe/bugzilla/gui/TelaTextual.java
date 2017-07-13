@@ -1,25 +1,20 @@
 package br.ufrpe.bugzilla.gui;
 
-import java.awt.Menu;
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import javax.swing.JTextField;
-
 import br.ufrpe.bugzilla.negocio.Fachada;
+import br.ufrpe.bugzilla.negocio.IFachada;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
-import br.ufrpe.bugzilla.negocio.beans.Login;
 import br.ufrpe.bugzilla.negocio.beans.Pessoa;
 import br.ufrpe.bugzilla.negocio.beans.Rastreio;
 
 public class TelaTextual {
-	Fachada bugentregas = Fachada.getInstance();
+	private IFachada bugentregas = Fachada.getInstance();
 
 	public void borda(){
 		System.out.println("------------------BUGZILLA-----------------");
@@ -360,6 +355,7 @@ public class TelaTextual {
 			
 			case 8:{
 				
+				sc.close();
 				break;
 			}
 			}
