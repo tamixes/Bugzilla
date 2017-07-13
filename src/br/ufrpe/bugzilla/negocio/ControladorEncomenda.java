@@ -32,7 +32,7 @@ public class ControladorEncomenda {
 			}
 		} else {
 			repositorio.novaEncomenda(encomenda);
-			System.out.println("Encomenda Cadastrada com sucesso!");
+			//System.out.println("Encomenda Cadastrada com sucesso!");
 		}
 	}
 	

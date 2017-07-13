@@ -21,7 +21,6 @@ public class TelaTextual {
 
 	}
 	
-	
 	public void MenuPrincipal(){
 		this.borda();
 		Scanner sc = new Scanner(System.in);
