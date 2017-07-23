@@ -1,5 +1,5 @@
 # Bugzilla
-_Projeto para desenvolvimento de um sistema de controle de encomendas._
+_Projeto para desenvolvimento de um sistema de controle de encomendas e locais._
 
 
 :point_right: Introdução à Programação II (Java)
