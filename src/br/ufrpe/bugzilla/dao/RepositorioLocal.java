@@ -27,13 +27,7 @@ public class RepositorioLocal implements IRepositorioLocal {
 	
 	public void cadastrarLocal(Local l){
 		
-		if(procurarIndice(l.getNome()) >= 0){
-			//...existe
-		}
-		else{
-			locais.add(l);
-		}
-		
+		locais.add(l);
 	}
 	
 	public Local procurarLocal(String nome){
@@ -60,7 +54,7 @@ public class RepositorioLocal implements IRepositorioLocal {
 			locais.set(indice, l);
 		}
 		else{
-			//...
+			
 		}
 		
 	}
@@ -83,8 +77,8 @@ public class RepositorioLocal implements IRepositorioLocal {
 		
 		boolean i = false;
 		
-		for(int j=0;j<locais.size();j++){
-			if(locais.get(j).equals(l)){
+		for(Local c : locais){
+			if(c.equals(l)){
 				i = true;
 			}
 		}

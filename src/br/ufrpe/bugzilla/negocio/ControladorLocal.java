@@ -6,6 +6,7 @@ import br.ufrpe.bugzilla.dao.IRepositorioLocal;
 import br.ufrpe.bugzilla.dao.RepositorioLocal;
 import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Tarifa;
+import br.ufrpe.exceptions.LocalExisteException;
 
 public class ControladorLocal {
 
@@ -25,12 +26,18 @@ public class ControladorLocal {
 		return instance;
 	}
 
-	public void cadastrarLocal(Local l) {
+	public void cadastrarLocal(Local l) throws LocalExisteException {
 
 		if(l!=null){
-			if(this.repositorio.existe(l)){
+			if(this.repositorio.existe(l) == false){
 				this.repositorio.cadastrarLocal(l);
 			}
+			else{
+				throw new LocalExisteException(l.getNome());
+			}
+		}
+		else{
+			//exception
 		}
 		
 	}

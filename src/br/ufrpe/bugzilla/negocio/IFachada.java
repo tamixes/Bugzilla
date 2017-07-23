@@ -2,6 +2,7 @@ package br.ufrpe.bugzilla.negocio;
 import java.util.ArrayList;
 import java.util.List;
 import br.ufrpe.bugzilla.negocio.beans.*;
+import br.ufrpe.exceptions.LocalExisteException;
 
 public interface IFachada {
 	
@@ -29,7 +30,7 @@ public interface IFachada {
 	ArrayList<Encomenda> listaDeEncomendas();
 	
 	//Local
-	void cadastrarLocal(Local l);
+	void cadastrarLocal(Local l) throws LocalExisteException;
 	Local procurarLocal(String nome);
 	void atualizarLocal(Local l);
 	void removerLocal(String nome);

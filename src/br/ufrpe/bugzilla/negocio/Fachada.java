@@ -1,6 +1,7 @@
 package br.ufrpe.bugzilla.negocio;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
+import br.ufrpe.exceptions.LocalExisteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,11 +109,10 @@ public class Fachada implements IFachada{
 
 	//LOCAL
 
-	public void cadastrarLocal(Local l) {
-		
+	public void cadastrarLocal(Local l) throws LocalExisteException {
+			
 		this.controleLocal.cadastrarLocal(l);
-		}
-
+	}
 
 	public Local procurarLocal(String nome) {
 		

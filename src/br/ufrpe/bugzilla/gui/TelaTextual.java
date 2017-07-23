@@ -10,8 +10,10 @@ import br.ufrpe.bugzilla.negocio.beans.Administrador;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
+import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Pessoa;
 import br.ufrpe.bugzilla.negocio.beans.Rastreio;
+import br.ufrpe.exceptions.LocalExisteException;
 
 public class TelaTextual {
 	private IFachada bugentregas = Fachada.getInstance();
@@ -58,7 +60,9 @@ public class TelaTextual {
 							 + "5 - Nova encomenda\n"
 							 + "6 - Atualiza Status de uma encomenda\n"
 							 + "7 - Dados de uma encomenda\n"
-							 + "8 - Sair\n" + "Opção: ");
+							 + "8 - Sair\n"
+							 + "9 - Adicionar Local\n"
+							 + "Opção: ");
 			opcao = sc.nextInt();
 			
 			switch(opcao){
@@ -357,6 +361,27 @@ public class TelaTextual {
 				sc.close();
 				break;
 			}
+			
+			case 9:{
+				//testando exception
+				String limpaBuffer = sc.nextLine();
+				
+				try{
+				System.out.print("Digite o nome do Local: ");
+				String nome = sc.nextLine();
+				System.out.print("Distância da base: ");
+				int dist = sc.nextInt();
+				
+				bugentregas.cadastrarLocal(new Local(nome,dist));
+				
+				}catch(LocalExisteException e){
+					System.out.println(e.getMessage());
+				}
+				
+				break;
+			}
+			
+			
 			}
 		} while (fecha != true);
 
