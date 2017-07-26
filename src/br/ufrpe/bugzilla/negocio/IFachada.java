@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.exceptions.LocalExisteException;
+import br.ufrpe.exceptions.LocalNaoEncontradoException;
 
 public interface IFachada {
 	
@@ -31,9 +32,9 @@ public interface IFachada {
 	
 	//Local
 	void cadastrarLocal(Local l) throws LocalExisteException;
-	Local procurarLocal(String nome);
-	void atualizarLocal(Local l);
-	void removerLocal(String nome);
+	Local procurarLocal(String nome) throws LocalNaoEncontradoException;
+	void atualizarLocal(Local l) throws LocalNaoEncontradoException;
+	void removerLocal(String nome) throws LocalNaoEncontradoException;
 	ArrayList<Local> listarLocais();
 	
 	// Tarifa e Tempo

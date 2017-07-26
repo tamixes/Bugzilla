@@ -7,6 +7,7 @@ import br.ufrpe.bugzilla.dao.RepositorioLocal;
 import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Tarifa;
 import br.ufrpe.exceptions.LocalExisteException;
+import br.ufrpe.exceptions.LocalNaoEncontradoException;
 
 public class ControladorLocal {
 
@@ -42,15 +43,17 @@ public class ControladorLocal {
 		
 	}
 
-	public Local procurarLocal(String nome) {
+	public Local procurarLocal(String nome) throws LocalNaoEncontradoException {
 
 		if(nome != null){
 			return this.repositorio.procurarLocal(nome);
 		}
-		return null;
+		else{
+			return null;
+		}
 	}
 
-	public void atualizarLocal(Local l) {
+	public void atualizarLocal(Local l) throws LocalNaoEncontradoException {
 		
 		if(l!=null){
 			repositorio.atualizarLocal(l);
@@ -58,7 +61,7 @@ public class ControladorLocal {
 		
 	}
 
-	public void removerLocal(String nome) {
+	public void removerLocal(String nome) throws LocalNaoEncontradoException {
 
 		if(nome!=null){
 			repositorio.removerLocal(nome);

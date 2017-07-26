@@ -2,6 +2,7 @@ package br.ufrpe.bugzilla.negocio;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.exceptions.LocalExisteException;
+import br.ufrpe.exceptions.LocalNaoEncontradoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,19 +115,19 @@ public class Fachada implements IFachada{
 		this.controleLocal.cadastrarLocal(l);
 	}
 
-	public Local procurarLocal(String nome) {
+	public Local procurarLocal(String nome) throws LocalNaoEncontradoException {
 		
 		return this.controleLocal.procurarLocal(nome);
 	}
 
 
-	public void atualizarLocal(Local l) {
+	public void atualizarLocal(Local l) throws LocalNaoEncontradoException {
 		
 		this.controleLocal.atualizarLocal(l);
 	}
 
 
-	public void removerLocal(String nome) {
+	public void removerLocal(String nome) throws LocalNaoEncontradoException {
 		
 		this.controleLocal.removerLocal(nome);
 	}
