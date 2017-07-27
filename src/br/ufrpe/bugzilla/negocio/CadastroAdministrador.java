@@ -3,6 +3,10 @@ package br.ufrpe.bugzilla.negocio;
 import java.util.List;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
+import br.ufrpe.exceptions.ErroAoAtualizarException;
+import br.ufrpe.exceptions.ErroAoRemoverException;
+import br.ufrpe.exceptions.ObjectJaExisteException;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.dao.*;
 
 public class CadastroAdministrador{
@@ -22,20 +26,31 @@ public class CadastroAdministrador{
 		return instance;
 	}
 	
-	public void cadastrarAdministrador(Administrador adm) {
-		if(adm != null){
-			this.repositorio.cadastrarAdministrador(adm);
+		
+	
+	public void cadastrarAdministrador(Administrador adm) throws ObjectJaExisteException{
+		if(adm == null){
+			throw new IllegalArgumentException("Inválido!");
+		}else{
+			try {
+				boolean buscado = repositorio.existe(adm.getCpf());
+				if(buscado != false){
+					throw new ObjectJaExisteException();
+				}
+			} catch (Exception e) {
+				this.repositorio.cadastrarAdministrador(adm);
+			}
 		}
 		
 	}
 	
-	public void alterarAdministrador(Administrador adm) {
+	public void alterarAdministrador(Administrador adm) throws ErroAoAtualizarException{
 		if(adm != null){
 		
 			this.repositorio.alteraAdministrador(adm);
 		}
 	}
-	public void removerAdminstrador(String cpf) {
+	public void removerAdminstrador(String cpf) throws ErroAoRemoverException{
 		if(cpf != null){
 			this.repositorio.removerAdministrador(cpf);
 		}
@@ -47,7 +62,7 @@ public class CadastroAdministrador{
 	
 	}
 	
-	public Administrador buscaAdministrador(String cpf) {
+	public Administrador buscaAdministrador(String cpf) throws ObjectNaoExisteException{
 		Administrador resultado = null; 
 		if(cpf != null){
 			resultado = this.repositorio.buscaAdministrador(cpf);

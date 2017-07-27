@@ -1,8 +1,12 @@
 package br.ufrpe.bugzilla.negocio;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
+import br.ufrpe.exceptions.ErroAoAtualizarException;
+import br.ufrpe.exceptions.ErroAoRemoverException;
 import br.ufrpe.exceptions.LocalExisteException;
 import br.ufrpe.exceptions.LocalNaoEncontradoException;
+import br.ufrpe.exceptions.ObjectJaExisteException;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +58,12 @@ public class Fachada implements IFachada{
 
 	
 	//ADMINISTRADOR
-	public void cadastrarAdministrador(Administrador adm) {
+	public void cadastrarAdministrador(Administrador adm) throws ObjectJaExisteException{
 		this.cadastroAdministrador.cadastrarAdministrador(adm);
 		
 	}
 
-	public Administrador buscarAdministrador(String cpf) {
+	public Administrador buscarAdministrador(String cpf) throws ObjectNaoExisteException{
 		return this.cadastroAdministrador.buscaAdministrador(cpf);
 	}
 	
@@ -67,12 +71,12 @@ public class Fachada implements IFachada{
 		return this.cadastroAdministrador.verificaLogin(login);
 	}
 
-	public void removerAdministrador(Administrador adm) {
+	public void removerAdministrador(Administrador adm) throws ErroAoRemoverException{
 		this.removerAdministrador(adm);
 		
 	}
 
-	public void alterarAdministrador(Administrador adm) {
+	public void alterarAdministrador(Administrador adm) throws ErroAoAtualizarException{
 		this.cadastroAdministrador.alterarAdministrador(adm);
 		
 	}
@@ -82,21 +86,21 @@ public class Fachada implements IFachada{
 	}
 	
 	//FUNCIONÁRIO
-	public void addFuncionario(Funcionario func) {
+	public void addFuncionario(Funcionario func) throws ObjectJaExisteException{
 		this.cadastroFuncionario.cadastrarFuncionario(func);
 		
 	}
 
-	public Funcionario buscarFuncionario(String cpf) {
+	public Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException {
 		return this.cadastroFuncionario.buscarFuncionario(cpf);
 	}
 
-	public void removerFuncionario(Funcionario func) {
+	public void removerFuncionario(Funcionario func) throws ErroAoRemoverException{
 		this.cadastroFuncionario.removerFuncionario(func);
 		
 	}
 
-	public void alterarFuncionario(Funcionario func) {
+	public void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException{
 		this.cadastroFuncionario.alterarFuncionario(func);
 		
 	}

@@ -1,6 +1,11 @@
 package br.ufrpe.bugzilla.dao;
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Login;
+import br.ufrpe.exceptions.ErroAoAtualizarException;
+import br.ufrpe.exceptions.ErroAoRemoverException;
+import br.ufrpe.exceptions.ObjectJaExisteException;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
+
 import java.util.List;
 
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
@@ -35,33 +40,43 @@ public class RepositorioFuncionario{
 		return existe; 
 	}
 	
-	public void cadastrarFuncionario(Funcionario func) {
+	public void cadastrarFuncionario(Funcionario func) throws ObjectJaExisteException  {
 		this.funcionario.add(func);
+		}
 		
-	}
+	
 
-	public Funcionario buscarFuncionario(String cpf) {
+	public Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException {
 		Funcionario fun = null;
 		int id = this.indice(cpf);
 		if(id != -1){
 			fun = this.funcionario.get(id);
 		}
+		else{
+			throw new ObjectNaoExisteException();
+		}
 		return fun;
 		
 	}
 
-	public void removerFuncionario(String cpf) {
+	public void removerFuncionario(String cpf) throws ErroAoRemoverException {
 		int id = this.indice(cpf);
 		if(id != -1){
 			this.funcionario.remove(id);
 		}
+		else{
+			throw new ErroAoRemoverException();
+		}
 		
 	}
 
-	public void alterarFuncionario(Funcionario func) {
+	public void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException{
 		int id = this.indice(func.getCpf());
 		if(id != -1){
 			this.funcionario.set(id, func);
+		}
+		else{
+			throw new ErroAoAtualizarException();
 		}
 		
 		

@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
 import br.ufrpe.bugzilla.negocio.beans.Login;
+import br.ufrpe.exceptions.ErroAoAtualizarException;
+import br.ufrpe.exceptions.ErroAoRemoverException;
+import br.ufrpe.exceptions.ObjectJaExisteException;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class RepositorioAdministrador{
 	
@@ -45,34 +49,42 @@ public class RepositorioAdministrador{
 	}
 
 	
-	public void cadastrarAdministrador(Administrador adm) {
+	public void cadastrarAdministrador(Administrador adm) throws ObjectJaExisteException {
 		this.administrador.add(adm);
 		
 	}
 
-	public Administrador buscaAdministrador(String cpf) {
+	public Administrador buscaAdministrador(String cpf) throws ObjectNaoExisteException{
 		Administrador adm = null;
 		int idc = this.indice(cpf);
 		if(idc != -1){
 			adm = this.administrador.get(idc);
 		}
+		else{
+			throw new ObjectNaoExisteException();
+		}
 		
 		return adm;
 	}
 
-	public void removerAdministrador(String cpf) {
+	public void removerAdministrador(String cpf) throws ErroAoRemoverException {
 		int idc = this.indice(cpf);
 		if(idc != -1){
 			this.administrador.remove(idc);
 		}
+		else{
+			throw new ErroAoRemoverException();
+		}
 	}
 
-	public void alteraAdministrador(Administrador adm) {
+	public void alteraAdministrador(Administrador adm) throws ErroAoAtualizarException{
 		int idc = this.indice(adm.getCpf());
 		if(idc != -1){
 			this.administrador.set(idc, adm);
 		}
-		
+		else{
+			throw new ErroAoAtualizarException();
+		}
 	}
 	
 	public boolean verificaLogin(Login login){

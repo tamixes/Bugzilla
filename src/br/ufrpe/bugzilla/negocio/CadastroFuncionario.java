@@ -3,7 +3,7 @@ import java.util.List;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.bugzilla.dao.*;
-
+import br.ufrpe.exceptions.*;
 public class CadastroFuncionario{
 
 	private static CadastroFuncionario instance;
@@ -20,17 +20,31 @@ public class CadastroFuncionario{
 		return instance; 
 	}
 	
-	public void cadastrarFuncionario(Funcionario func) {
-		if(func != null){
-			boolean existe = this.repositorio.existe(func.getCpf());
-			if(existe != true){
+	/*if(func != null){
+		boolean existe = this.repositorio.existe(func.getCpf());
+		if(existe != true){
+			this.repositorio.cadastrarFuncionario(func);
+		}
+	*/
+	
+	public void cadastrarFuncionario(Funcionario func) throws ObjectJaExisteException{
+		if(func == null){
+			throw new IllegalArgumentException("Inválido!");
+		}else{
+			try {
+				boolean buscado = repositorio.existe(func.getCpf());
+				if(buscado != false){
+					throw new ObjectJaExisteException();
+				}
+			} catch (Exception e) {
 				this.repositorio.cadastrarFuncionario(func);
 			}
 		}
-		
 	}
+		
+	
 
-	public Funcionario buscarFuncionario(String cpf) {
+	public Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException{
 		Funcionario resultado = null; 
 		if(cpf != null){
 			resultado = this.repositorio.buscarFuncionario(cpf);
@@ -38,7 +52,7 @@ public class CadastroFuncionario{
 		return resultado; 
 	}
 
-	public void removerFuncionario(Funcionario func) {
+	public void removerFuncionario(Funcionario func) throws ErroAoRemoverException{
 		if(func != null){
 			if(this.repositorio.existe(func.getCpf()) != false){
 				this.repositorio.removerFuncionario(func.getCpf());
@@ -47,7 +61,7 @@ public class CadastroFuncionario{
 		
 	}
 
-	public void alterarFuncionario(Funcionario func) {
+	public void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException{
 		if(func != null){
 			if(this.repositorio.existe(func.getCpf()) != false){
 				this.repositorio.alterarFuncionario(func);
