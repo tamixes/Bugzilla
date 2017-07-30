@@ -168,4 +168,22 @@ public class Encomenda {
 			return false;
 		}
 	}
+	
+	//Tarifa e prazo
+	
+	public int getPreço(Encomenda e){
+		int t=0;
+		
+		t = this.getLocalDestino().getLocalizacao() * this.getTarifa().getValorBase();
+		
+		return t;
+	}
+	
+	public int getPrazo(Encomenda e){
+		int prazo=0;
+		
+		prazo = this.getLocalDestino().getLocalizacao() / this.getTarifa().getTipoEntrega();
+		
+		return prazo;
+	}
 }

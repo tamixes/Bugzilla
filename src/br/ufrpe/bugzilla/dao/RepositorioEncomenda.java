@@ -70,21 +70,4 @@ public class RepositorioEncomenda {
 		return this.encomenda;
 	}
 	
-	// Tarifa e Tempo
-	
-		public int getPreço(Encomenda e){
-			int t=0;
-			
-			t = e.getLocalDestino().getLocalizacao() * e.getTarifa().getValorBase();
-			
-			return t;
-		}
-		
-		public int getPrazo(Encomenda e){
-			int prazo=0;
-			
-			prazo = e.getLocalDestino().getLocalizacao() / e.getTarifa().getTipoEntrega();
-			
-			return prazo;
-		}
 }
