@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import br.ufrpe.bugzilla.dao.IRepositorioLocal;
 import br.ufrpe.bugzilla.dao.RepositorioLocal;
 import br.ufrpe.bugzilla.negocio.beans.Local;
-import br.ufrpe.bugzilla.negocio.beans.Tarifa;
 import br.ufrpe.exceptions.LocalExisteException;
 import br.ufrpe.exceptions.LocalNaoEncontradoException;
 
@@ -72,63 +71,6 @@ public class ControladorLocal {
 	public ArrayList<Local> listarLocais() {
 
 		return this.repositorio.listarLocais();
-	}
-
-	public void defineTarifa(Tarifa t) {
-
-		if(t!=null){
-			this.repositorio.defineTarifa(t);
-		}
-		
-	}
-
-	public void atualizaTarifa(Tarifa t) {
-		
-		if(t!=null){
-			this.repositorio.atualizaTarifa(t);
-		}
-		
-	}
-
-	public void atualizaTarifa(int preco, String entrega) {
-
-		this.atualizaTarifa(new Tarifa(preco,entrega));
-	}
-
-	public int getTarifa(Local l) {
-		int t=0;
-		
-		if(l!=null){
-			t = this.repositorio.getTarifa(l);
-		}
-		return t;
-	}
-
-	public int getPrazo(Local l) {
-		int p=0;
-		
-		if(l!=null){
-			p = this.repositorio.getPrazo(l);
-		}
-		return p;
-	}
-
-	public int getTarifaDois(Local l1, Local l2) {
-		int t=0;
-		
-		if(l1!=null && l2!=null){
-			t = this.repositorio.getTarifaDois(l1, l2);
-		}
-		return t;
-	}
-
-	public int getPrazoDois(Local l1, Local l2) {
-		int p=0;
-		
-		if(l1!=null && l2!=null){
-			p = this.repositorio.getPrazoDois(l1, l2);
-		}
-		return p;
 	}
 	
 }

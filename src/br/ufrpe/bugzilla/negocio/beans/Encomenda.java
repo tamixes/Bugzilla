@@ -171,7 +171,7 @@ public class Encomenda {
 	
 	//Tarifa e prazo
 	
-	public int getPreço(Encomenda e){
+	public int getPreço(){
 		int t=0;
 		
 		t = this.getLocalDestino().getLocalizacao() * this.getTarifa().getValorBase();
@@ -179,7 +179,7 @@ public class Encomenda {
 		return t;
 	}
 	
-	public int getPrazo(Encomenda e){
+	public int getPrazo(){
 		int prazo=0;
 		
 		prazo = this.getLocalDestino().getLocalizacao() / this.getTarifa().getTipoEntrega();

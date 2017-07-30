@@ -42,7 +42,7 @@ public class Local {
 			return true;
 		Local other = (Local) obj;
 		
-		if(this.nome.equals(other.getNome()) && this.localizacao == 
+		if(this.nome.equalsIgnoreCase(other.getNome()) && this.localizacao == 
 				other.getLocalizacao()){
 			return true;
 		}

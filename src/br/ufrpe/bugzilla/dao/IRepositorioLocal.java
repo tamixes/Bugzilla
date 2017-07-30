@@ -12,16 +12,6 @@ public interface IRepositorioLocal {
 	void atualizarLocal(Local l) throws LocalNaoEncontradoException;
 	void removerLocal(String nome) throws LocalNaoEncontradoException;
 	ArrayList<Local> listarLocais();
+	boolean existe(Local l);
 	
-	/*// Tarifa e Tempo
-	
-		void defineTarifa(Tarifa t);
-		void atualizaTarifa(Tarifa t);
-		void atualizaTarifa(int preco, String entrega);
-		int getTarifa(Local l);
-		int getPrazo(Local l);
-		int getTarifaDois(Local l1, Local l2);
-		int getPrazoDois(Local l1, Local l2);
-		boolean existe(Local l);
-	*/
 }

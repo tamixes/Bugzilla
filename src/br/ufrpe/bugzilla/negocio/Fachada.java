@@ -141,49 +141,5 @@ public class Fachada implements IFachada{
 		
 		return this.controleLocal.listarLocais();
 	}
-
-
-	//TEMPO E TARIFA
-	
-	public void defineTarifa(Tarifa t) {
-		
-		this.controleLocal.defineTarifa(t);
-	}
-
-
-	public void atualizaTarifa(Tarifa t) {
-		
-		this.controleLocal.atualizaTarifa(t);
-	}
-
-
-	public void atualizaTarifa(int preco, String entrega) {
-		
-		this.atualizaTarifa(new Tarifa(preco,entrega));
-	}
-
-
-	public int getTarifa(Local l) {
-		
-		return this.controleLocal.getTarifa(l);
-	}
-
-
-	public int getPrazo(Local l) {
-		
-		return this.controleLocal.getPrazo(l);
-	}
-
-
-	public int getTarifaDois(Local l1, Local l2) {
-		
-		return this.controleLocal.getTarifaDois(l1, l2);
-	}
-
-
-	public int getPrazoDois(Local l1, Local l2) {
-		
-		return this.controleLocal.getPrazoDois(l1, l2);
-	}
 	
 }

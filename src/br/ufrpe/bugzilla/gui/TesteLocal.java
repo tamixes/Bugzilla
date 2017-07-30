@@ -1,10 +1,15 @@
 package br.ufrpe.bugzilla.gui;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.IFachada;
+import br.ufrpe.bugzilla.negocio.beans.Encomenda;
+import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Local;
+import br.ufrpe.bugzilla.negocio.beans.Pessoa;
+import br.ufrpe.bugzilla.negocio.beans.Tarifa;
 import br.ufrpe.exceptions.*;
 
 public class TesteLocal {
@@ -20,10 +25,9 @@ public class TesteLocal {
 			
 			System.out.println("MENU");
 			System.out.println("");
-			System.out.println("(1) Cadastrar Local");
-			System.out.println("(2) Consultar Local");
-			System.out.println("(3) Remover Local");
-			System.out.println("(4) Atualizar Local");
+			System.out.println("(1) Cadastrar Encomenda");
+			System.out.println("(2) Consultar Encomenda");
+			System.out.println("(3) Consultar Valor e Tarifa");
 			System.out.println("(5) Sair");
 			System.out.println("");
 			System.out.println("Digite a opção desejada: ");
@@ -34,78 +38,27 @@ public class TesteLocal {
 				case 1:{
 					String limpa = scan.nextLine();
 							
-					System.out.println("Digite o nome do local: ");
-					String nome = scan.nextLine();
-					System.out.println("Digite a localização: ");
-					int localiz = scan.nextInt();
-					
-					try {
-						bugentregas.cadastrarLocal(new Local(nome,localiz));
-					} catch (LocalExisteException e) {
-						System.out.println(e.getMessage());
-						e.printStackTrace();
-					}
+					LocalDate dataPessoa1 = LocalDate.of(1999, 01, 06);
+					Endereco endPessoa1 = new Endereco("Dois Rios", "Ibura", "Recife", "PE", "51345370", 2);
+					Pessoa pessoa1 = new Pessoa("Jonata", "15632465798", dataPessoa1, "988733337", endPessoa1);
+					Encomenda encomenda1 = new Encomenda(pessoa1, 5.0, "pacote", new Tarifa(2), new Local("Paulista",50));
+					bugentregas.novaEncomenda(encomenda1);
 					
 					break;
 				}
 				case 2:{
 					String limpa = scan.nextLine();
 					
-					System.out.println("Digite o nome do Local para consulta: ");
-					String nome = scan.nextLine();
-					
-					try {
-						System.out.println(bugentregas.procurarLocal(nome));
-					} catch (LocalNaoEncontradoException e) {
-						System.out.println(e.getMessage());
-						e.printStackTrace();
-					}
-					
+					System.out.println(bugentregas.buscaEncomenda(1));
 					
 					break;
 				}
 				case 3:{
 					String limpa = scan.nextLine();
 					
-					System.out.println("Digite o nome do Local que deseja remover: ");
-					String nome = scan.nextLine();
-					
-					try {
-						bugentregas.removerLocal(nome);
-					} catch (LocalNaoEncontradoException e) {
-						System.out.println(e.getMessage());
-						e.printStackTrace();
-					}
-					
-					break;
-				}
-				case 4:{
-					String limpa = scan.nextLine();
-					
-					//refazer função atualizar no repositorio
-					System.out.println("Digite o nome do Local que deseja atualizar: ");
-					String nome = scan.nextLine();
-					
-					try {
-						bugentregas.procurarLocal(nome);
-						
-						System.out.println("Digite o novo nome: ");
-						String nNome = scan.nextLine();
-						System.out.println("Digite a nova localização: ");
-						int nl = scan.nextInt();
-						
-						try{
-							bugentregas.atualizarLocal(new Local(nNome,nl));
-						}catch(LocalNaoEncontradoException e){
-							System.out.println(e.getMessage());
-							e.printStackTrace();
-						}
-						
-					} catch (LocalNaoEncontradoException e) {
-						System.out.println(e.getMessage());
-						e.printStackTrace();
-					}
-					
+					Encomenda encomenda = bugentregas.buscaEncomenda(1);
+					System.out.println(encomenda.getPreço());
+					System.out.println(encomenda.getPrazo());
 					
 					break;
 				}
