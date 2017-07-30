@@ -13,11 +13,15 @@ public class Encomenda {
 	private String tipoDoProduto;
 	private boolean entregue = false;
 	private ArrayList<Rastreio> rastreio = new ArrayList<Rastreio>();
+	private Tarifa tarifa;
+	private Local localDestino;
 
-	public Encomenda(Pessoa destinatario, double peso, String tipo/*, int pedido*/) {
+	public Encomenda(Pessoa destinatario, double peso, String tipo, Tarifa tarifa, Local destino/*, int pedido*/) {
 		this.codigo = geraCodigo;
 		geraCodigo++;
 
+		this.tarifa = tarifa;
+		this.localDestino = destino;
 		this.peso = peso;
 		this.destinatario = destinatario;
 		this.tipoDoProduto = tipo;
@@ -25,7 +29,23 @@ public class Encomenda {
 	}
 
 	public Encomenda() {
-		this(null, 0, null/*, 0*/);
+		this(null, 0, null/*, 0*/, null, null);
+	}
+
+	public Tarifa getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(Tarifa tarifa) {
+		this.tarifa = tarifa;
+	}
+
+	public Local getLocalDestino() {
+		return localDestino;
+	}
+
+	public void setLocalDestino(Local localDestino) {
+		this.localDestino = localDestino;
 	}
 
 	public double getPeso() {

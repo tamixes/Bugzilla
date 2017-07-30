@@ -8,13 +8,11 @@ import br.ufrpe.exceptions.LocalNaoEncontradoException;
 public class RepositorioLocal implements IRepositorioLocal {
 	
 	private ArrayList<Local> locais;
-	private Tarifa tarifa;
 	private static RepositorioLocal instance;
 	
 	private RepositorioLocal(){
 		
 		locais = new ArrayList<Local>();
-		tarifa = new Tarifa(2);
 	}
 	
 	public static RepositorioLocal getinstance(){
@@ -104,60 +102,5 @@ public class RepositorioLocal implements IRepositorioLocal {
 	public ArrayList<Local> listarLocais(){
 		return locais;
 	}
-	
-	// Tarifa e Tempo
-	
-	public void defineTarifa(Tarifa t){
-		
-		this.tarifa = t;
-	}
-	
-	public void atualizaTarifa(Tarifa t){
-		
-		this.tarifa = t;
-	}
-	
-	public void atualizaTarifa(int preco, String entrega){
-		
-		this.tarifa = new Tarifa(preco,entrega);
-	}
-	
-	public int getTarifa(Local l){
-		int t=0;
-		
-		t = l.getLocalizacao() * this.tarifa.getPreco();
-		
-		return t;
-	}
-	
-	public int getPrazo(Local l){
-		int prazo=0;
-		
-		prazo = l.getLocalizacao() / this.tarifa.getTempo();
-		
-		return prazo;
-	}
-	
-	public int getTarifaDois(Local l1, Local l2){
-		int t=0;
-		int distancia=0;
-		
-		distancia = Math.abs(l1.getLocalizacao() - l2.getLocalizacao());
-		
-		t = distancia * this.tarifa.getPreco();
-		
-		return t;
-	}
-	
-	public int getPrazoDois(Local l1, Local l2){
-		int prazo=0;
-		int distancia=0;
-		
-		distancia = Math.abs(l1.getLocalizacao() - l2.getLocalizacao());
-		prazo = distancia / this.tarifa.getTempo();
-		
-		return prazo;
-	}
-	
 
 }

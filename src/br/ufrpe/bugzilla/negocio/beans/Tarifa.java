@@ -1,41 +1,41 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
 public class Tarifa {
-	private int preco;
-	private int tempo;
 	
-	public Tarifa(int preco, String entrega){
-		this.preco = preco;
+	private int valorBase;
+	private int tipoEntrega;
+	
+	public Tarifa(int valor, String entrega){
+		this.valorBase = valor;
 		
 		if(entrega.equals("expressa")){
-			this.tempo = 2;
+			this.tipoEntrega = 2;
 		}
 		else{
-			this.tempo = 1;
+			this.tipoEntrega = 1;
 		}
 	}
 	
-	public Tarifa(int preco){
-		this.preco = preco;
-		this.tempo = 1;
+	public Tarifa(int valor){
+		this.valorBase = valor;
+		this.tipoEntrega = 1;
 	}
 	
-	
 
-	public int getPreco() {
-		return preco;
+	public int getValorBase() {
+		return valorBase;
 	}
 
-	public void setPreco(int preco) {
-		this.preco = preco;
+	public void setValorBase(int valorBase) {
+		this.valorBase = valorBase;
 	}
 
-	public int getTempo() {
-		return tempo;
+	public int getTipoEntrega() {
+		return tipoEntrega;
 	}
 
-	public void setTempo(int tempo) {
-		this.tempo = tempo;
+	public void setTipoEntrega(int tipoEntrega) {
+		this.tipoEntrega = tipoEntrega;
 	}
 
 	public boolean equals(Object obj) {
@@ -44,7 +44,7 @@ public class Tarifa {
 		if (obj == null)
 			return false;
 		Tarifa other = (Tarifa) obj;
-		if (preco == other.preco && tempo == other.tempo)
+		if (valorBase == other.valorBase && tipoEntrega == other.tipoEntrega)
 			return true;
 		return false;
 	}
@@ -54,7 +54,7 @@ public class Tarifa {
 		String texto = "";
 		
 		texto = String.format("Preço por Km: %d\nPrazo de entrega: %d dias por Km"
-				,preco, tempo);
+				,valorBase, tipoEntrega);
 		
 		return texto;
 	}
