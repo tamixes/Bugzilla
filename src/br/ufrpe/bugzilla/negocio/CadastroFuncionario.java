@@ -7,7 +7,7 @@ import br.ufrpe.exceptions.*;
 public class CadastroFuncionario{
 
 	private static CadastroFuncionario instance;
-	private RepositorioFuncionario repositorio;
+	private IRepositorioFuncionario repositorio;
 	
 	private CadastroFuncionario(){
 		this.repositorio = RepositorioFuncionario.getInstance();
@@ -41,8 +41,6 @@ public class CadastroFuncionario{
 			}
 		}
 	}
-		
-	
 
 	public Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException{
 		Funcionario resultado = null; 
@@ -83,5 +81,4 @@ public class CadastroFuncionario{
 		return resultado;
 	}
 
-	
 }

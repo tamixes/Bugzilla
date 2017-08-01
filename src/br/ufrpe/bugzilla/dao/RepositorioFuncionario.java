@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 
-public class RepositorioFuncionario{
+public class RepositorioFuncionario implements IRepositorioFuncionario{
 	
 	private List<Funcionario> funcionario = new ArrayList<Funcionario>();
 	private static RepositorioFuncionario instance; 

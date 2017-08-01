@@ -11,7 +11,7 @@ import br.ufrpe.bugzilla.dao.*;
 
 public class CadastroAdministrador{
 	
-	private RepositorioAdministrador repositorio;
+	private IRepositorioAdministrador repositorio;
 	private static CadastroAdministrador instance;
 	
 	private CadastroAdministrador(){

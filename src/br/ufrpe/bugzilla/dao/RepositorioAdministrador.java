@@ -9,7 +9,7 @@ import br.ufrpe.exceptions.ErroAoRemoverException;
 import br.ufrpe.exceptions.ObjectJaExisteException;
 import br.ufrpe.exceptions.ObjectNaoExisteException;
 
-public class RepositorioAdministrador{
+public class RepositorioAdministrador implements IRepositorioAdministrador{
 	
 	private List<Administrador> administrador = new ArrayList<Administrador>();
 	private static RepositorioAdministrador instance; 
