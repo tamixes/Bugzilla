@@ -40,7 +40,7 @@ public class Fachada implements IFachada{
 		controleEncomenda.novaEncomenda(encomenda);
 	}
 
-	public Encomenda buscaEncomenda(long codigoDaEncomenda) {
+	public Encomenda buscaEncomenda(String codigoDaEncomenda) {
 		return controleEncomenda.buscaEncomenda(codigoDaEncomenda);
 	}
 
@@ -48,7 +48,7 @@ public class Fachada implements IFachada{
 		controleEncomenda.atualizaEncomenda(encomenda);
 	}
 
-	public void removeEncomenda(long codigoDaEncommenda) {
+	public void removeEncomenda(String codigoDaEncommenda) {
 		controleEncomenda.removeEncomenda(codigoDaEncommenda);
 	}
 

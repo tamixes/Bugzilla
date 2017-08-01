@@ -15,12 +15,12 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 		return instance;
 	}
 
-	public int indice(long codigoDaEncomenda) {
+	public int indice(String codigoDaEncomenda) {
 
 		int i = 0;
 		boolean encontrou = false;
 		while ((encontrou != true) && (i < this.encomenda.size())) {
-			if (codigoDaEncomenda == this.encomenda.get(i).getCodigo()) {
+			if (this.encomenda.get(i).getCodigo().equalsIgnoreCase(codigoDaEncomenda)) {
 				encontrou = true;
 			} else {
 				i++;
@@ -34,7 +34,7 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 		this.encomenda.add(enc);
 	}
 
-	public Encomenda buscaEncomenda(long codigoDaEncomenda) {
+	public Encomenda buscaEncomenda(String codigoDaEncomenda) {
 		int i = this.indice(codigoDaEncomenda);
 
 		Encomenda resultado = null;
@@ -53,7 +53,7 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 		}
 	}
 	
-	public boolean removeEncomenda(long codigoDaEncomenda){
+	public boolean removeEncomenda(String codigoDaEncomenda){
 		int i = this.indice(codigoDaEncomenda);
 		boolean apagou = false;
 		if(i != this.encomenda.size()){

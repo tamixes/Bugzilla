@@ -29,9 +29,9 @@ public interface IFachada {
 	
 	//Encomenda
 	void novaEncomenda(Encomenda encomenda);
-	Encomenda buscaEncomenda(long codigoDaEncomenda);
+	Encomenda buscaEncomenda(String codigoDaEncomenda);
 	void atualizaEncomenda(Encomenda encomenda);
-	void removeEncomenda(long codigoDaEncommenda);
+	void removeEncomenda(String codigoDaEncommenda);
 	ArrayList<Encomenda> listaDeEncomendas();
 	
 	//Local

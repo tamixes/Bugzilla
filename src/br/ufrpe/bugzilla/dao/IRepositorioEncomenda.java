@@ -6,15 +6,15 @@ import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 
 public interface IRepositorioEncomenda {
 	
-	public int indice(long codigoDaEncomenda);
+	public int indice(String codigoDaEncomenda);
 
 	public void novaEncomenda(Encomenda enc);
 
-	public Encomenda buscaEncomenda(long codigoDaEncomenda);
+	public Encomenda buscaEncomenda(String codigoDaEncomenda);
 
 	public void atualizaEncomenda(Encomenda codigoDaEncomenda);
 	
-	public boolean removeEncomenda(long codigoDaEncomenda);
+	public boolean removeEncomenda(String codigoDaEncomenda);
 	
 	public ArrayList<Encomenda> listaDeEncomendas();
 

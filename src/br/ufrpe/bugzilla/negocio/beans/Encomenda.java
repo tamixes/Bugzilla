@@ -4,40 +4,69 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Encomenda {
-	private static long geraCodigo = 1;
+	private static long geraCodigo = 1000;
 
 	/*private long pedido;*/
-	private long codigo;
+	private String codigo;
 	private Pessoa destinatario;
 	private double peso;
 	private String tipoDoProduto;
 	private boolean entregue = false;
 	private ArrayList<Rastreio> rastreio = new ArrayList<Rastreio>();
-	private Tarifa tarifa;
+	
+	//a tarifa é definida pelo método preço, usando a tarifa base e a localização do destino 
+	private double tarifa;
+	//tarifa por km
+	private static double tarifaBase;
+	//prazo em dias é definido ao cadastrar encomenda
+	private int prazoEntrega;
+	/*O local de destino é uma cidade e tem como atributos o nome 
+	 e a localização (distância em km da base da transportadora)*/
 	private Local localDestino;
 
-	public Encomenda(Pessoa destinatario, double peso, String tipo, Tarifa tarifa, Local destino/*, int pedido*/) {
-		this.codigo = geraCodigo;
+	public Encomenda(Pessoa destinatario, double peso, String tipo, Local destino, int prazo/*, int pedido*/) {
+		this.codigo = "BUG" + geraCodigo + "BR";
 		geraCodigo++;
 
-		this.tarifa = tarifa;
 		this.localDestino = destino;
 		this.peso = peso;
 		this.destinatario = destinatario;
 		this.tipoDoProduto = tipo;
+		this.tarifa = this.preço();
+		this.prazoEntrega = prazo;
 		//this.pedido = pedido;
 	}
 
 	public Encomenda() {
-		this(null, 0, null/*, 0*/, null, null);
+		this(null, 0, null/*, 0*/, null, 0);
 	}
 
-	public Tarifa getTarifa() {
+	public double getTarifa() {
 		return tarifa;
 	}
 
-	public void setTarifa(Tarifa tarifa) {
+	public void setTarifa(double tarifa) {
 		this.tarifa = tarifa;
+	}
+
+	public static double getTarifaBase() {
+		return tarifaBase;
+	}
+
+	public static void setTarifaBase(double tarifaBase) {
+		Encomenda.tarifaBase = tarifaBase;
+	}
+
+	public int getPrazoEntrega() {
+		return prazoEntrega;
+	}
+
+	public void setPrazoEntrega(int prazoEntrega) {
+		this.prazoEntrega = prazoEntrega;
+	}
+
+	public void setRastreio(ArrayList<Rastreio> rastreio) {
+		this.rastreio = rastreio;
 	}
 
 	public Local getLocalDestino() {
@@ -82,7 +111,7 @@ public class Encomenda {
 
 	}*/
 
-	public long getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
@@ -98,9 +127,9 @@ public class Encomenda {
 		return rastreio;
 	}
 
-	public void setCodigo(long codigo) {
+	/*public void setCodigo(String codigo) {
 		this.codigo = codigo;
-	}
+	}*/
 
 
 	public String Status() {
@@ -159,31 +188,24 @@ public class Encomenda {
 		return resultado;
 	}
 
+	//TODO corrigir equals para receber Object 
 	public boolean equals(Encomenda encomenda) {
 		if (this == encomenda) {
 			return true;
-		} else if (encomenda != null && (encomenda.codigo == this.codigo)) {
+		} else if (encomenda != null && (this.codigo.equalsIgnoreCase(encomenda.codigo))){
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-	//Tarifa e prazo
+	//Tarifa
 	
-	public int getPreço(){
-		int t=0;
+	public double preço(){
+		double t=0;
 		
-		t = this.getLocalDestino().getLocalizacao() * this.getTarifa().getValorBase();
+		t = this.getLocalDestino().getLocalizacao() * Encomenda.getTarifaBase();
 		
 		return t;
-	}
-	
-	public int getPrazo(){
-		int prazo=0;
-		
-		prazo = this.getLocalDestino().getLocalizacao() / this.getTarifa().getTipoEntrega();
-		
-		return prazo;
 	}
 }

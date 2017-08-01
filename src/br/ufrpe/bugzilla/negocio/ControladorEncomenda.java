@@ -38,11 +38,11 @@ public class ControladorEncomenda {
 		}
 	}
 	
-	public Encomenda buscaEncomenda(long codigoDaEncomenda){
+	public Encomenda buscaEncomenda(String codigoDaEncomenda){
 		if(this.repositorio.buscaEncomenda(codigoDaEncomenda) != null){
 			return this.repositorio.buscaEncomenda(codigoDaEncomenda);
 		} else {
-			System.out.println("Não existe alguma encomenda com o numero" + codigoDaEncomenda);
+			System.out.println("Não existe alguma encomenda com o código" + codigoDaEncomenda);
 			return this.repositorio.buscaEncomenda(codigoDaEncomenda);
 		}
 		
@@ -60,7 +60,7 @@ public class ControladorEncomenda {
 		}
 	}
 	
-	public void removeEncomenda(long codigoDaEncommenda){
+	public void removeEncomenda(String codigoDaEncommenda){
 		if(this.repositorio.removeEncomenda(codigoDaEncommenda) == true){
 			System.out.println("Registro de encomenda removido com sucesso");
 		} else {
