@@ -3,28 +3,27 @@ import java.time.LocalDate;
 
 public class Funcionario extends Pessoa{
 	
-	private Login log;
 	private double salario;
 	
 	public Funcionario(String nome, String cpf, LocalDate nascimento, String telefone,
-						Endereco endereco, double salario, String senha){
+						Endereco endereco, double salario, String senha, Usuario usuario){
 		
-		super(nome, cpf, nascimento, telefone, endereco);
+		super(nome, cpf, nascimento, telefone, endereco, usuario);
 		this.salario = salario;
-		log = new Login(cpf, senha);
+		//log = new Login(cpf, senha);
 		
 	}
 	public Funcionario(){
-		this(null, null, null, null, null, 0, null);
-		log = new Login();
+		this(null, null, null, null, null, 0, null, null);
+		//log = new Login();
 	}
 
-	public Login getLog() {
-		return log;
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 
-	public void setLog(Login log) {
-		this.log = log;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public double getSalario() {
@@ -38,7 +37,7 @@ public class Funcionario extends Pessoa{
 	@Override
 	public String toString(){
 		String resultado = super.toString();
-		resultado += "\nSalario: " + this.salario + "\nLogin: " + this.log.getLogin() + "\nSenha: " + this.log.getSenha();
+		resultado += "\nSalario: " + this.salario + "\nLogin: " + this.getUsuario().getLogin() + "\nSenha: " + this.getUsuario().getSenha();
 		
 		return resultado;
 	}

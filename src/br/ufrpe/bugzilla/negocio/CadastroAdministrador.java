@@ -70,11 +70,11 @@ public class CadastroAdministrador{
 		return resultado; 
 	}
 
-	public boolean verificaLogin(Login login){
+	public boolean verificaLogin(Usuario usuario){
 		boolean resultado = false;
 		
-		if(login != null)
-			resultado = this.repositorio.verificaLogin(login);
+		if(usuario != null)
+			resultado = this.repositorio.verificaLogin(usuario);
 		
 		return resultado;
 	}

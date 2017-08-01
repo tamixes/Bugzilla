@@ -8,17 +8,24 @@ public class Pessoa {
   private LocalDate dataNascimento;
   private String telefone; 
   private Endereco end; 
+  protected Usuario usuario;
   
- 
-  
-  
-  public Pessoa(String nome, String cpf, LocalDate dataNascimento, String telefone, Endereco end){
+  public Pessoa(String nome, String cpf, LocalDate dataNascimento, String telefone, Endereco end, Usuario usuario){
 	  this.nome = nome;
 	  this.cpf = cpf;
 	  this.dataNascimento = dataNascimento;
 	  this.telefone = telefone;
 	  this.end = end;
+	  this.usuario = usuario;
   }
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 
 	public String getNome(){

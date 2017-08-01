@@ -1,6 +1,6 @@
 package br.ufrpe.bugzilla.dao;
 import java.util.ArrayList;
-import br.ufrpe.bugzilla.negocio.beans.Login;
+import br.ufrpe.bugzilla.negocio.beans.Usuario;
 import br.ufrpe.exceptions.ErroAoAtualizarException;
 import br.ufrpe.exceptions.ErroAoRemoverException;
 import br.ufrpe.exceptions.ObjectJaExisteException;
@@ -87,11 +87,11 @@ public class RepositorioFuncionario{
 		return this.funcionario;
 	}
 
-	public boolean checarLogin(Login l) {
+	public boolean checarLogin(Usuario u) {
 		boolean resultado = false;
 		for(int i = 0; i < funcionario.size();i++){
 			if(this.funcionario.get(i) instanceof Funcionario){
-				if (((Funcionario) this.funcionario.get(i)).getLog().equals(l)) {
+				if (((Funcionario) this.funcionario.get(i)).getUsuario().equals(u)) {
 					resultado =  true;
 				}
 			}

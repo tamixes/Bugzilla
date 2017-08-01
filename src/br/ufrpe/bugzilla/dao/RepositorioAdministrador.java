@@ -3,7 +3,7 @@ package br.ufrpe.bugzilla.dao;
 import java.util.List;
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
-import br.ufrpe.bugzilla.negocio.beans.Login;
+import br.ufrpe.bugzilla.negocio.beans.Usuario;
 import br.ufrpe.exceptions.ErroAoAtualizarException;
 import br.ufrpe.exceptions.ErroAoRemoverException;
 import br.ufrpe.exceptions.ObjectJaExisteException;
@@ -15,7 +15,6 @@ public class RepositorioAdministrador{
 	private static RepositorioAdministrador instance; 
 	
 	private RepositorioAdministrador(){
-
 		
 	}
 
@@ -87,10 +86,10 @@ public class RepositorioAdministrador{
 		}
 	}
 	
-	public boolean verificaLogin(Login login){
+	public boolean verificaLogin(Usuario usuario){
 		boolean resultado = false; 
 		for(int i = 0; i<this.administrador.size(); i++){
-			if(login.equals(this.administrador.get(i).getLog())){
+			if(usuario.equals(this.administrador.get(i).getUsuario())){
 				resultado = true;
 			}
 		}
@@ -100,9 +99,5 @@ public class RepositorioAdministrador{
 	public List<Administrador> listaAdministrador() {
 		return this.administrador;
 	}
-
-	
-
-	
 
 }

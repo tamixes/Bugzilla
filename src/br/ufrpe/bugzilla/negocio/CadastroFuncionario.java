@@ -75,9 +75,9 @@ public class CadastroFuncionario{
 	}
 
 	public boolean login(String login, String senha) {
-		Login log = new Login(login, senha);
+		Usuario usuario = new Usuario(login, senha);
 		boolean resultado = false;
-		if(this.repositorio.checarLogin(log)){
+		if(this.repositorio.checarLogin(usuario)){
 			resultado = true;
 		}
 		return resultado;

@@ -67,8 +67,8 @@ public class Fachada implements IFachada{
 		return this.cadastroAdministrador.buscaAdministrador(cpf);
 	}
 	
-	public boolean verificaLoginAdministrador(Login login){
-		return this.cadastroAdministrador.verificaLogin(login);
+	public boolean verificaLoginAdministrador(Usuario usuario){
+		return this.cadastroAdministrador.verificaLogin(usuario);
 	}
 
 	public void removerAdministrador(Administrador adm) throws ErroAoRemoverException{
@@ -104,8 +104,8 @@ public class Fachada implements IFachada{
 		this.cadastroFuncionario.alterarFuncionario(func);
 		
 	}
-	public boolean verificaLoginFuncionario(Login login){
-		return this.cadastroFuncionario.login(login.getLogin(), login.getSenha());
+	public boolean verificaLoginFuncionario(Usuario usuario){
+		return this.cadastroFuncionario.login(usuario.getLogin(), usuario.getSenha());
 	}
 
 	public List<Funcionario> listarFuncionarios() {

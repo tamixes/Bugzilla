@@ -14,7 +14,7 @@ public interface IFachada {
 	//Administrador
 	void cadastrarAdministrador(Administrador adm) throws ObjectJaExisteException;
 	Administrador buscarAdministrador(String cpf) throws ObjectNaoExisteException;
-	boolean verificaLoginAdministrador(Login login);
+	boolean verificaLoginAdministrador(Usuario usuario);
 	void removerAdministrador(Administrador adm) throws ErroAoRemoverException;
 	void alterarAdministrador(Administrador adm) throws ErroAoAtualizarException;
 	List<Administrador> listarAdministradores();
@@ -22,7 +22,7 @@ public interface IFachada {
 	//Funcionario
 	void addFuncionario(Funcionario func) throws ObjectJaExisteException;
 	Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException;
-	boolean verificaLoginFuncionario(Login login);
+	boolean verificaLoginFuncionario(Usuario usuario);
 	void removerFuncionario(Funcionario func) throws ErroAoRemoverException;
 	void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException;
 	List<Funcionario> listarFuncionarios();

@@ -1,14 +1,15 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
-public class Login {
+public class Usuario {
+	
 	private String login;
 	private String senha; 
 	
-	public Login(String login, String senha){
+	public Usuario(String login, String senha){
 		this.login = login;
 		this.senha = senha;
 	}
-	public Login(){
+	public Usuario(){
 		this(null, null);
 	}
 
@@ -28,7 +29,7 @@ public class Login {
 		this.senha = senha;
 	}
 	
-	public boolean equals(Login outro){
+	public boolean equals(Usuario outro){
 		if(this.login.equalsIgnoreCase(outro.getLogin()) && this.senha.equals(outro.getSenha())){
 			return true;
 		}
@@ -42,17 +43,5 @@ public class Login {
 	public String toString() {
 		return "Login: " + login + "\n" + "Senha: " + senha;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
