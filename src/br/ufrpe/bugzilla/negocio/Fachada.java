@@ -17,6 +17,7 @@ public class Fachada implements IFachada{
 	private CadastroFuncionario cadastroFuncionario;
 	private ControladorEncomenda controleEncomenda;
 	private ControladorLocal controleLocal;
+	private ControladorCliente controleCliente;
 	private static Fachada instance;
 	
 	private Fachada(){
@@ -24,6 +25,7 @@ public class Fachada implements IFachada{
 		this.cadastroFuncionario = CadastroFuncionario.getInstance();
 		this.controleEncomenda = ControladorEncomenda.getInstance();
 		this.controleLocal = ControladorLocal.getInstance();
+		this.controleCliente = ControladorCliente.getInstance();
 	}
 	
 	
@@ -140,6 +142,38 @@ public class Fachada implements IFachada{
 	public ArrayList<Local> listarLocais() {
 		
 		return this.controleLocal.listarLocais();
+	}
+
+	
+	//CLIENTE
+	
+	public void cadastrarCliente(Cliente cliente) {
+		
+		this.controleCliente.cadastrarCliente(cliente);
+	}
+
+
+	public Cliente procurarCliente(String nome) {
+		
+		return this.controleCliente.procurarCliente(nome);
+	}
+
+
+	public void atualizarCliente(Cliente cliente) {
+		
+		this.controleCliente.atualizarCliente(cliente);
+	}
+
+
+	public void removerCliente(String nome) {
+		
+		this.controleCliente.removerCliente(nome);
+	}
+
+
+	public ArrayList<Cliente> listarClientes() {
+		
+		return this.controleCliente.listarClientes();
 	}
 	
 }

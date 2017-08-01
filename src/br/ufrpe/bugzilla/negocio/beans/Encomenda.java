@@ -1,6 +1,5 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -10,6 +9,8 @@ public class Encomenda {
 	/*private long pedido;*/
 	private String codigo;
 	private Pessoa destinatario;
+	//novo atributo
+	private Cliente remetente;
 	private double peso;
 	private String tipoDoProduto;
 	private boolean entregue = false;
@@ -25,7 +26,7 @@ public class Encomenda {
 	 e a localização (distância em km da base da transportadora)*/
 	private Local localDestino;
 
-	public Encomenda(Pessoa destinatario, double peso, String tipo, Local destino, int prazo/*, int pedido*/) {
+	public Encomenda(Pessoa destinatario, double peso, String tipo, Local destino, int prazo, Cliente remetente/*, int pedido*/) {
 		this.codigo = "BUG" + geraCodigo + "BR";
 		geraCodigo++;
 
@@ -35,11 +36,20 @@ public class Encomenda {
 		this.tipoDoProduto = tipo;
 		this.tarifa = this.preço();
 		this.prazoEntrega = prazo;
+		this.remetente = remetente;
 		//this.pedido = pedido;
 	}
 
 	public Encomenda() {
-		this(null, 0, null/*, 0*/, null, 0);
+		this(null, 0, null/*, 0*/, null, 0, null);
+	}
+	
+	public Cliente getRemetente() {
+		return remetente;
+	}
+
+	public void setRemetente(Cliente remetente) {
+		this.remetente = remetente;
 	}
 
 	public double getTarifa() {
@@ -178,6 +188,7 @@ public class Encomenda {
 		
 		resultado =
 				  "Dados da encomenda:\n" 
+				+ "Remetente:"                  + this.getRemetente().getNomeEmpresa() + "\n"
 				+ "\t Nome do destinatário: " 	+ this.destinatario.getNome() + "\n"
 				+ "\t Destino do produto: " 	+ this.destinatario.getEnd() + "\n"
 				+ "\t Status da entrega: " 		+ this.Status() + "\n"

@@ -41,4 +41,11 @@ public interface IFachada {
 	void removerLocal(String nome) throws LocalNaoEncontradoException;
 	ArrayList<Local> listarLocais();
 	
+	//Cliente
+	void cadastrarCliente(Cliente cliente);
+	Cliente procurarCliente(String nome);
+	void atualizarCliente(Cliente cliente);
+	void removerCliente(String nome);
+	ArrayList<Cliente> listarClientes();
+	
 }
