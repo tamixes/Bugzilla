@@ -1,5 +1,6 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -16,8 +17,8 @@ public class Encomenda {
 	
 	//a tarifa é definida pelo método preço, usando a tarifa base e a localização do destino 
 	private double tarifa;
-	//tarifa por km
-	private static double tarifaBase;
+	//tarifa em R$ por km
+	private static double tarifaBase = 0.50;
 	//prazo em dias é definido ao cadastrar encomenda
 	private int prazoEntrega;
 	/*O local de destino é uma cidade e tem como atributos o nome 
@@ -177,12 +178,14 @@ public class Encomenda {
 		
 		resultado =
 				  "Dados da encomenda:\n" 
-				+ "\t Nome do destinatÃ¡rio: " 	+ this.destinatario.getNome() + "\n"
+				+ "\t Nome do destinatário: " 	+ this.destinatario.getNome() + "\n"
 				+ "\t Destino do produto: " 	+ this.destinatario.getEnd() + "\n"
 				+ "\t Status da entrega: " 		+ this.Status() + "\n"
 				+ "\t Tipo de produto: " 		+ this.tipoDoProduto + "\n"
 				+ "\t Peso do produto: " 		+ this.peso + "kg\n"
-				+ "\t Codigo de entrega: " 		+ this.codigo + "\n"
+				+ "\t Codigo de rastreamento: " 		+ this.codigo + "\n"
+				+ "\t Prazo de entrega: " 		+ this.prazoEntrega + " dias\n"
+				+ "\t Valor: R$" 		            + this.tarifa + "\n"
 				/*+ "\t Codigo de pedido: " 		+ this.pedido + "\n"*/;
 		
 		return resultado;
@@ -204,8 +207,10 @@ public class Encomenda {
 	public double preço(){
 		double t=0;
 		
-		t = this.getLocalDestino().getLocalizacao() * Encomenda.getTarifaBase();
+		//o valor em reais é definido pela distância em km vezes a tarifa base, mais o peso da encomenda dividido por 2 
+		t = ( (this.getLocalDestino().getLocalizacao() * Encomenda.getTarifaBase()) + this.peso / 2 );
 		
 		return t;
 	}
+	
 }
