@@ -2,13 +2,15 @@ package br.ufrpe.bugzilla.negocio;
 
 import java.util.ArrayList;
 
+import br.ufrpe.bugzilla.dao.IRepositorioEncomenda;
 import br.ufrpe.bugzilla.dao.RepositorioEncomenda;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 
+// TODO remover todos os sysout ao implementar exceptions nessa classe
 
 public class ControladorEncomenda {
 	private static ControladorEncomenda instance;
-	private RepositorioEncomenda repositorio;
+	private IRepositorioEncomenda repositorio;
 	
 	private ControladorEncomenda(){
 		this.repositorio = RepositorioEncomenda.getInstance();

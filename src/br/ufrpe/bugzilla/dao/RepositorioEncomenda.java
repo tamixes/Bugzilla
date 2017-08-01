@@ -2,9 +2,8 @@ package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
-import br.ufrpe.bugzilla.negocio.beans.Local;
 
-public class RepositorioEncomenda {
+public class RepositorioEncomenda implements IRepositorioEncomenda{
 	private ArrayList<Encomenda> encomenda = new ArrayList<Encomenda>();
 	private static RepositorioEncomenda instance = new RepositorioEncomenda();
 
