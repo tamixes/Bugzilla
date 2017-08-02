@@ -12,14 +12,14 @@ public class ControladorLocal {
 
 	private static ControladorLocal instance;
 	private IRepositorioLocal repositorio;
-	
+
 	private ControladorLocal(){
-		
+
 		this.repositorio = RepositorioLocal.getinstance();
 	}
-	
+
 	public static ControladorLocal getInstance(){
-		
+
 		if(instance == null){
 			instance = new ControladorLocal();
 		}
@@ -37,9 +37,9 @@ public class ControladorLocal {
 			}
 		}
 		else{
-			//exception
+			throw new IllegalArgumentException("Inválido!");
 		}
-		
+
 	}
 
 	public Local procurarLocal(String nome) throws LocalNaoEncontradoException {
@@ -53,11 +53,11 @@ public class ControladorLocal {
 	}
 
 	public void atualizarLocal(Local l) throws LocalNaoEncontradoException {
-		
+
 		if(l!=null){
 			repositorio.atualizarLocal(l);
 		}
-		
+
 	}
 
 	public void removerLocal(String nome) throws LocalNaoEncontradoException {
@@ -65,12 +65,12 @@ public class ControladorLocal {
 		if(nome!=null){
 			repositorio.removerLocal(nome);
 		}
-		
+
 	}
 
 	public ArrayList<Local> listarLocais() {
 
 		return this.repositorio.listarLocais();
 	}
-	
+
 }
