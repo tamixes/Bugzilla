@@ -14,9 +14,7 @@ public class RepositorioAdministrador implements IRepositorioAdministrador{
 	private List<Administrador> administrador = new ArrayList<Administrador>();
 	private static RepositorioAdministrador instance; 
 	
-	private RepositorioAdministrador(){
-		
-	}
+	private RepositorioAdministrador(){}
 
 	public static RepositorioAdministrador getInstance(){
 		
