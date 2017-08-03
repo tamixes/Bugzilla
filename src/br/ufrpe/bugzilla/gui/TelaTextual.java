@@ -30,7 +30,7 @@ public class TelaTextual {
 		
 		boolean fecha = false; 
 		
-		LocalDate dataAdmin1 = LocalDate.of(2000, 07, 19);
+		/*LocalDate dataAdmin1 = LocalDate.of(2000, 07, 19);
 		Endereco endAdmin1 = new Endereco("Aurora", "Boa vista", "Recife", "PE", "51345374", 157);
 		Administrador admin1 = new Administrador("João","09894131441", dataAdmin1, "32539393", endAdmin1, "glubnotrim");
 		bugentregas.cadastrarAdministrador(admin1);
@@ -49,7 +49,7 @@ public class TelaTextual {
 		Endereco endPessoa1 = new Endereco("Dois Rios", "Ibura", "Recife", "PE", "51345370", 2);
 		Pessoa pessoa1 = new Pessoa("Jonata", "15632465798", dataPessoa1, "988733337", endPessoa1);
 		Encomenda encomenda1 = new Encomenda(pessoa1, 5.0, "pacote");
-		bugentregas.novaEncomenda(encomenda1);
+		bugentregas.novaEncomenda(encomenda1);*/
 		
 		do{
 			System.out.println("MENU PRINCIPAL");
