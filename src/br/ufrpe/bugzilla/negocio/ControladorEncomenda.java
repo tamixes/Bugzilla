@@ -71,4 +71,9 @@ public class ControladorEncomenda {
 	public ArrayList<Encomenda> listaDeEncomendas(){
 		return this.repositorio.listaDeEncomendas();
 	}
+	
+	public void defineTarifaBase(double tarifa){
+		
+		this.repositorio.defineTarifaBase(tarifa);
+	}
 }

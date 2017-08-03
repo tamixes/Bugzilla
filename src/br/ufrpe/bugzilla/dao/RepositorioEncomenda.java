@@ -69,4 +69,9 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 		return this.encomenda;
 	}
 	
+	public void defineTarifaBase(double tarifa){
+		
+		Encomenda.setTarifaBase(tarifa);
+	}
+	
 }

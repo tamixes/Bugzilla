@@ -33,6 +33,7 @@ public interface IFachada {
 	void atualizaEncomenda(Encomenda encomenda);
 	void removeEncomenda(String codigoDaEncommenda);
 	ArrayList<Encomenda> listaDeEncomendas();
+	public void defineTarifaBase(double tarifa);
 	
 	//Local
 	void cadastrarLocal(Local l) throws LocalExisteException;

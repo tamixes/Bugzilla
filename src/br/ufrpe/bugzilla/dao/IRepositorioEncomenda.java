@@ -17,5 +17,7 @@ public interface IRepositorioEncomenda {
 	public boolean removeEncomenda(String codigoDaEncomenda);
 	
 	public ArrayList<Encomenda> listaDeEncomendas();
+	
+	public void defineTarifaBase(double tarifa);
 
 }

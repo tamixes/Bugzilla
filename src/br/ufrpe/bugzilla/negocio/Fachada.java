@@ -57,6 +57,10 @@ public class Fachada implements IFachada{
 	public ArrayList<Encomenda> listaDeEncomendas() {
 		return controleEncomenda.listaDeEncomendas();
 	}
+	
+	public void defineTarifaBase(double tarifa){
+		controleEncomenda.defineTarifaBase(tarifa);
+	}
 
 	
 	//ADMINISTRADOR
