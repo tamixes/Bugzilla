@@ -4,8 +4,6 @@ import java.util.List;
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.exceptions.ErroAoAtualizarException;
 import br.ufrpe.exceptions.ErroAoRemoverException;
-import br.ufrpe.exceptions.LocalExisteException;
-import br.ufrpe.exceptions.LocalNaoEncontradoException;
 import br.ufrpe.exceptions.ObjectJaExisteException;
 import br.ufrpe.exceptions.ObjectNaoExisteException;
 
@@ -36,10 +34,10 @@ public interface IFachada {
 	public void defineTarifaBase(double tarifa);
 	
 	//Local
-	void cadastrarLocal(Local l) throws LocalExisteException;
-	Local procurarLocal(String nome) throws LocalNaoEncontradoException;
-	void atualizarLocal(Local l) throws LocalNaoEncontradoException;
-	void removerLocal(String nome) throws LocalNaoEncontradoException;
+	void cadastrarLocal(Local l) throws ObjectJaExisteException;
+	Local procurarLocal(String nome) throws ObjectNaoExisteException;
+	void atualizarLocal(Local l) throws ObjectNaoExisteException;
+	void removerLocal(String nome) throws ObjectNaoExisteException;
 	ArrayList<Local> listarLocais();
 	
 	//Cliente

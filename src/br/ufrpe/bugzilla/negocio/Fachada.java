@@ -3,8 +3,6 @@ package br.ufrpe.bugzilla.negocio;
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.exceptions.ErroAoAtualizarException;
 import br.ufrpe.exceptions.ErroAoRemoverException;
-import br.ufrpe.exceptions.LocalExisteException;
-import br.ufrpe.exceptions.LocalNaoEncontradoException;
 import br.ufrpe.exceptions.ObjectJaExisteException;
 import br.ufrpe.exceptions.ObjectNaoExisteException;
 
@@ -120,24 +118,24 @@ public class Fachada implements IFachada{
 
 	//LOCAL
 
-	public void cadastrarLocal(Local l) throws LocalExisteException {
+	public void cadastrarLocal(Local l) throws ObjectJaExisteException {
 			
 		this.controleLocal.cadastrarLocal(l);
 	}
 
-	public Local procurarLocal(String nome) throws LocalNaoEncontradoException {
+	public Local procurarLocal(String nome) throws ObjectNaoExisteException {
 		
 		return this.controleLocal.procurarLocal(nome);
 	}
 
 
-	public void atualizarLocal(Local l) throws LocalNaoEncontradoException {
+	public void atualizarLocal(Local l) throws ObjectNaoExisteException {
 		
 		this.controleLocal.atualizarLocal(l);
 	}
 
 
-	public void removerLocal(String nome) throws LocalNaoEncontradoException {
+	public void removerLocal(String nome) throws ObjectNaoExisteException {
 		
 		this.controleLocal.removerLocal(nome);
 	}
