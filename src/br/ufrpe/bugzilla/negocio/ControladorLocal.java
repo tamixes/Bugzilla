@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import br.ufrpe.bugzilla.dao.IRepositorioLocal;
 import br.ufrpe.bugzilla.dao.RepositorioLocal;
 import br.ufrpe.bugzilla.negocio.beans.Local;
-import br.ufrpe.exceptions.LocalExisteException;
-import br.ufrpe.exceptions.LocalNaoEncontradoException;
+import br.ufrpe.exceptions.ObjectJaExisteException;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class ControladorLocal {
 
@@ -26,14 +26,14 @@ public class ControladorLocal {
 		return instance;
 	}
 
-	public void cadastrarLocal(Local l) throws LocalExisteException {
+	public void cadastrarLocal(Local l) throws ObjectJaExisteException {
 
 		if(l!=null){
 			if(this.repositorio.existe(l) == false){
 				this.repositorio.cadastrarLocal(l);
 			}
 			else{
-				throw new LocalExisteException(l.getNome());
+				throw new ObjectJaExisteException();
 			}
 		}
 		else{
@@ -42,28 +42,34 @@ public class ControladorLocal {
 
 	}
 
-	public Local procurarLocal(String nome) throws LocalNaoEncontradoException {
+	public Local procurarLocal(String nome) throws ObjectNaoExisteException {
 
 		if(nome != null){
 			return this.repositorio.procurarLocal(nome);
 		}
 		else{
-			return null;
+			throw new IllegalArgumentException("Inválido!");
 		}
 	}
 
-	public void atualizarLocal(Local l) throws LocalNaoEncontradoException {
+	public void atualizarLocal(Local l) throws ObjectNaoExisteException {
 
 		if(l!=null){
 			repositorio.atualizarLocal(l);
 		}
+		else{
+			throw new IllegalArgumentException("Inválido!");
+		}
 
 	}
 
-	public void removerLocal(String nome) throws LocalNaoEncontradoException {
+	public void removerLocal(String nome) throws ObjectNaoExisteException {
 
 		if(nome!=null){
 			repositorio.removerLocal(nome);
+		}
+		else{
+			throw new IllegalArgumentException("Inválido!");
 		}
 
 	}

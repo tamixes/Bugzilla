@@ -3,7 +3,7 @@ package br.ufrpe.bugzilla.dao;
 import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
-import br.ufrpe.exceptions.LocalNaoEncontradoException;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class RepositorioLocal implements IRepositorioLocal {
 	
@@ -29,7 +29,7 @@ public class RepositorioLocal implements IRepositorioLocal {
 		locais.add(l);
 	}
 	
-	public Local procurarLocal(String nome) throws LocalNaoEncontradoException{
+	public Local procurarLocal(String nome) throws ObjectNaoExisteException{
 		
 		int indice = procurarIndice(nome);
 		Local resultado = new Local();
@@ -38,13 +38,13 @@ public class RepositorioLocal implements IRepositorioLocal {
 			resultado = locais.get(indice);
 		}
 		else{
-			throw new LocalNaoEncontradoException(nome);
+			throw new ObjectNaoExisteException();
 		}
 		
 		return resultado;
 	}
 	
-	public void atualizarLocal(Local l) throws LocalNaoEncontradoException{
+	public void atualizarLocal(Local l) throws ObjectNaoExisteException{
 		
 		int indice = procurarIndice(l.getNome());
 		
@@ -53,12 +53,12 @@ public class RepositorioLocal implements IRepositorioLocal {
 			locais.set(indice, l);
 		}
 		else{
-			throw new LocalNaoEncontradoException(l);
+			throw new ObjectNaoExisteException();
 		}
 		
 	}
 	
-	public void removerLocal(String nome) throws LocalNaoEncontradoException{
+	public void removerLocal(String nome) throws ObjectNaoExisteException{
 		
 		int indice = procurarIndice(nome);
 		
@@ -67,7 +67,7 @@ public class RepositorioLocal implements IRepositorioLocal {
 			locais.remove(indice);
 		}
 		else{
-			throw new LocalNaoEncontradoException(nome);
+			throw new ObjectNaoExisteException();
 		}
 		
 	}
