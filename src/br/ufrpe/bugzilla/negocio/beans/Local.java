@@ -3,18 +3,19 @@ package br.ufrpe.bugzilla.negocio.beans;
 public class Local {
 	
 	private String nome;
-	private int localizacao;
-	//vai ser utilizada para calcular tarifa/tempo (distancia em km da central)
+	//vai ser utilizada para calcular distancia em km
+	private double longitude;
+	private double latitude;
 	
 	public Local(){
-		this.nome = "";
-		localizacao = 0;
+		
 	}
 	
-	public Local(String nome, int localizacao){
+	public Local(String nome, double longitude, double latitude){
 		
 		this.nome = nome;
-		this.localizacao = localizacao;
+		this.longitude = longitude;
+		this.latitude = latitude;
 	}
 	
 	public void setNome(String nome){
@@ -25,16 +26,24 @@ public class Local {
 		return this.nome;
 	}
 
-	public int getLocalizacao() {
-		return localizacao;
+	public double getLongitude() {
+		return longitude;
 	}
 
-	public void setLocalizacao(int localizacao) {
-		this.localizacao = localizacao;
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
 	public String toString() {
-		return "Local: " + nome + ", Localização: " + localizacao;
+		return "Local: " + nome + "\nLocalização: " + "(" + this.getLongitude() + ", " + this.getLatitude() + ")";
 	}
 	
 	public boolean equals(Object obj){
@@ -42,8 +51,8 @@ public class Local {
 			return true;
 		Local other = (Local) obj;
 		
-		if(this.nome.equalsIgnoreCase(other.getNome()) && this.localizacao == 
-				other.getLocalizacao()){
+		if(this.nome.equalsIgnoreCase(other.getNome()) && this.longitude == 
+				other.getLongitude() && this.latitude == other.getLatitude()){
 			return true;
 		}
 		return false;

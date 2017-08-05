@@ -86,8 +86,7 @@ public class Cliente {
 		
 		Cliente other = (Cliente) obj;
 		
-		if(this.id == other.id && this.cnpj.equals(other.cnpj)
-				&& this.endereco.equals(other.endereco) && this.nomeEmpresa.equalsIgnoreCase(other.nomeEmpresa)){
+		if(this.id == other.id && this.nomeEmpresa.equalsIgnoreCase(other.nomeEmpresa)){
 			return true;
 		}
 	

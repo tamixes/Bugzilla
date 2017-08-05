@@ -1,5 +1,6 @@
 package br.ufrpe.bugzilla.gui;
 
+/*
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -13,9 +14,14 @@ import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Pessoa;
 import br.ufrpe.bugzilla.negocio.beans.Rastreio;
-import br.ufrpe.exceptions.LocalExisteException;
+*/
 
 public class TelaTextual {
+	
+	/***
+	
+	CADASTRAR E GERENCIAR FUNCIONÁRIOS, ENCOMENDAS, CLIENTES, LOCAIS(CIDADES)...
+	
 	private IFachada bugentregas = Fachada.getInstance();
 
 	public void borda(){
@@ -49,7 +55,7 @@ public class TelaTextual {
 		Endereco endPessoa1 = new Endereco("Dois Rios", "Ibura", "Recife", "PE", "51345370", 2);
 		Pessoa pessoa1 = new Pessoa("Jonata", "15632465798", dataPessoa1, "988733337", endPessoa1);
 		Encomenda encomenda1 = new Encomenda(pessoa1, 5.0, "pacote");
-		bugentregas.novaEncomenda(encomenda1);*/
+		bugentregas.novaEncomenda(encomenda1);
 		
 		do{
 			System.out.println("MENU PRINCIPAL");
@@ -126,7 +132,7 @@ public class TelaTextual {
 						}
 						System.out.println(erro);
 					} else {
-						Funcionario func = new Funcionario(nomeFunc, cpfFunc, dataFunc, telefoneFunc, enderecoFunc, salarioFunc, senhaFunc);
+						/*Funcionario func = new Funcionario(nomeFunc, cpfFunc, dataFunc, telefoneFunc, enderecoFunc, salarioFunc, senhaFunc);
 						bugentregas.addFuncionario(func);
 						System.out.println("Cadastro realizado com sucesso!");
 						aceitoFunc = true;
@@ -170,7 +176,7 @@ public class TelaTextual {
 					System.out.println("Senha: ");
 					String senhaAtt = sc.nextLine();
 					
-					atualiza.setEnd(endAtt);
+					/*atualiza.setEnd(endAtt);
 					atualiza.setSalario(salarioAtt);
 					atualiza.getLog().setSenha(senhaAtt);
 					atualiza.setTelefone(telefoneAtt);
@@ -263,7 +269,7 @@ public class TelaTextual {
 				String endereco = sc.nextLine();
 				Endereco enderecoDest = (StringParaEndereco(endereco));
 				
-				Pessoa dest = new Pessoa(nomeDest, cpfDest, dataDest, telefoneDest, enderecoDest);
+				/*Pessoa dest = new Pessoa(nomeDest, cpfDest, dataDest, telefoneDest, enderecoDest);
 				
 				
 				System.out.println("Detalhes sobre o produto:");
@@ -384,7 +390,6 @@ public class TelaTextual {
 			
 			}
 		} while (fecha != true);
-
 	}
 
 	Endereco StringParaEndereco(String endereco) {
@@ -402,4 +407,5 @@ public class TelaTextual {
 
 		return resultado;
 	}
+	*/
 }

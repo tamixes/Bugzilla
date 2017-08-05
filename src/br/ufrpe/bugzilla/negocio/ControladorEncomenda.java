@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import br.ufrpe.bugzilla.dao.IRepositorioEncomenda;
 import br.ufrpe.bugzilla.dao.RepositorioEncomenda;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
+import br.ufrpe.exceptions.ObjectJaExisteException;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 
-// TODO remover todos os sysout ao implementar exceptions nessa classe
 
 public class ControladorEncomenda {
 	private static ControladorEncomenda instance;
@@ -23,48 +24,50 @@ public class ControladorEncomenda {
 		return instance;
 	}
 	
-	public void novaEncomenda(Encomenda encomenda){
+	public void novaEncomenda(Encomenda encomenda) throws ObjectJaExisteException{
 		
-		if((encomenda == null) || (this.repositorio.buscaEncomenda(encomenda.getCodigo()) != null)){
-			if (encomenda == null)
-				System.out.println("Não é possivel cadastrar essa encomenda!");
-
-			else if (this.repositorio.buscaEncomenda(encomenda.getCodigo()) != null) {
-				System.out.println("Essa encomenda já existe!");
-			}
-		} else {
+		if((encomenda == null)){
+			
+			throw new IllegalArgumentException("Inválido!");
+		}
+		else if(this.repositorio.existe(encomenda) == true){
+			
+			throw new ObjectJaExisteException();
+		}
+		else {
 			repositorio.novaEncomenda(encomenda);
-			//System.out.println("Encomenda Cadastrada com sucesso!");
 		}
 	}
 	
-	public Encomenda buscaEncomenda(String codigoDaEncomenda){
-		if(this.repositorio.buscaEncomenda(codigoDaEncomenda) != null){
-			return this.repositorio.buscaEncomenda(codigoDaEncomenda);
-		} else {
-			System.out.println("Não existe alguma encomenda com o código" + codigoDaEncomenda);
+	public Encomenda buscaEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException{
+		if(codigoDaEncomenda == null){
+			
+			throw new IllegalArgumentException("Inválido!");
+		}
+		else {
+			
 			return this.repositorio.buscaEncomenda(codigoDaEncomenda);
 		}
 		
 	}
 	
-	public void atualizaEncomenda(Encomenda encomenda){
+	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException{
+		
 		if((encomenda == null) || (this.repositorio.buscaEncomenda(encomenda.getCodigo()) != null)){
-			if (encomenda == null)
-				System.out.println("Não é possivel cadastrar essa encomenda!");
-
-			else if (this.repositorio.buscaEncomenda(encomenda.getCodigo()) != null) {
-				this.repositorio.atualizaEncomenda(encomenda);
-				System.out.println("Dados da encomenda atualizados!");
-			}
+			
+			throw new IllegalArgumentException("Inválido!");
+		}
+		else{
+			
+			this.repositorio.atualizaEncomenda(encomenda);
 		}
 	}
 	
-	public void removeEncomenda(String codigoDaEncommenda){
-		if(this.repositorio.removeEncomenda(codigoDaEncommenda) == true){
-			System.out.println("Registro de encomenda removido com sucesso");
+	public void removeEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException{
+		if(codigoDaEncomenda != null){
+			this.repositorio.removeEncomenda(codigoDaEncomenda);
 		} else {
-			System.out.println("Código de encomenda inválido!");
+			throw new IllegalArgumentException("Inválido!");
 		}
 	}
 	

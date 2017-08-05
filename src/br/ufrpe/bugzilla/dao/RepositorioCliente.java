@@ -3,6 +3,7 @@ package br.ufrpe.bugzilla.dao;
 import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class RepositorioCliente implements IRepositorioCliente{
 
@@ -27,7 +28,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 		clientes.add(cliente);
 	}
 
-	public Cliente procurarCliente(String nome) {
+	public Cliente procurarCliente(String nome) throws ObjectNaoExisteException {
 		
 		int indice = procurarIndice(nome);
 		Cliente resultado = new Cliente();
@@ -36,7 +37,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 			resultado = clientes.get(indice);
 		}
 		else{
-			//throw new
+			throw new ObjectNaoExisteException();
 		}
 		
 		return resultado;

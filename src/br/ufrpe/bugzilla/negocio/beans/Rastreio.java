@@ -2,23 +2,24 @@ package br.ufrpe.bugzilla.negocio.beans;
 
 import java.time.LocalDateTime;
 
-
 public class Rastreio {
+	
 	private String situacao;
-	private Endereco local;
+	private Endereco end;
 	private LocalDateTime dataHora;
+	
+	public Rastreio() {
+		
+	}
 
 	public Rastreio(String situacao, Endereco local, LocalDateTime dataHora) {
 		this.situacao = situacao;
-		this.local = local;
+		this.end = local;
 		this.dataHora = dataHora;
 	}
 
-	public Rastreio() {
-		this(null, null, null);
-	}
-
 	public String DateToString(LocalDateTime data) {
+		
 		String resultado;
 		int dia = data.getDayOfMonth();
 		int mes = data.getMonthValue();
@@ -39,12 +40,12 @@ public class Rastreio {
 		this.situacao = situacao;
 	}
 
-	public Endereco getLocal() {
-		return local;
+	public Endereco getEnd() {
+		return end;
 	}
 
-	public void setLocal(Endereco local) {
-		this.local = local;
+	public void setEnd(Endereco local) {
+		this.end = local;
 	}
 
 	public LocalDateTime getDataHora() {
@@ -60,7 +61,7 @@ public class Rastreio {
 		String resultado = null;
 		String data = this.DateToString(this.dataHora);
 		
-		resultado = data + " | "+ local.getRua() + ", " + local.getCidade() + " | " + situacao;
+		resultado = data + " | "+ end.getRua() + ", " + end.getCidade() + " | " + situacao;
 		
 		return resultado;
 	}

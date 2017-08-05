@@ -10,7 +10,7 @@ public class Usuario {
 		this.senha = senha;
 	}
 	public Usuario(){
-		this(null, null);
+		
 	}
 
 	public String getLogin() {

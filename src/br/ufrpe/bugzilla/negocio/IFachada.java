@@ -26,10 +26,10 @@ public interface IFachada {
 	List<Funcionario> listarFuncionarios();
 	
 	//Encomenda
-	void novaEncomenda(Encomenda encomenda);
-	Encomenda buscaEncomenda(String codigoDaEncomenda);
-	void atualizaEncomenda(Encomenda encomenda);
-	void removeEncomenda(String codigoDaEncommenda);
+	void novaEncomenda(Encomenda encomenda) throws ObjectJaExisteException;
+	Encomenda buscaEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException;
+	void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException;
+	void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException;
 	ArrayList<Encomenda> listaDeEncomendas();
 	public void defineTarifaBase(double tarifa);
 	
@@ -41,10 +41,10 @@ public interface IFachada {
 	ArrayList<Local> listarLocais();
 	
 	//Cliente
-	void cadastrarCliente(Cliente cliente);
-	Cliente procurarCliente(String nome);
-	void atualizarCliente(Cliente cliente);
-	void removerCliente(String nome);
+	void cadastrarCliente(Cliente cliente) throws ObjectJaExisteException;
+	Cliente procurarCliente(String nome) throws ObjectNaoExisteException;
+	void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException;
+	void removerCliente(String nome) throws ObjectNaoExisteException;
 	ArrayList<Cliente> listarClientes();
 	
 }

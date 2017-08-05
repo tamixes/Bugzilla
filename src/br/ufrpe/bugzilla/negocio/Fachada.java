@@ -35,20 +35,20 @@ public class Fachada implements IFachada{
 		return instance;
 	}
 	
-	//ENCOMENDA
-	public void novaEncomenda(Encomenda encomenda) {
+	/**ENCOMENDA**/
+	public void novaEncomenda(Encomenda encomenda) throws ObjectJaExisteException {
 		controleEncomenda.novaEncomenda(encomenda);
 	}
 
-	public Encomenda buscaEncomenda(String codigoDaEncomenda) {
+	public Encomenda buscaEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException {
 		return controleEncomenda.buscaEncomenda(codigoDaEncomenda);
 	}
 
-	public void atualizaEncomenda(Encomenda encomenda) {
+	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException {
 		controleEncomenda.atualizaEncomenda(encomenda);
 	}
 
-	public void removeEncomenda(String codigoDaEncommenda) {
+	public void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException {
 		controleEncomenda.removeEncomenda(codigoDaEncommenda);
 	}
 
@@ -61,7 +61,7 @@ public class Fachada implements IFachada{
 	}
 
 	
-	//ADMINISTRADOR
+	/**ADMINISTRADOR**/
 	public void cadastrarAdministrador(Administrador adm) throws ObjectJaExisteException{
 		this.cadastroAdministrador.cadastrarAdministrador(adm);
 		
@@ -89,7 +89,7 @@ public class Fachada implements IFachada{
 		return this.cadastroAdministrador.listaAdministrador();
 	}
 	
-	//FUNCIONÁRIO
+	/**FUNCIONÁRIO**/
 	public void addFuncionario(Funcionario func) throws ObjectJaExisteException{
 		this.cadastroFuncionario.cadastrarFuncionario(func);
 		
@@ -116,7 +116,7 @@ public class Fachada implements IFachada{
 		return this.cadastroFuncionario.mostrarfunc();
 	}
 
-	//LOCAL
+	/**LOCAL**/
 
 	public void cadastrarLocal(Local l) throws ObjectJaExisteException {
 			
@@ -147,27 +147,28 @@ public class Fachada implements IFachada{
 	}
 
 	
-	//CLIENTE
+	/**CLIENTE
+	 * @throws ObjectJaExisteException **/
 	
-	public void cadastrarCliente(Cliente cliente) {
+	public void cadastrarCliente(Cliente cliente) throws ObjectJaExisteException {
 		
 		this.controleCliente.cadastrarCliente(cliente);
 	}
 
 
-	public Cliente procurarCliente(String nome) {
+	public Cliente procurarCliente(String nome) throws ObjectNaoExisteException {
 		
 		return this.controleCliente.procurarCliente(nome);
 	}
 
 
-	public void atualizarCliente(Cliente cliente) {
+	public void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException {
 		
 		this.controleCliente.atualizarCliente(cliente);
 	}
 
 
-	public void removerCliente(String nome) {
+	public void removerCliente(String nome) throws ObjectNaoExisteException {
 		
 		this.controleCliente.removerCliente(nome);
 	}

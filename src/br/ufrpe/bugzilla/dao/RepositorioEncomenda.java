@@ -2,16 +2,20 @@ package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
+import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class RepositorioEncomenda implements IRepositorioEncomenda{
-	private ArrayList<Encomenda> encomenda = new ArrayList<Encomenda>();
-	private static RepositorioEncomenda instance = new RepositorioEncomenda();
+	private ArrayList<Encomenda> encomendas = new ArrayList<Encomenda>();
+	private static RepositorioEncomenda instance;
 
 	private RepositorioEncomenda() {
 
 	}
 
 	public static RepositorioEncomenda getInstance() {
+		if(instance==null){
+			instance = new RepositorioEncomenda();
+		}
 		return instance;
 	}
 
@@ -19,8 +23,8 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 
 		int i = 0;
 		boolean encontrou = false;
-		while ((encontrou != true) && (i < this.encomenda.size())) {
-			if (this.encomenda.get(i).getCodigo().equalsIgnoreCase(codigoDaEncomenda)) {
+		while ((encontrou != true) && (i < this.encomendas.size())) {
+			if (this.encomendas.get(i).getCodigo().equalsIgnoreCase(codigoDaEncomenda)) {
 				encontrou = true;
 			} else {
 				i++;
@@ -29,35 +33,54 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 
 		return i;
 	}
+	
+	public boolean existe(Encomenda e){
+		
+		boolean encontrou = false;
+		for(int i = 0; i<encomendas.size(); i++) {
+			if (this.encomendas.get(i).getCodigo().equalsIgnoreCase(e.getCodigo())) {
+				encontrou = true;
+			}
+		}
 
-	public void novaEncomenda(Encomenda enc) {
-		this.encomenda.add(enc);
+		return encontrou;
+			
 	}
 
-	public Encomenda buscaEncomenda(String codigoDaEncomenda) {
+	public void novaEncomenda(Encomenda enc) {
+		this.encomendas.add(enc);
+	}
+
+	public Encomenda buscaEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException {
 		int i = this.indice(codigoDaEncomenda);
 
 		Encomenda resultado = null;
 
-		if (i != this.encomenda.size()) {
-			resultado = this.encomenda.get(i);
+		if (i != this.encomendas.size()) {
+			resultado = this.encomendas.get(i);
+			return resultado;
 		}
-		return resultado;
+		else{
+			throw new ObjectNaoExisteException();
+		}
 	}
 
-	public void atualizaEncomenda(Encomenda codigoDaEncomenda) {
-		int i = this.indice(codigoDaEncomenda.getCodigo());
+	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException {
+		int i = this.indice(encomenda.getCodigo());
 		
-		if (i != this.encomenda.size()) {
-			 codigoDaEncomenda = this.encomenda.get(i);
+		if (i != this.encomendas.size()) {
+			this.encomendas.set(i, encomenda);
+		}
+		else{
+			throw new ObjectNaoExisteException();
 		}
 	}
 	
-	public boolean removeEncomenda(String codigoDaEncomenda){
+	public boolean removeEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException {
 		int i = this.indice(codigoDaEncomenda);
 		boolean apagou = false;
-		if(i != this.encomenda.size()){
-			this.encomenda.remove(i);
+		if(i != this.encomendas.size()){
+			this.encomendas.remove(i);
 			apagou = true;
 		}
 		
@@ -66,7 +89,7 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 	}
 	
 	public ArrayList<Encomenda> listaDeEncomendas(){
-		return this.encomenda;
+		return this.encomendas;
 	}
 	
 	public void defineTarifaBase(double tarifa){
