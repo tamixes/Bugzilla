@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.dao.IRepositorioCliente;
 import br.ufrpe.bugzilla.dao.RepositorioCliente;
+import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
+import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
-import br.ufrpe.exceptions.ObjectJaExisteException;
-import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class ControladorCliente {
 	

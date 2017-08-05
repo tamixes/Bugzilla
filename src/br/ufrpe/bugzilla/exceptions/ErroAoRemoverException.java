@@ -1,4 +1,4 @@
-package br.ufrpe.exceptions;
+package br.ufrpe.bugzilla.exceptions;
 
 public class ErroAoRemoverException extends Exception {
 	

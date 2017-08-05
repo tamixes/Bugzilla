@@ -3,7 +3,7 @@ import java.util.List;
 
 import br.ufrpe.bugzilla.negocio.beans.*;
 import br.ufrpe.bugzilla.dao.*;
-import br.ufrpe.exceptions.*;
+import br.ufrpe.bugzilla.exceptions.*;
 public class CadastroFuncionario{
 
 	private static CadastroFuncionario instance;

@@ -1,8 +1,9 @@
 package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
+
+import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
-import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class RepositorioEncomenda implements IRepositorioEncomenda{
 	private ArrayList<Encomenda> encomendas = new ArrayList<Encomenda>();

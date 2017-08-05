@@ -2,12 +2,13 @@ package br.ufrpe.bugzilla.dao;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
+import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
+import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
+import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
-import br.ufrpe.exceptions.ErroAoAtualizarException;
-import br.ufrpe.exceptions.ErroAoRemoverException;
-import br.ufrpe.exceptions.ObjectJaExisteException;
-import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class RepositorioAdministrador implements IRepositorioAdministrador{
 	

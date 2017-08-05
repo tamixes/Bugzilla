@@ -2,8 +2,8 @@ package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
 
+import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
-import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class RepositorioCliente implements IRepositorioCliente{
 

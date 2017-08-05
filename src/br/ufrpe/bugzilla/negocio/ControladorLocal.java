@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.dao.IRepositorioLocal;
 import br.ufrpe.bugzilla.dao.RepositorioLocal;
+import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
+import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Local;
-import br.ufrpe.exceptions.ObjectJaExisteException;
-import br.ufrpe.exceptions.ObjectNaoExisteException;
 
 public class ControladorLocal {
 
