@@ -6,12 +6,6 @@ _Projeto para desenvolvimento de um sistema de controle de encomendas._
 
 :computer: Bacharelado em Ciência da Computação da UFRPE
 
-.
-
-.
-
-.
-
 
 ## Contribuidores:
 
