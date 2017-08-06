@@ -11,11 +11,11 @@ public class Local {
 		
 	}
 	
-	public Local(String nome, double longitude, double latitude){
+	public Local(String nome, double latitude, double longitude){
 		
 		this.nome = nome;
-		this.longitude = longitude;
 		this.latitude = latitude;
+		this.longitude = longitude;
 	}
 	
 	public void setNome(String nome){

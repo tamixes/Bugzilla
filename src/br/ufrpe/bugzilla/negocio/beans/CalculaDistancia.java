@@ -3,7 +3,7 @@ import br.ufrpe.bugzilla.negocio.beans.Local;
 
 public abstract class CalculaDistancia {
 
-	public static final int RAIO_TERRA_KM = 6371;
+	public static final double RAIO_TERRA_KM = 6371;
 	//fonte: http://en.wikipedia.org/wiki/Earth_radius
 	
 	//utiliza coordenadas geográficas pra definir a distância em km
@@ -33,10 +33,10 @@ public abstract class CalculaDistancia {
 	
 	public static void main(String[] args) {
 		
-		Local l1 = new Local("Recife", -08.0314, -34.5252);
-		Local l2 = new Local("Manaus", -03.0607, -60.0130);
+		Local l1 = new Local("Rio",-22.5410,-43.1227);
+		Local l2 = new Local("Porto Alegre",-30.0159, -51.1348);
 		
-		double distancia = DistanciaGeoEmKm(l1,l2);
-		System.out.println("distancia de recife para manaus: " + String.format("%fkm", distancia));
+		int distancia = (int) (DistanciaGeoEmKm(l1,l2) + 0.40);
+		System.out.println("Distancia do Rio para Porto Alegre: " + String.format("%dkm", distancia));
 	}
 }
