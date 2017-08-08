@@ -179,7 +179,7 @@ public class Encomenda {
 		
 		resultado =
 				  "Dados da encomenda:\n" 
-				+ "Remetente:"                  + this.getRemetente().getNomeEmpresa() + "\n"
+				+ "Remetente:"                  + this.getRemetente().getNome() + "\n"
 				+ "\t Nome do destinatário: " 	+ this.destinatario.getNome() + "\n"
 				+ "\t Destino do produto: " 	+ this.destinatario.getEnd() + "\n"
 				+ "\t Status da entrega: " 		+ this.Status() + "\n"
