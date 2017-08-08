@@ -12,7 +12,7 @@ public class Cliente {
 	private String telefone;
 	private Endereco endereco;
 	private TipoCliente tipo;
-	
+	//
 	public Cliente(String nome, String cnpj, String cpf, String telefone, Endereco end, TipoCliente tipo){
 		if(tipo == TipoCliente.JUR) {
 			this.id = geraId;
