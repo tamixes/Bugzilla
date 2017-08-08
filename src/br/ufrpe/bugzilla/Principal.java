@@ -1,13 +1,15 @@
 package br.ufrpe.bugzilla;
 
-//import br.ufrpe.bugzilla.gui.TelaTextual;
+
+
+import br.ufrpe.bugzilla.gui.TelaTextual;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
-		//TelaTextual tela = new TelaTextual();
-		//tela.MenuPrincipal();
+		TelaTextual tela = new TelaTextual();
+		tela.MenuPrincipal();
 		
 	}
 

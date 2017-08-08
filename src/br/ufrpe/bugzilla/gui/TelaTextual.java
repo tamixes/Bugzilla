@@ -1,26 +1,33 @@
 package br.ufrpe.bugzilla.gui;
 
-/*
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
+import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.IFachada;
 import br.ufrpe.bugzilla.negocio.beans.Administrador;
+import br.ufrpe.bugzilla.negocio.beans.Cliente;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Pessoa;
 import br.ufrpe.bugzilla.negocio.beans.Rastreio;
-*/
+import br.ufrpe.bugzilla.negocio.beans.Usuario;
+
+
+
+
 
 public class TelaTextual {
 	
-	/***
 	
-	CADASTRAR E GERENCIAR FUNCIONÁRIOS, ENCOMENDAS, CLIENTES, LOCAIS(CIDADES)...
+	
+	//CADASTRAR E GERENCIAR FUNCIONÁRIOS, ENCOMENDAS, CLIENTES, LOCAIS(CIDADES)...
 	
 	private IFachada bugentregas = Fachada.getInstance();
 
@@ -29,7 +36,7 @@ public class TelaTextual {
 
 	}
 	
-	public void MenuPrincipal(){
+	public void MenuPrincipal() throws Exception{
 		this.borda();
 		Scanner sc = new Scanner(System.in);
 		int opcao = 0;
@@ -55,7 +62,7 @@ public class TelaTextual {
 		Endereco endPessoa1 = new Endereco("Dois Rios", "Ibura", "Recife", "PE", "51345370", 2);
 		Pessoa pessoa1 = new Pessoa("Jonata", "15632465798", dataPessoa1, "988733337", endPessoa1);
 		Encomenda encomenda1 = new Encomenda(pessoa1, 5.0, "pacote");
-		bugentregas.novaEncomenda(encomenda1);
+		bugentregas.novaEncomenda(encomenda1);*/
 		
 		do{
 			System.out.println("MENU PRINCIPAL");
@@ -66,8 +73,9 @@ public class TelaTextual {
 							 + "5 - Nova encomenda\n"
 							 + "6 - Atualiza Status de uma encomenda\n"
 							 + "7 - Dados de uma encomenda\n"
-							 + "8 - Sair\n"
-							 + "9 - Adicionar Local\n"
+							 + "8 - Adicionar Local\n"
+							 + "9 - Adicionar Cliente\n"
+							 + "10 - Sair\n"
 							 + "Opção: ");
 			opcao = sc.nextInt();
 			
@@ -112,6 +120,7 @@ public class TelaTextual {
 					
 					System.out.println("Senha: ");
 					String senhaFunc = sc.nextLine();
+					
 
 					if ((cpfFunc.length() != 11) || 
 							(senhaFunc.length() < 8) ||
@@ -132,7 +141,11 @@ public class TelaTextual {
 						}
 						System.out.println(erro);
 					} else {
-						/*Funcionario func = new Funcionario(nomeFunc, cpfFunc, dataFunc, telefoneFunc, enderecoFunc, salarioFunc, senhaFunc);
+						TipoDeFuncionario tipo = TipoDeFuncionario.FUNC;
+						Funcionario func = new Funcionario(nomeFunc, cpfFunc, dataFunc, telefoneFunc, enderecoFunc, salarioFunc, senhaFunc, new Usuario(nomeFunc, senhaFunc), tipo);
+
+						
+
 						bugentregas.addFuncionario(func);
 						System.out.println("Cadastro realizado com sucesso!");
 						aceitoFunc = true;
@@ -176,9 +189,9 @@ public class TelaTextual {
 					System.out.println("Senha: ");
 					String senhaAtt = sc.nextLine();
 					
-					/*atualiza.setEnd(endAtt);
+					atualiza.setEnd(endAtt);
 					atualiza.setSalario(salarioAtt);
-					atualiza.getLog().setSenha(senhaAtt);
+					atualiza.getUsuario().setSenha(senhaAtt);
 					atualiza.setTelefone(telefoneAtt);
 					
 					bugentregas.alterarFuncionario(atualiza);
@@ -246,6 +259,37 @@ public class TelaTextual {
 				String limpaBuffer = sc.nextLine();
 				System.out.println("Cadastrar nova encomenda");
 				System.out.println();
+				System.out.println("Dados do remetente: ");
+				int opcaoReme = 0;
+				do {
+				System.out.println("Escolha uma opção válida de remetente: "
+						+ "\n 1 - Pessoa Física"
+						+ "\n 2 - Pessoa Jurídica");	
+				opcaoReme = sc.nextInt();
+				}while(opcaoReme != 1 && opcaoReme != 2);
+				
+				Cliente remetente = new Cliente();
+				switch(opcaoReme) {
+					 case 1:
+						 System.out.println("Nome: ");
+						 remetente.setNome(sc.nextLine());
+						 
+						 System.out.println("Cpf: ");
+						 remetente.setCpf(sc.nextLine());
+						 
+						 System.out.println("Telefone");
+						 String telReme = sc.nextLine();
+						 
+						 System.out.println("ubsudfusdufbsi");
+						 
+					}
+				
+				System.out.println("Nome:");
+				String remeNome = sc.nextLine();
+				
+				System.out.println("");
+				
+				
 				System.out.println("Informações sobre o destinatário:");
 				System.out.println("Nome: ");
 				String nomeDest = sc.nextLine();
@@ -269,7 +313,7 @@ public class TelaTextual {
 				String endereco = sc.nextLine();
 				Endereco enderecoDest = (StringParaEndereco(endereco));
 				
-				/*Pessoa dest = new Pessoa(nomeDest, cpfDest, dataDest, telefoneDest, enderecoDest);
+				Pessoa dest = new Pessoa(nomeDest, cpfDest, dataDest, telefoneDest, enderecoDest);
 				
 				
 				System.out.println("Detalhes sobre o produto:");
@@ -279,7 +323,12 @@ public class TelaTextual {
 				System.out.println("Peso do produto: ");
 				double pesoEncomenda = sc.nextDouble();
 				
-				Encomenda encomenda = new Encomenda(dest, pesoEncomenda, tipoProduto);
+				System.out.println("Prazo de entrega em dias: ");
+				int prazoEnc = sc.nextInt();
+				
+				
+				
+				Encomenda encomenda = new Encomenda(dest, pesoEncomenda, tipoProduto, new Local(dest.getEnd().getCidade(), 908, 9187198), null, prazoEnc, null);
 				bugentregas.novaEncomenda(encomenda);
 				System.out.println("Encomenda cadastrada com sucesso!");
 				System.out.println(encomenda);
@@ -292,7 +341,7 @@ public class TelaTextual {
 				String limpaBuffer = sc.nextLine();
 				System.out.println("Atualiza o status de uma encomenda");
 				System.out.println("Selecione a encomenda pelo código: ");
-				long busca = sc.nextLong();
+				String busca = sc.nextLine();
 				
 				Encomenda atualiza = bugentregas.buscaEncomenda(busca);
 				if(atualiza != null){
@@ -343,7 +392,7 @@ public class TelaTextual {
 				String limpaBuffer = sc.nextLine();
 				System.out.println("Visualizar rastreio de encomenda");
 				System.out.println("Buscar pelo código de rastreio");
-				long codigo = sc.nextLong();
+				String codigo = sc.nextLine();
 				
 				Encomenda verEncomenda = bugentregas.buscaEncomenda(codigo);
 				if(verEncomenda != null){
@@ -363,12 +412,6 @@ public class TelaTextual {
 			
 			
 			case 8:{
-				
-				sc.close();
-				break;
-			}
-			
-			case 9:{
 				//testando exception
 				String limpaBuffer = sc.nextLine();
 				
@@ -378,17 +421,34 @@ public class TelaTextual {
 				System.out.print("Distância da base: ");
 				int dist = sc.nextInt();
 				
-				bugentregas.cadastrarLocal(new Local(nome,dist));
+				bugentregas.cadastrarLocal(new Local(nome,dist, 87));
 				
-				}catch(LocalExisteException e){
+				}catch(ObjectJaExisteException e){
 					System.out.println(e.getMessage());
 				}
 				
 				break;
+				
 			}
+			case 9 :{
+				System.out.println("Cadastrar Cliente\n");
+				
+				
+			}
+			case 10:{
+				
+				sc.close();
+				fecha = true;
+				break;
+				}
 			
 			
+			
+			default:
+				System.out.println("\nOpção inválida!\n\n");
+				break;
 			}
+				
 		} while (fecha != true);
 	}
 
@@ -407,5 +467,5 @@ public class TelaTextual {
 
 		return resultado;
 	}
-	*/
+	
 }
