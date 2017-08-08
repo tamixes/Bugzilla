@@ -44,11 +44,11 @@ public class Fachada implements IFachada{
 		return controleEncomenda.buscaEncomenda(codigoDaEncomenda);
 	}
 
-	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException {
+	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException, ErroAoAtualizarException {
 		controleEncomenda.atualizaEncomenda(encomenda);
 	}
 
-	public void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException {
+	public void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException, ErroAoRemoverException {
 		controleEncomenda.removeEncomenda(codigoDaEncommenda);
 	}
 

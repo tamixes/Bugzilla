@@ -29,8 +29,8 @@ public interface IFachada {
 	//Encomenda
 	void novaEncomenda(Encomenda encomenda) throws ObjectJaExisteException;
 	Encomenda buscaEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException;
-	void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException;
-	void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException;
+	void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException, ErroAoAtualizarException;
+	void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Encomenda> listaDeEncomendas();
 	public void defineTarifaBase(double tarifa);
 	
