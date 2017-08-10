@@ -12,7 +12,7 @@ import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 
 public class RepositorioFuncionario implements IRepositorioFuncionario{
 	
-	private List<Funcionario> funcionario = new ArrayList<Funcionario>();
+	private ArrayList<Funcionario> funcionario = new ArrayList<Funcionario>();
 	private static RepositorioFuncionario instance; 
 	
 	public static RepositorioFuncionario getInstance() {
@@ -43,7 +43,6 @@ public class RepositorioFuncionario implements IRepositorioFuncionario{
 	public void cadastrarFuncionario(Funcionario func) throws ObjectJaExisteException  {
 		this.funcionario.add(func);
 		}
-		
 	
 
 	public Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException {

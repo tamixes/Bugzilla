@@ -6,8 +6,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		//TelaTextual tela = new TelaTextual();
-		//tela.MenuPrincipal();
+		Menu tela = new Menu();
+		tela.login();
 		
 	}
 

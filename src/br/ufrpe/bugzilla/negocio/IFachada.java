@@ -25,6 +25,7 @@ public interface IFachada {
 	void removerFuncionario(Funcionario func) throws ErroAoRemoverException;
 	void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException;
 	List<Funcionario> listarFuncionarios();
+	boolean existeFunc(String cpf);
 	
 	//Encomenda
 	void novaEncomenda(Encomenda encomenda) throws ObjectJaExisteException;

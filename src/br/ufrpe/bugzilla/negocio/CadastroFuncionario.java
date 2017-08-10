@@ -20,25 +20,15 @@ public class CadastroFuncionario{
 		return instance; 
 	}
 	
-	/*if(func != null){
-		boolean existe = this.repositorio.existe(func.getCpf());
-		if(existe != true){
-			this.repositorio.cadastrarFuncionario(func);
-		}
-	*/
-	
 	public void cadastrarFuncionario(Funcionario func) throws ObjectJaExisteException{
 		if(func == null){
 			throw new IllegalArgumentException("Inválido!");
-		}else{
-			try {
-				boolean buscado = repositorio.existe(func.getCpf());
-				if(buscado != false){
-					throw new ObjectJaExisteException();
-				}
-			} catch (Exception e) {
-				this.repositorio.cadastrarFuncionario(func);
-			}
+		}
+		else if(repositorio.existe(func.getCpf())){
+			throw new ObjectJaExisteException();
+		}
+		else{
+			this.repositorio.cadastrarFuncionario(func);
 		}
 	}
 
@@ -79,6 +69,15 @@ public class CadastroFuncionario{
 			resultado = true;
 		}
 		return resultado;
+	}
+	
+	public boolean existe(String cpf){
+		if(cpf==null){
+			throw new IllegalArgumentException("Inválido!");
+		}
+		else{
+			return this.repositorio.existe(cpf);
+		}
 	}
 
 }

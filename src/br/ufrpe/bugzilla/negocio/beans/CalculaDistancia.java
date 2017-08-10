@@ -31,12 +31,12 @@ public abstract class CalculaDistancia {
 				* RAIO_TERRA_KM;
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		Local l1 = new Local("Rio",-22.5410,-43.1227);
 		Local l2 = new Local("Porto Alegre",-30.0159, -51.1348);
 		
 		int distancia = (int) DistanciaGeoEmKm(l1,l2);
 		System.out.println("Distancia do Rio para Porto Alegre: " + String.format("%dkm", distancia));
-	}
+	}*/
 }

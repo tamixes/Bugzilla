@@ -115,6 +115,10 @@ public class Fachada implements IFachada{
 	public List<Funcionario> listarFuncionarios() {
 		return this.cadastroFuncionario.mostrarfunc();
 	}
+	
+	public boolean existeFunc(String cpf){
+		return this.cadastroFuncionario.existe(cpf);
+	}
 
 	/**LOCAL**/
 
