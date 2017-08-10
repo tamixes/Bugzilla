@@ -48,5 +48,6 @@ public interface IFachada {
 	void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException;
 	void removerCliente(String nome) throws ObjectNaoExisteException;
 	ArrayList<Cliente> listarClientes();
+	boolean existeCliente(Cliente cliente);
 	
 }

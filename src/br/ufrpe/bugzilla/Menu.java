@@ -3,12 +3,14 @@ package br.ufrpe.bugzilla;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import br.ufrpe.bugzilla.colecoes.TipoCliente;
 import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
 import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.IFachada;
+import br.ufrpe.bugzilla.negocio.beans.Cliente;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
@@ -324,9 +326,81 @@ public class Menu {
 					
 					switch(op){
 					
-						case 1:
+						case 1:{
+							int opClient = 0;
+							do{
+								System.out.println("Escolha o tipo de cliente para ser cadastrado:\n 1 - Pessoa Física\n 2 - Pessoa Jurídica\n");
+							}while (opClient == 1 || opClient == 2);
 							
+						opClient = scan.nextInt();
+						if (opClient == 1) {
+
+							String limpaBuffer = scan.nextLine();
+							System.out.println();
+
+							System.out.println(
+									"Instruções:\nNo campo CPF, somente informe os numeros, não é necessário digitar pontos e hífem\n");
+
+							System.out.println("Nome: ");
+							String nomeCliente = scan.nextLine();
+
+							System.out.println("CPF: ");
+							String cpfCliente = scan.nextLine();
+
+							System.out.println("Telefone: ");
+							String telCliente = scan.nextLine();
+
+							System.out.println("---Endereço");
+							System.out.print("Rua: ");
+							String rua = scan.nextLine();
+							System.out.print("Numero: ");
+							int num = scan.nextInt();
+							String limpaBuffer2 = scan.nextLine();
+							System.out.print("Bairro: ");
+							String bairro = scan.nextLine();
+							System.out.print("Cidade: ");
+							String cidade = scan.nextLine();
+							System.out.print("Estado: ");
+							String estado = scan.nextLine();
+							System.out.print("CEP: ");
+							String cep = scan.nextLine();
+
+							Endereco enderecoClient = new Endereco(rua, bairro, cidade, estado, cep, num);
+							Cliente cliente = new Cliente(nomeCliente, null, cpfCliente, telCliente, enderecoClient, TipoCliente.FIS);
 							
+							if ((cpfCliente.length() != 11) || 
+									(bugentregas.existeCliente(cliente))) {
+	
+								String erro = "O cadastro possui os campos inválidos: \n";
+	
+								if (cpfCliente.length() != 11) {
+									erro = erro + "CPF inválido\n";
+								}
+								
+								if(bugentregas.existeCliente(cliente)){
+									erro = erro + "O CPF inserido já está cadastrado no sistema";
+								}
+								
+								System.out.println(erro);
+							} else {
+								 
+								try {
+									bugentregas.cadastrarCliente(cliente);
+								} catch (ObjectJaExisteException e) {
+									System.out.println(e.getMessage());
+									e.printStackTrace();
+								}
+								
+								System.out.println("Cadastro realizado com sucesso!");
+							}
+
+						} else if (opClient == 2) {
+							
+						} else {
+
+						}
+							
+						}
 						break;
 						
 						case 2:

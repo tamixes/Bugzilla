@@ -81,6 +81,15 @@ public class ControladorCliente {
 		}
 			
 	}
+	
+	public boolean existe(Cliente cliente){
+		if(cliente==null){
+			throw new IllegalArgumentException("Inválido!");
+		}
+		else{
+			return this.repositorio.existe(cliente);
+		}
+	}
 
 	public ArrayList<Cliente> listarClientes() {
 
