@@ -1,19 +1,29 @@
 package br.ufrpe.bugzilla.negocio.beans;
 import java.time.LocalDate;
 
+import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
+
 public class Funcionario extends Pessoa{
 	
 	private double salario;
+	//private TipoDeFuncionario tipo;
 	
-	public Funcionario(String nome, String cpf, LocalDate nascimento, String telefone,
-						Endereco endereco, double salario, Usuario usuario){
+	public Funcionario(String nome, String cpf, LocalDate nascimento, String telefone,Endereco endereco, double salario, Usuario usuario/*,TipoDeFuncionario tipo*/){
 		
 		super(nome, cpf, nascimento, telefone, endereco, usuario);
 		this.salario = salario;
-		
 	}
+	
 	public Funcionario(){
 		this(null, null, null, null, null, 0, null);
+	}
+
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public double getSalario() {
@@ -24,10 +34,14 @@ public class Funcionario extends Pessoa{
 		this.salario = salario;
 	}
 	
+	/*public TipoDeFuncionario getTipo() {
+		return tipo;
+	}*/
+	
 	@Override
 	public String toString(){
 		String resultado = super.toString();
-		resultado += "\nSalario: " + this.salario + "\nLogin: " + this.getUsuario().getLogin() + "\nSenha: " + this.getUsuario().getSenha();
+		resultado += /*"\n Cargo: " + getTipo() +*/ "\nSalario: " + this.salario + "\nLogin: " + this.getUsuario().getLogin() + "\nSenha: " + this.getUsuario().getSenha();
 		
 		return resultado;
 	}

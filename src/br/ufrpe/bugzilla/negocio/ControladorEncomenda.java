@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.dao.IRepositorioEncomenda;
 import br.ufrpe.bugzilla.dao.RepositorioEncomenda;
+import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
+import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
@@ -51,7 +53,7 @@ public class ControladorEncomenda {
 		
 	}
 	
-	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException{
+	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException, ErroAoAtualizarException{
 		
 		if((encomenda == null) || (this.repositorio.buscaEncomenda(encomenda.getCodigo()) != null)){
 			
@@ -63,7 +65,7 @@ public class ControladorEncomenda {
 		}
 	}
 	
-	public void removeEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException{
+	public void removeEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException, ErroAoRemoverException{
 		if(codigoDaEncomenda != null){
 			this.repositorio.removeEncomenda(codigoDaEncomenda);
 		} else {

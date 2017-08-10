@@ -45,7 +45,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 
 	public void atualizarCliente(Cliente cliente) {
 		
-		int indice = procurarIndice(cliente.getNomeEmpresa());
+		int indice = procurarIndice(cliente.getNome());
 		
 		if(indice>=0){
 			
@@ -93,7 +93,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 		int i = -1;
 		
 		for(int j=0;j<clientes.size();j++){
-			if(clientes.get(j).getNomeEmpresa().equalsIgnoreCase(nome)){
+			if(clientes.get(j).getNome().equalsIgnoreCase(nome)){
 				i = j;
 			}
 		}
