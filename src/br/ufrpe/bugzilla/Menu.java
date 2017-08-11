@@ -24,10 +24,10 @@ public class Menu {
 		System.out.println("------------------BUGZILLA-----------------\n");
 	}
 	
-	public void login(){
+	public void login() throws Exception{
 		
 		this.borda();
-		
+	
 		System.out.println("Login: ");
 		String login = scan.nextLine();
 		System.out.println("Senha: ");
@@ -40,7 +40,7 @@ public class Menu {
 		
 	}
 
-	private void menuPrincipal(){
+	private void menuPrincipal() throws Exception{
 		
 		while(true){
 			
@@ -167,10 +167,10 @@ public class Menu {
 						
 						case 2:{
 							
-							String limpaBuffer = scan.nextLine();
-							System.out.println("Remover funcionário");
-							System.out.println("Informe o cpf do funcionario que deseja remover: ");
-							String busca = scan.nextLine();
+						String limpaBuffer = scan.nextLine();
+						System.out.println("Remover funcionário");
+						System.out.println("Informe o cpf do funcionario que deseja remover: ");
+						String busca = scan.nextLine();
 							
 						Funcionario deleta = null;
 						try {
@@ -378,7 +378,7 @@ public class Menu {
 								}
 								
 								if(bugentregas.existeCliente(cliente)){
-									erro = erro + "O CPF inserido já está cadastrado no sistema";
+									erro = erro + "O cliente" + nomeCliente + " inserido já está cadastrado no sistema";
 								}
 								
 								System.out.println(erro);
@@ -395,15 +395,104 @@ public class Menu {
 							}
 
 						} else if (opClient == 2) {
-							
-						} else {
+							String limpaBuffer = scan.nextLine();
+							System.out.println();
 
-						}
+							System.out.println(
+									"Instruções:\nNo campo CNPJ, somente informe os numeros, não é necessário digitar pontos, barra e hífem\n");
+
+							System.out.println("Nome: ");
+							String nomeCliente = scan.nextLine();
+
+							System.out.println("CNPJ: ");
+							String cnpjCliente = scan.nextLine();
+
+							System.out.println("Telefone: ");
+							String telCliente = scan.nextLine();
+
+							System.out.println("---Endereço");
+							System.out.print("Rua: ");
+							String rua = scan.nextLine();
+							System.out.print("Numero: ");
+							int num = scan.nextInt();
+							String limpaBuffer2 = scan.nextLine();
+							System.out.print("Bairro: ");
+							String bairro = scan.nextLine();
+							System.out.print("Cidade: ");
+							String cidade = scan.nextLine();
+							System.out.print("Estado: ");
+							String estado = scan.nextLine();
+							System.out.print("CEP: ");
+							String cep = scan.nextLine();
+
+							Endereco enderecoClient = new Endereco(rua, bairro, cidade, estado, cep, num);
+							Cliente cliente = new Cliente(nomeCliente, cnpjCliente, null, telCliente, enderecoClient, TipoCliente.JUR);
+							
+							if ((cnpjCliente.length() != 14) || 
+									(bugentregas.existeCliente(cliente))) {
+	
+								String erro = "O cadastro possui os campos inválidos: \n";
+	
+								if (cnpjCliente.length() != 11) {
+									erro = erro + "CNPJ inválido\n";
+								}
+								
+								if(bugentregas.existeCliente(cliente)){
+									erro = erro + "O cliente" + nomeCliente +" já está cadastrado no sistema";
+								}
+								
+								System.out.println(erro);
+							} else {
+								 
+								try {
+									bugentregas.cadastrarCliente(cliente);
+								} catch (ObjectJaExisteException e) {
+									System.out.println(e.getMessage());
+									e.printStackTrace();
+								}
+								
+								System.out.println("Cadastro realizado com sucesso!");
+							}
+
+						} 
 							
 						}
 						break;
 						
-						case 2:
+						case 2:{
+							String limpaBuffer = scan.nextLine();
+							System.out.println("Remover Cliente");
+							System.out.println("Informe o ID do cliente que deseja remover: ");
+							int busca = scan.nextInt();
+								
+							Cliente deleta = null;
+							try {
+								deleta = bugentregas.procurarCliente(busca);
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								e.printStackTrace();
+							}
+								if(deleta != null){
+									System.out.println("Você realmente deseja deletar os dados de " + deleta.getNome() +"?\n"
+											+ "1 - Sim\n"
+											+ "2 - Não\n"
+											+ "Digite: ");
+									int escolha = scan.nextInt();
+									switch(escolha){
+										case 1:
+										try {
+											bugentregas.removerCliente(deleta);
+										} catch (ErroAoRemoverException e) {
+											System.out.println(e.getMessage());
+											e.printStackTrace();
+										}
+											System.out.println("Funcionário removido!");
+										}
+								}
+								else {
+									System.out.println("Funcionário não existe!");
+								}
+						}
 							
 							
 						break;

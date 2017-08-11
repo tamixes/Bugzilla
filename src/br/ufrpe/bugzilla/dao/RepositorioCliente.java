@@ -2,6 +2,8 @@ package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
 
+import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
+import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
 
@@ -42,8 +44,28 @@ public class RepositorioCliente implements IRepositorioCliente{
 		
 		return resultado;
 	}
+	
+	public Cliente procurarCliente(int id) throws ObjectNaoExisteException {
+		
+		int i = -1;
+		Cliente resultado = new Cliente();
+		for (int j = 0; j < clientes.size(); j++) {
+			if (clientes.get(j).getId() == id) {
+				i = j;
+			}
+		}
 
-	public void atualizarCliente(Cliente cliente) {
+		if(i >= clientes.size()) {
+			resultado = clientes.get(i);
+		}
+		
+		else {
+			throw new ObjectNaoExisteException();
+		}
+		return resultado;
+	}
+	
+	public void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoAtualizarException{
 		
 		int indice = procurarIndice(cliente.getNome());
 		
@@ -56,9 +78,9 @@ public class RepositorioCliente implements IRepositorioCliente{
 		}
 	}
 
-	public void removerCliente(String nome) {
+	public void removerCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoRemoverException{
 		
-		int indice = procurarIndice(nome);
+		int indice = procurarIndice(cliente.getId());
 		
 		if(indice>=0){
 			
@@ -100,5 +122,17 @@ public class RepositorioCliente implements IRepositorioCliente{
 		
 		return i;
 	}
+
+	public int procurarIndice(int id) {
+		int i = -1;
+		for (int j = 0; j < clientes.size(); j++) {
+			if (clientes.get(j).getId() == id) {
+				i = j;
+			}
+		}
+		return i;
+		
+	}
+
 	
 }

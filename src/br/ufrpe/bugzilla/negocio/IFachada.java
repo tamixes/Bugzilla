@@ -45,8 +45,9 @@ public interface IFachada {
 	//Cliente
 	void cadastrarCliente(Cliente cliente) throws ObjectJaExisteException;
 	Cliente procurarCliente(String nome) throws ObjectNaoExisteException;
-	void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException;
-	void removerCliente(String nome) throws ObjectNaoExisteException;
+	Cliente procurarCliente(int id) throws ObjectNaoExisteException;
+	void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoAtualizarException;
+	void removerCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Cliente> listarClientes();
 	boolean existeCliente(Cliente cliente);
 	

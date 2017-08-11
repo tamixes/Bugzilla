@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.dao.IRepositorioCliente;
 import br.ufrpe.bugzilla.dao.RepositorioCliente;
+import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
+import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
@@ -39,16 +41,16 @@ public class ControladorCliente {
          	
 	}
 	
-	public void removerLocal(String nome) throws ObjectNaoExisteException{
-		
-		if(nome!=null){
-			repositorio.removerCliente(nome);
-		}
-		else{
-			throw new IllegalArgumentException("Parâmetro inválido");
-		}
-		
-	}
+//	public void removerLocal(String nome) throws ObjectNaoExisteException{
+//		
+//		if(nome!=null){
+//			repositorio.removerCliente(nome);
+//		}
+//		else{
+//			throw new IllegalArgumentException("Parâmetro inválido");
+//		}
+//		
+//	}
 	
 	public Cliente procurarCliente(String nome) throws ObjectNaoExisteException{
 
@@ -59,8 +61,22 @@ public class ControladorCliente {
 			throw new IllegalArgumentException("Parâmetro inválido");
 		}
 	}
+	
+	public Cliente procurarCliente(int id) throws ObjectNaoExisteException{
+		Cliente resultado = new Cliente();
+		
+		try {
+			resultado = this.repositorio.procurarCliente(id);
+		}
+		catch(ObjectNaoExisteException e){
+			System.out.println(e.getMessage());
+			e.getStackTrace();
+		}
+		
+		return resultado;
+	}
 
-	public void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException{
+	public void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoAtualizarException{
 			
 		if(cliente!=null){
 			repositorio.atualizarCliente(cliente);
@@ -71,10 +87,10 @@ public class ControladorCliente {
 			
 	}
 
-	public void removerCliente(String nome) throws ObjectNaoExisteException{
+	public void removerCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoRemoverException{
 
-		if(nome!=null){
-			repositorio.removerCliente(nome);
+		if(cliente!=null){
+			repositorio.removerCliente(cliente);
 		}
 		else{
 			throw new IllegalArgumentException("Parâmetro inválido");

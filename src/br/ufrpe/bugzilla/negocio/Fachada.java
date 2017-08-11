@@ -162,14 +162,19 @@ public class Fachada implements IFachada {
 		return this.controleCliente.procurarCliente(nome);
 	}
 
-	public void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException {
+	public Cliente procurarCliente(int id) throws ObjectNaoExisteException {
+
+		return this.controleCliente.procurarCliente(id);
+	}
+
+	public void atualizarCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoAtualizarException {
 
 		this.controleCliente.atualizarCliente(cliente);
 	}
 
-	public void removerCliente(String nome) throws ObjectNaoExisteException {
+	public void removerCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoRemoverException {
 
-		this.controleCliente.removerCliente(nome);
+		this.controleCliente.removerCliente(cliente);
 	}
 
 	public ArrayList<Cliente> listarClientes() {
@@ -182,6 +187,5 @@ public class Fachada implements IFachada {
 		return this.controleCliente.existe(cliente);
 
 	}
-
 
 }

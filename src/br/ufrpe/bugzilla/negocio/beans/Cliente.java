@@ -59,7 +59,7 @@ public class Cliente {
 	}
 
 	public String getCnpj() {
-		return cnpj;
+		return this.formataCnpj(cnpj);
 	}
 
 	public void setCnpj(String cnpj) {
@@ -67,7 +67,7 @@ public class Cliente {
 	}
 
 	public String getCpf() {
-		return cpf;
+		return this.formataCpf(cpf);
 	}
 
 	public void setCpf(String cpf) {
@@ -108,20 +108,42 @@ public class Cliente {
 		cpf = String.format("%s.%s.%s-%s", p1, p2, p3, p4);
 		return cpf;
 	}
+	
+	public String formataCnpj(String cnpj) {
+		
+		String p1 = cnpj.substring(0, 2);
+		String p2 = cnpj.substring(2, 5);
+		String p3 = cnpj.substring(5, 8);
+		String p4 = cnpj.substring(8, 12);
+		String p5 = cnpj.substring(12, 14);
+
+		cnpj = String.format("%s.%s.%s/%s-%s", p1, p2, p3, p4, p5);
+		
+		return cnpj;
+	}
 
 	public String toString() {
 
 		String resultado = "";
 		if (this.tipo == TipoCliente.JUR) {
-			resultado = "Dados do cliente:\n" + "\t Nome da empresa: " + this.getNome() + "\n" + "\t ID: "
-					+ this.getId() + "\n" + "\t CNPJ: " + this.getCnpj() + "\n" + "\t Telefone: " + this.getTelefone()
-					+ "\n" + "\t Endereço: " + this.getEndereco() + "\n";
+			resultado =
+				  "Dados do cliente:\n" 
+				+ "\t Nome da empresa: " 	+ this.getNome() + "\n"
+				+ "\t ID: " 	+ this.getId() + "\n"
+				+ "\t CNPJ: " 		+ this.getCnpj() + "\n"
+				+ "\t Telefone: " 		+ this.getTelefone() + "\n"
+				+ "\t Endereço: " 		+ this.getEndereco() + "\n";
 		} else {
-			resultado = "Dados do cliente:\n" + "\t Nome do cliente: " + this.getNome() + "\n" + "\t ID: "
-					+ this.getId() + "\n" + "\t CPF: " + this.getCpf() + "\n" + "\t Telefone: " + this.getTelefone()
-					+ "\n" + "\t Endereço: " + this.getEndereco() + "\n";
+			resultado =
+				  "Dados do cliente:\n" 
+				+ "\t Nome do cliente: " 	+ this.getNome() + "\n"
+				+ "\t ID: " 	+ this.getId() + "\n"
+				+ "\t CPF: " 		+ this.getCpf() + "\n"
+				+ "\t Telefone: " 		+ this.getTelefone() + "\n"
+				+ "\t Endereço: " 		+ this.getEndereco() + "\n";
 		}
-
+		
+		
 		return resultado;
 
 	}
