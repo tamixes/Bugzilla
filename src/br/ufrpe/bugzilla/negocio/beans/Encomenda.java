@@ -8,7 +8,7 @@ public class Encomenda {
 
 	private String codigo;
 	private Cliente remetente;
-	private Pessoa destinatario;
+	private Cliente destinatario;
 	private double peso;
 	private String tipoDoProduto;
 	private boolean entregue = false;
@@ -31,7 +31,7 @@ public class Encomenda {
 		
 	}
 
-	public Encomenda(Pessoa destinatario, double peso, String tipo, Local partida, Local destino, int prazo, Cliente remetente) {
+	public Encomenda(Cliente destinatario, double peso, String tipo, Local partida, Local destino, int prazo, Cliente remetente) {
 		this.codigo = "BUG" + geraCodigo + "BR";
 		geraCodigo++;
 
@@ -116,16 +116,20 @@ public class Encomenda {
 	public boolean isEntregue() {
 		return entregue;
 	}
+	
+	public void setEntregue(){
+		this.entregue = true;
+	}
 
 	public String getCodigo() {
 		return codigo;
 	}
 
-	public Pessoa getDestinatario() {
+	public Cliente getDestinatario() {
 		return destinatario;
 	}
 
-	public void setDestinatario(Pessoa destinatario) {
+	public void setDestinatario(Cliente destinatario) {
 		this.destinatario = destinatario;
 	}
 
@@ -145,7 +149,7 @@ public class Encomenda {
 		return resultado;
 	}
 
-	public void atualizaRelatorio(String situacao, Endereco local, LocalDateTime dataHora) {
+	public void atualizaRelatorio(String situacao, String local, LocalDateTime dataHora) {
 		Rastreio rastreio = new Rastreio(situacao, local, dataHora);
 
 		this.rastreio.add(rastreio);
@@ -181,7 +185,8 @@ public class Encomenda {
 				  "Dados da encomenda:\n" 
 				+ "Remetente:"                  + this.getRemetente().getNome() + "\n"
 				+ "\t Nome do destinatário: " 	+ this.destinatario.getNome() + "\n"
-				+ "\t Destino do produto: " 	+ this.destinatario.getEnd() + "\n"
+				+ "\t Destino do produto: " 	+ "Central Bugzilla em " + this.localDestino.getNome() + "\n"
+				+ "\t Destino final: " 	+ this.destinatario.getEndereco() + "\n"
 				+ "\t Status da entrega: " 		+ this.Status() + "\n"
 				+ "\t Tipo de produto: " 		+ this.tipoDoProduto + "\n"
 				+ "\t Peso do produto: " 		+ this.peso + "kg\n"

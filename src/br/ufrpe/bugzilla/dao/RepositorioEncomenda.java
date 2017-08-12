@@ -2,6 +2,7 @@ package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
 
+import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 
@@ -77,12 +78,15 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 		}
 	}
 	
-	public boolean removeEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException {
+	public boolean removeEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException, ErroAoRemoverException {
 		int i = this.indice(codigoDaEncomenda);
 		boolean apagou = false;
 		if(i != this.encomendas.size()){
 			this.encomendas.remove(i);
 			apagou = true;
+		}
+		else{
+			throw new ErroAoRemoverException();
 		}
 		
 		return apagou;

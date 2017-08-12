@@ -1,6 +1,7 @@
 package br.ufrpe.bugzilla;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,9 +13,11 @@ import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.IFachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
+import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Local;
+import br.ufrpe.bugzilla.negocio.beans.Rastreio;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
 
 public class Menu {
@@ -602,7 +605,7 @@ public class Menu {
 						case 5:{
 							System.out.println("Voltando ao menu...");
 							scan.nextLine();
-							aux1 = 5;
+							aux2 = 5;
 						break;
 						}
 					}
@@ -771,7 +774,7 @@ public class Menu {
 						case 5:{
 							System.out.println("Voltando ao menu...");
 							scan.nextLine();
-							aux1 = 5;
+							aux3 = 5;
 						break;
 						}
 					}
@@ -791,39 +794,250 @@ public class Menu {
 					System.out.println("1 - Cadastrar\n"
 									 + "2 - Remover\n"
 									 + "3 - Pesquisar\n"
-									 + "4 - Atualizar\n"
-									 + "5 - Sair\n"
+									 + "4 - Atualizar Rastreio\n"
+									 + "5 - Definir Tarifa Base\n"
+									 + "6 - Sair\n"
 									 + "Opção: ");
 					int op = scan.nextInt();
 					
 					switch(op){
 					
-						case 1:
+						case 1:{
+							
+							boolean ok = false;
+							
+							do{
+								
+								scan.nextLine(); //limpabuffer
+
+								System.out.println("Para registrar uma encomenda, é necessário ter cadastrado ao menos 2 centrais e 2 clientes\n");
+								
+								Cliente leituraCliente1 = null;
+								Cliente leituraCliente2 = null;
+								
+								do{
+									System.out.println("Digite o id do Cliente remetente: ");
+									int busca = scan.nextInt();
+									
+									
+									try {
+										leituraCliente1 = bugentregas.procurarCliente(busca);
+										
+									} catch (ObjectNaoExisteException e) {
+										System.out.println(e.getMessage());
+										scan.nextLine();
+									}
+								}while(leituraCliente1==null);
+								
+								do{
+									System.out.println("Digite o id do Cliente destinatário: ");
+									int busca = scan.nextInt();
+									
+									
+									try {
+										leituraCliente2 = bugentregas.procurarCliente(busca);
+										
+									} catch (ObjectNaoExisteException e) {
+										System.out.println(e.getMessage());
+										scan.nextLine();
+									}
+								}while(leituraCliente2==null);
+								
+								scan.nextLine(); //limpaBuffer
+								System.out.println("Digite o tipo/nome do produto: ");
+								String tipo = scan.nextLine();
+								System.out.println("Digite o peso: ");
+								double peso = scan.nextDouble();
+								System.out.println("Digite o prazo: ");
+								int prazo = scan.nextInt();
+								scan.nextLine(); //limpaBuffer
+								
+								Local leituraLocal1 = null;
+								Local leituraLocal2 = null;
+								
+								while(leituraLocal1==null){
+									System.out.println("Digite o nome do Local de origem: ");
+									String busca = scan.nextLine();
+									
+									
+									try {
+										leituraLocal1 = bugentregas.procurarLocal(busca);
+										
+									} catch (ObjectNaoExisteException e) {
+										System.out.println(e.getMessage());
+										scan.nextLine();
+									}
+								}
+								
+								while(leituraLocal2==null){
+									System.out.println("Digite o nome do Local de destino: ");
+									String busca = scan.nextLine();
+									
+									
+									try {
+										leituraLocal2 = bugentregas.procurarLocal(busca);
+										
+									} catch (ObjectNaoExisteException e) {
+										System.out.println(e.getMessage());
+										scan.nextLine();
+									}
+								}
+								
+								Encomenda encomenda = new Encomenda(leituraCliente2,peso,tipo,leituraLocal1,leituraLocal2,prazo,leituraCliente2);
+								
+								try{
+									
+									bugentregas.novaEncomenda(encomenda);
+									System.out.println("Encomenda cadastrada com sucesso, código: " + encomenda.getCodigo());
+									ok=true;
+									scan.nextLine();
+									
+								}catch(ObjectJaExisteException e){
+									System.out.println(e.getMessage());
+								}
+								
+								
+							}while(ok==false);
 							
 							
 						break;
+						}
 						
-						case 2:
+						case 2:{
+							
+							scan.nextLine(); //limpabuffer
+							System.out.println("Remover Encomenda");
+							System.out.println("Informe o codigo da encomenda que deseja remover: ");
+							String busca = scan.nextLine();
+								
+							Encomenda deleta = null;
+							try {
+								deleta = bugentregas.buscaEncomenda(busca);
+								System.out.println("Você realmente deseja deletar " + deleta.getCodigo() +"?\n"
+										+ "1 - Sim\n"
+										+ "2 - Não\n"
+										+ "Digite: ");
+								int escolha = scan.nextInt();
+								switch(escolha){
+									case 1:
+										try {
+											bugentregas.removeEncomenda(deleta.getCodigo());
+											System.out.println("Removido com sucesso!");
+											scan.nextLine();
+										} catch (ErroAoRemoverException e) {
+											System.out.println(e.getMessage());
+											scan.nextLine();
+										} catch(ObjectNaoExisteException e){
+											System.out.println(e.getMessage());
+											scan.nextLine();
+										}
+									}
+								
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								scan.nextLine();
+							}
 							
 							
 						break;
-							
-						case 3:
-							
-							
-						break;
+						}
 						
-						case 4:
+						case 3:{
+							
+							scan.nextLine(); //limpaBuffer
+							System.out.println(" ***Buscar uma Encomenda***\n");
+							System.out.println("Digite o código da Encomenda: ");
+							String busca = scan.nextLine();
+							
+							Encomenda leitura = null;
+							try {
+								leitura = bugentregas.buscaEncomenda(busca);
+								System.out.println("\nInformações da Encomenda " + leitura.getCodigo());
+								System.out.println();
+								System.out.println(leitura);
+								System.out.println();
+								System.out.println(leitura.getRelatorio());
+								scan.nextLine();
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								scan.nextLine();
+							}
 							
 							
 						break;
+						}
+						
+						case 4:{
+							
+							scan.nextLine(); //limpaBuffer
+							System.out.println("***Atualizar Rastreio de uma Encomenda***\n");
+							System.out.println("Digite o código da Encomenda: ");
+							String busca = scan.nextLine();
+							
+							Encomenda leitura = null;
+							try {
+								leitura = bugentregas.buscaEncomenda(busca);
+								System.out.println("Digite a situação: ");
+								String situacao = scan.nextLine();
+								System.out.println("Digite o Local atual: ");
+								String local = scan.nextLine();
+								LocalDateTime dataHora = LocalDateTime.now();
+								
+								Rastreio rastreamento = new Rastreio(situacao,local,dataHora);
+								
+								try{
+									
+									leitura.atualizaRelatorio(rastreamento);
+									bugentregas.atualizaEncomenda(leitura);
+									System.out.println("Rastreio atualizado com sucesso!");
+									scan.nextLine();
+									
+								}catch(ObjectNaoExisteException e){
+									System.out.println(e.getMessage());
+								}catch(ErroAoAtualizarException e){
+									System.out.println(e.getMessage());
+								}
+								
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								scan.nextLine();
+							}
 							
 							
-						case 5:
+						break;
+						}
+						
+						case 5:{
+							boolean ok = false;
+							
+							do{
+								
+								try{
+									System.out.println("Digite o valor da nova Tarifa base: ");
+									double valor = scan.nextDouble();
+									bugentregas.defineTarifaBase(valor);
+									System.out.println("Tarifa definida com sucesso!");
+									ok = true;
+								}catch(InputMismatchException e){
+									System.out.println(e.getMessage());
+								}
+								
+							}while(ok==false);
+							
+							
+							
+						break;
+						}
+							
+						case 6:{
 							System.out.println("Voltando ao menu...");
 							scan.nextLine();
-							aux1 = 5;
+							aux4 = 5;
 						break;
+						}
 					}
 				}
 				
@@ -834,7 +1048,6 @@ public class Menu {
 			case 0:
 				scan.close();
 				System.out.println("Saindo...");
-				scan.nextLine();
 				System.exit(0);
 			break;
 			

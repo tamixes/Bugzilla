@@ -5,16 +5,18 @@ import java.time.LocalDateTime;
 public class Rastreio {
 	
 	private String situacao;
-	private Endereco end;
+	//faz mais sentido ter esse atributo localAtual
+	//do que um do tipo endereço pra dps pegar só o nome da cidade
+	private String localAtual;
 	private LocalDateTime dataHora;
 	
 	public Rastreio() {
 		
 	}
 
-	public Rastreio(String situacao, Endereco local, LocalDateTime dataHora) {
+	public Rastreio(String situacao, String local, LocalDateTime dataHora) {
 		this.situacao = situacao;
-		this.end = local;
+		this.localAtual = local;
 		this.dataHora = dataHora;
 	}
 
@@ -40,12 +42,12 @@ public class Rastreio {
 		this.situacao = situacao;
 	}
 
-	public Endereco getEnd() {
-		return end;
+	public String getLocalAtual() {
+		return localAtual;
 	}
 
-	public void setEnd(Endereco local) {
-		this.end = local;
+	public void setEnd(String local) {
+		this.localAtual = local;
 	}
 
 	public LocalDateTime getDataHora() {
@@ -61,7 +63,7 @@ public class Rastreio {
 		String resultado = null;
 		String data = this.DateToString(this.dataHora);
 		
-		resultado = data + " | "+ end.getRua() + ", " + end.getCidade() + " | " + situacao;
+		resultado = data + " | "+ this.localAtual  + " | " + situacao;
 		
 		return resultado;
 	}
