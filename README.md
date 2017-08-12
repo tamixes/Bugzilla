@@ -18,7 +18,7 @@ _Projeto para desenvolvimento de um sistema de controle de encomendas._
 
 ## Descrição:
 
-📦 **A Bugzilla Entregas oferece serviços de transporte de encomendas para empresas.**
+📦 **A Bugzilla Entregas oferece serviços de transporte de encomendas.**
 
 
 Sendo assim, nesse sistema o funcionário da Bugzilla pode:
