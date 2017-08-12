@@ -13,7 +13,6 @@ public class Cliente {
 	private Endereco endereco;
 	private TipoCliente tipo;
 
-	//
 	public Cliente(String nome, String cnpj, String cpf, String telefone, Endereco end, TipoCliente tipo) {
 		if (tipo == TipoCliente.JUR) {
 			this.id = geraId;
@@ -35,16 +34,6 @@ public class Cliente {
 		}
 
 	}
-
-	// public Cliente(String nome, int cpf, String telefone, Endereco end) {
-	// this.id = geraId;
-	// geraId++;
-	//
-	// this.nome = nome;
-	// this.cpf = formataCpf(cpf);
-	// this.telefone = telefone;
-	// this.endereco = end;
-	// }
 
 	public Cliente() {
 
@@ -157,7 +146,7 @@ public class Cliente {
 
 		Cliente other = (Cliente) obj;
 
-		if (this.id == other.id && this.cnpj.equals(other.cnpj) && this.endereco.equals(other.endereco)
+		if (this.id == other.id && ( this.cnpj.equals(other.cnpj) || this.cpf.equals(other.cpf) ) && this.endereco.equals(other.endereco)
 				&& this.nome.equalsIgnoreCase(other.nome)) {
 
 			return true;

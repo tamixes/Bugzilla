@@ -55,7 +55,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 			}
 		}
 
-		if(i >= clientes.size()) {
+		if(i >= 0) {
 			resultado = clientes.get(i);
 		}
 		
@@ -74,7 +74,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 			clientes.set(indice, cliente);
 		}
 		else{
-			//throw new
+			throw new ErroAoAtualizarException();
 		}
 	}
 
@@ -87,7 +87,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 			clientes.remove(indice);
 		}
 		else{
-			//throw new 
+			throw new ErroAoRemoverException();
 		}
 	}
 

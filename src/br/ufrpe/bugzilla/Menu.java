@@ -435,7 +435,7 @@ public class Menu {
 	
 								String erro = "O cadastro possui os campos inválidos: \n";
 	
-								if (cnpjCliente.length() != 11) {
+								if (cnpjCliente.length() != 14) {
 									erro = erro + "CNPJ inválido\n";
 								}
 								
@@ -454,6 +454,7 @@ public class Menu {
 								}
 								
 								System.out.println("Cadastro realizado com sucesso!");
+								scan.nextLine();
 							}
 
 						} 
@@ -488,33 +489,122 @@ public class Menu {
 											System.out.println(e.getMessage());
 											e.printStackTrace();
 										}
-											System.out.println("Funcionário removido!");
+											System.out.println("Cliente removido!");
 										}
 								}
 								else {
-									System.out.println("Funcionário não existe!");
+									System.out.println("Cliente não existe!");
 								}
 						}
 							
 							
 						break;
 							
-						case 3:
+						case 3:{
+							
+							scan.nextLine(); //limpaBuffer
+							System.out.println(" Pesquisar um cliente \n");
+							System.out.println("Digite o id do Cliente: ");
+							int busca = scan.nextInt();
+							
+							Cliente leitura = null;
+							try {
+								leitura = bugentregas.procurarCliente(busca);
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								e.printStackTrace();
+								scan.nextLine();
+							}
+							if(leitura != null){
+								System.out.println("Dados gerais de " + leitura.getNome());
+								System.out.println(leitura);
+							}
+							else{
+								
+								System.out.println("Funcionário não existe!");
+							}
 							
 							
 						break;
+						}
 						
-						case 4:
+						case 4:{
+							
+							scan.nextLine(); //limpaBuffer
+							System.out.println("Atualizar Cliente");
+							System.out.println("Informe o nome do cliente que deseja alterar: ");
+							String busca = scan.nextLine();
+							
+							Cliente atualiza = null;
+							try {
+								atualiza = bugentregas.procurarCliente(busca);
+								
+								System.out.println("----Digite os novos dados");
+								System.out.println("Nome: ");
+								String nomeCliente = scan.nextLine();
+
+								/***
+									System.out.println("CPF: ");
+									String cpfCliente = scan.nextLine();
+									atualiza.setCpf(cpfCliente);
+								
+								
+									System.out.println("CNPJ: ");
+									String cnpjCliente = scan.nextLine();
+									atualiza.setCnpj(cnpjCliente);
+								***/
+								
+
+								System.out.println("Telefone: ");
+								String telCliente = scan.nextLine();
+
+								System.out.println("---Endereço");
+								System.out.print("Rua: ");
+								String rua = scan.nextLine();
+								System.out.print("Numero: ");
+								int num = scan.nextInt();
+								scan.nextLine(); //limpaBuffer
+								System.out.print("Bairro: ");
+								String bairro = scan.nextLine();
+								System.out.print("Cidade: ");
+								String cidade = scan.nextLine();
+								System.out.print("Estado: ");
+								String estado = scan.nextLine();
+								System.out.print("CEP: ");
+								String cep = scan.nextLine();
+
+								Endereco enderecoClient = new Endereco(rua, bairro, cidade, estado, cep, num);
+
+								atualiza.setNome(nomeCliente);
+								atualiza.setTelefone(telCliente);
+								atualiza.setEndereco(enderecoClient);
+								
+								
+								try {
+									bugentregas.atualizarCliente(atualiza);
+									System.out.println("Atualizado com sucesso!");
+									scan.nextLine();
+								} catch (ErroAoAtualizarException e) {
+									System.out.println(e.getMessage());
+									scan.nextLine();
+								}
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								scan.nextLine();
+							}
 							
 							
 						break;
+						}
 							
-							
-						case 5:
+						case 5:{
 							System.out.println("Voltando ao menu...");
 							scan.nextLine();
 							aux1 = 5;
 						break;
+						}
 					}
 				}
 				
