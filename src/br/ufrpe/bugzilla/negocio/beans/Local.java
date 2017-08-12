@@ -4,8 +4,8 @@ public class Local {
 	
 	private String nome;
 	//vai ser utilizada para calcular distancia em km
-	private double longitude;
 	private double latitude;
+	private double longitude;
 	
 	public Local(){
 		
