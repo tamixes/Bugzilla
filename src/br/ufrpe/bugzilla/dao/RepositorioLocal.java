@@ -2,6 +2,8 @@ package br.ufrpe.bugzilla.dao;
 
 import java.util.ArrayList;
 
+import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
+import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.*;
 
@@ -44,7 +46,7 @@ public class RepositorioLocal implements IRepositorioLocal {
 		return resultado;
 	}
 	
-	public void atualizarLocal(Local l) throws ObjectNaoExisteException{
+	public void atualizarLocal(Local l) throws ObjectNaoExisteException, ErroAoAtualizarException{
 		
 		int indice = procurarIndice(l.getNome());
 		
@@ -53,12 +55,12 @@ public class RepositorioLocal implements IRepositorioLocal {
 			locais.set(indice, l);
 		}
 		else{
-			throw new ObjectNaoExisteException();
+			throw new ErroAoAtualizarException();
 		}
 		
 	}
 	
-	public void removerLocal(String nome) throws ObjectNaoExisteException{
+	public void removerLocal(String nome) throws ObjectNaoExisteException, ErroAoRemoverException{
 		
 		int indice = procurarIndice(nome);
 		
@@ -67,7 +69,7 @@ public class RepositorioLocal implements IRepositorioLocal {
 			locais.remove(indice);
 		}
 		else{
-			throw new ObjectNaoExisteException();
+			throw new ErroAoRemoverException();
 		}
 		
 	}
@@ -90,7 +92,7 @@ public class RepositorioLocal implements IRepositorioLocal {
 		int i = -1;
 		
 		for(int j=0;j<locais.size();j++){
-			if(locais.get(j).getNome().equals(nome)){
+			if(locais.get(j).getNome().equalsIgnoreCase(nome)){
 				i = j;
 			}
 		}

@@ -43,7 +43,7 @@ public class Local {
 	}
 
 	public String toString() {
-		return "Local: " + nome + "\nLocalização: " + "(" + this.getLongitude() + ", " + this.getLatitude() + ")";
+		return "\nLocal: " + nome + "\nLocalização: " + "(" + this.getLongitude() + ", " + this.getLatitude() + ")";
 	}
 	
 	public boolean equals(Object obj){

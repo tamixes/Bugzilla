@@ -38,8 +38,8 @@ public interface IFachada {
 	//Local
 	void cadastrarLocal(Local l) throws ObjectJaExisteException;
 	Local procurarLocal(String nome) throws ObjectNaoExisteException;
-	void atualizarLocal(Local l) throws ObjectNaoExisteException;
-	void removerLocal(String nome) throws ObjectNaoExisteException;
+	void atualizarLocal(Local l) throws ObjectNaoExisteException, ErroAoAtualizarException;
+	void removerLocal(String nome) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Local> listarLocais();
 	
 	//Cliente

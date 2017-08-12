@@ -1,6 +1,7 @@
 package br.ufrpe.bugzilla;
 
 import java.time.LocalDate;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import br.ufrpe.bugzilla.colecoes.TipoCliente;
@@ -13,6 +14,7 @@ import br.ufrpe.bugzilla.negocio.IFachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
+import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
 
 public class Menu {
@@ -536,32 +538,152 @@ public class Menu {
 					
 					switch(op){
 					
-						case 1:
+						case 1:{
+							boolean ok = false;
 							
+							do{
+								
+								scan.nextLine(); //limpabuffer
+
+								System.out.println("Para cadastrar uma central Bugzilla, é necessário ter as coordenadas do local\nLink para obter coordenadas: http://www.mapcoordinates.net/pt\n");
+
+								System.out.println("Nome da Cidade: ");
+								String nomeLocal = scan.nextLine();
+								
+								try{
+									
+									System.out.println("---Coordenadas Geográficas de " + nomeLocal);
+									System.out.println("Latitude: ");
+									String latitude = scan.nextLine();
+									//converte a string para double, substituindo eventual '.' por ','
+									double lt = Double.parseDouble(latitude.replace(',', '.'));
+									
+									
+									System.out.println("Longitude: ");
+									String longitude = scan.nextLine();
+									//converte a string para double, substituindo eventual '.' por ','
+									double lg = Double.parseDouble(longitude.replace(',', '.'));
+									
+									Local central = new Local(nomeLocal,lt,lg);
+									
+									try{
+										bugentregas.cadastrarLocal(central);
+										System.out.println("Cadastrado com sucesso!");
+										scan.nextLine();
+										ok = true;
+									}catch(ObjectJaExisteException e){
+										System.out.println(e.getMessage());
+										scan.nextLine();
+									}
+									
+								}catch(InputMismatchException e){
+									e.printStackTrace();
+									scan.nextLine();
+								}
+								
+							}while(ok==false);	
 							
 						break;
+					}
 						
-						case 2:
+						case 2:{
+							
+							String limpaBuffer = scan.nextLine();
+							System.out.println("Remover Central");
+							System.out.println("Informe o nome da central que deseja remover: ");
+							String busca = scan.nextLine();
+								
+							Local deleta = null;
+							try {
+								deleta = bugentregas.procurarLocal(busca);
+								System.out.println("Você realmente deseja deletar " + deleta.getNome() +"?\n"
+										+ "1 - Sim\n"
+										+ "2 - Não\n"
+										+ "Digite: ");
+								int escolha = scan.nextInt();
+								switch(escolha){
+									case 1:
+										try {
+											bugentregas.removerLocal(deleta.getNome());
+											System.out.println("Removido com sucesso!");
+											scan.nextLine();
+										} catch (ErroAoRemoverException e) {
+											System.out.println(e.getMessage());
+											scan.nextLine();
+										}
+									}
+								
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								scan.nextLine();
+							}
 							
 							
 						break;
+						}
 							
-						case 3:
+						case 3:{
 							
+							scan.nextLine(); //limpaBuffer
+							System.out.println(" ***Buscar uma Central***\n");
+							System.out.println("Digite o nome do Local: ");
+							String busca = scan.nextLine();
+							
+							Local leitura = null;
+							try {
+								leitura = bugentregas.procurarLocal(busca);
+								System.out.println("\nInformações da central " + leitura.getNome());
+								System.out.println(leitura);
+								scan.nextLine();
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								scan.nextLine();
+							}
 							
 						break;
+						}
 						
-						case 4:
+						case 4:{
 							
+							scan.nextLine(); //limpaBuffer
+							System.out.println("Atualizar Central");
+							System.out.println("Informe o nome da central que deseja alterar: ");
+							String busca = scan.nextLine();
+							
+							Local atualiza = null;
+							try {
+								System.out.println("\nNão é possível alterar as coordenadas de uma central!");
+								atualiza = bugentregas.procurarLocal(busca);
+								System.out.println("Informe o novo nome: ");
+								String nNome = scan.nextLine();
+								atualiza.setNome(nNome);
+								
+								try {
+									bugentregas.atualizarLocal(atualiza);
+									System.out.println("Atualizado com sucesso!");
+									scan.nextLine();
+								} catch (ErroAoAtualizarException e) {
+									System.out.println(e.getMessage());
+									scan.nextLine();
+								}
+								
+							} catch (ObjectNaoExisteException e) {
+								System.out.println(e.getMessage());
+								scan.nextLine();
+							}
 							
 						break;
+						}
 							
 							
-						case 5:
+						case 5:{
 							System.out.println("Voltando ao menu...");
 							scan.nextLine();
 							aux1 = 5;
 						break;
+						}
 					}
 				}
 				

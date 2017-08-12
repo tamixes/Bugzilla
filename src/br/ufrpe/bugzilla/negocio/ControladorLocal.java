@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.dao.IRepositorioLocal;
 import br.ufrpe.bugzilla.dao.RepositorioLocal;
+import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
+import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Local;
@@ -52,7 +54,7 @@ public class ControladorLocal {
 		}
 	}
 
-	public void atualizarLocal(Local l) throws ObjectNaoExisteException {
+	public void atualizarLocal(Local l) throws ObjectNaoExisteException, ErroAoAtualizarException {
 
 		if(l!=null){
 			repositorio.atualizarLocal(l);
@@ -63,7 +65,7 @@ public class ControladorLocal {
 
 	}
 
-	public void removerLocal(String nome) throws ObjectNaoExisteException {
+	public void removerLocal(String nome) throws ObjectNaoExisteException, ErroAoRemoverException {
 
 		if(nome!=null){
 			repositorio.removerLocal(nome);

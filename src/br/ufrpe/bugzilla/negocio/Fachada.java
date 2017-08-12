@@ -131,12 +131,12 @@ public class Fachada implements IFachada {
 		return this.controleLocal.procurarLocal(nome);
 	}
 
-	public void atualizarLocal(Local l) throws ObjectNaoExisteException {
+	public void atualizarLocal(Local l) throws ObjectNaoExisteException, ErroAoAtualizarException {
 
 		this.controleLocal.atualizarLocal(l);
 	}
 
-	public void removerLocal(String nome) throws ObjectNaoExisteException {
+	public void removerLocal(String nome) throws ObjectNaoExisteException, ErroAoRemoverException {
 
 		this.controleLocal.removerLocal(nome);
 	}
