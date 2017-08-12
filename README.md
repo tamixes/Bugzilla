@@ -25,7 +25,7 @@ Sendo assim, nesse sistema o funcionário da Bugzilla pode:
 
    :eight_spoked_asterisk: _Adicionar/Gerenciar funcionários_
 
-   :eight_spoked_asterisk: _Adicionar/Gerenciar empresas clientes_
+   :eight_spoked_asterisk: _Adicionar/Gerenciar clientes_
 
    :eight_spoked_asterisk: _Adicionar/Gerenciar Centrais Bugzilla em outras cidades_
 
