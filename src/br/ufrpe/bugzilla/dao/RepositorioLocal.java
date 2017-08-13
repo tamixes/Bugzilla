@@ -16,9 +16,7 @@ import br.ufrpe.bugzilla.negocio.beans.*;
 
 public class RepositorioLocal implements IRepositorioLocal, Serializable {
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -6264891378800798523L;
 	private ArrayList<Local> locais;
 	private static RepositorioLocal instance;

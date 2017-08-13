@@ -1,4 +1,11 @@
 package br.ufrpe.bugzilla.dao;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
 
@@ -10,14 +17,15 @@ import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 
-public class RepositorioFuncionario implements IRepositorioFuncionario{
+public class RepositorioFuncionario implements IRepositorioFuncionario, Serializable{
 	
+	private static final long serialVersionUID = -6109366189477609681L;
 	private ArrayList<Funcionario> funcionario = new ArrayList<Funcionario>();
 	private static RepositorioFuncionario instance; 
 	
 	public static RepositorioFuncionario getInstance() {
 		if(instance == null ){
-			instance = new RepositorioFuncionario();
+			instance = RepositorioFuncionario.lerArquivo();
 		}
 		return instance;
 	}
@@ -98,4 +106,80 @@ public class RepositorioFuncionario implements IRepositorioFuncionario{
 		return resultado;
 	
 	}
+	
+	// PERSISTÊNCIA DE DADOS
+	
+	
+		private static RepositorioFuncionario lerArquivo(){
+		RepositorioFuncionario instanciaLocal = null;
+			
+		File arquivo = new File("repositorioFuncionario.dat");
+			
+			FileInputStream fis = null;
+			ObjectInputStream ois = null;
+			
+			try{
+				
+				fis = new FileInputStream(arquivo);
+				ois = new ObjectInputStream(fis);
+				
+				Object o = ois.readObject();
+				
+				instanciaLocal = (RepositorioFuncionario) o;
+				
+			}catch(Exception e){
+				instanciaLocal = new RepositorioFuncionario();
+			}finally{
+				
+				if(ois!=null){
+					try{
+						ois.close();
+						
+					}catch(IOException e){
+						
+					}
+				}
+			}			
+			
+			return instanciaLocal;
+		}
+		
+		
+		
+	
+		public void salvaArquivo() {
+	
+			if(instance==null){
+				return;
+			}
+			
+			File arquivo = new File("repositorioFuncionario.dat");
+			FileOutputStream fos = null;
+		    ObjectOutputStream oos = null;
+		    
+		    try{
+		    	if(!arquivo.exists())
+		    		arquivo.createNewFile();
+		    	
+		    	fos = new FileOutputStream(arquivo);
+		    	oos = new ObjectOutputStream(fos);
+		    	oos.writeObject(instance);
+		    }catch(Exception e){
+		    	e.printStackTrace();
+		    	
+		    }finally{
+		    	if(oos!=null){
+		    		
+		    		try{
+		    			oos.close();
+		    		}catch(IOException e){
+		    			
+		    		}
+		    	}
+		    	
+		    }		
+		}
+	
+	
+	
 }

@@ -1,7 +1,10 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
-public class Endereco {
+import java.io.Serializable;
+
+public class Endereco implements Serializable{
 	
+	private static final long serialVersionUID = -5739276110095558350L;
 	private String rua; 
 	private String bairro; 
 	private String cidade; 

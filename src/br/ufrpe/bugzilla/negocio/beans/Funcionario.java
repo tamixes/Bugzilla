@@ -1,10 +1,12 @@
 package br.ufrpe.bugzilla.negocio.beans;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
 
-public class Funcionario extends Pessoa{
+public class Funcionario extends Pessoa implements Serializable{
 	
+	private static final long serialVersionUID = 4726347881805729324L;
 	private double salario;
 	//private TipoDeFuncionario tipo;
 	

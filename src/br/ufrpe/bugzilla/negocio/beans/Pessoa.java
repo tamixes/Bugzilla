@@ -1,14 +1,16 @@
 package br.ufrpe.bugzilla.negocio.beans;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Pessoa {
+public class Pessoa implements Serializable{
   
-  private String nome;
-  private String cpf; 
-  private LocalDate dataNascimento;
-  private String telefone; 
-  private Endereco end; 
-  protected Usuario usuario;
+	private static final long serialVersionUID = -4044140878567748490L;
+	private String nome;
+    private String cpf; 
+    private LocalDate dataNascimento;
+    private String telefone; 
+    private Endereco end; 
+    protected Usuario usuario;
   
   public Pessoa(String nome, String cpf, LocalDate dataNascimento, String telefone, Endereco end, Usuario usuario){
 	  this.nome = nome;

@@ -1,9 +1,13 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Encomenda {
+public class Encomenda implements Serializable{
+	
+	private static final long serialVersionUID = -4937323924669001136L;
+
 	private static long geraCodigo = 10000;
 
 	private String codigo;

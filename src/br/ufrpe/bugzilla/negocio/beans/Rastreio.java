@@ -1,9 +1,11 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Rastreio {
+public class Rastreio implements Serializable{
 	
+	private static final long serialVersionUID = 121441178803075696L;
 	private String situacao;
 	//faz mais sentido ter esse atributo localAtual
 	//do que um do tipo endereço pra dps pegar só o nome da cidade

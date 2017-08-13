@@ -1,12 +1,21 @@
 package br.ufrpe.bugzilla.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 
-public class RepositorioEncomenda implements IRepositorioEncomenda{
+public class RepositorioEncomenda implements IRepositorioEncomenda, Serializable{
+	
+	private static final long serialVersionUID = 5938245483505711821L;
 	private ArrayList<Encomenda> encomendas = new ArrayList<Encomenda>();
 	private static RepositorioEncomenda instance;
 
@@ -16,7 +25,7 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 
 	public static RepositorioEncomenda getInstance() {
 		if(instance==null){
-			instance = new RepositorioEncomenda();
+			instance = RepositorioEncomenda.lerArquivo();
 		}
 		return instance;
 	}
@@ -102,4 +111,78 @@ public class RepositorioEncomenda implements IRepositorioEncomenda{
 		Encomenda.setTarifaBase(tarifa);
 	}
 	
+	// PERSISTÊNCIA DE DADOS
+	
+	
+	private static RepositorioEncomenda lerArquivo(){
+		RepositorioEncomenda instanciaLocal = null;
+			
+		File arquivo = new File("repositorioEncomenda.dat");
+			
+			FileInputStream fis = null;
+			ObjectInputStream ois = null;
+			
+			try{
+				
+				fis = new FileInputStream(arquivo);
+				ois = new ObjectInputStream(fis);
+				
+				Object o = ois.readObject();
+				
+				instanciaLocal = (RepositorioEncomenda) o;
+				
+			}catch(Exception e){
+				instanciaLocal = new RepositorioEncomenda();
+			}finally{
+				
+				if(ois!=null){
+					try{
+						ois.close();
+						
+					}catch(IOException e){
+						
+					}
+				}
+			}
+			
+	
+			
+			return instanciaLocal;
+		}
+		
+		
+		
+	
+		public void salvaArquivo() {
+	
+			if(instance==null){
+				return;
+			}
+			
+			File arquivo = new File("repositorioEncomenda.dat");
+			FileOutputStream fos = null;
+		    ObjectOutputStream oos = null;
+		    
+		    try{
+		    	if(!arquivo.exists())
+		    		arquivo.createNewFile();
+		    	
+		    	fos = new FileOutputStream(arquivo);
+		    	oos = new ObjectOutputStream(fos);
+		    	oos.writeObject(instance);
+		    }catch(Exception e){
+		    	e.printStackTrace();
+		    	
+		    }finally{
+		    	if(oos!=null){
+		    		
+		    		try{
+		    			oos.close();
+		    		}catch(IOException e){
+		    			
+		    		}
+		    	}
+		    	
+		    }		
+		}
 }

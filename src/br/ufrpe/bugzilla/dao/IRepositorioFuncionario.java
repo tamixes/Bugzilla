@@ -18,5 +18,6 @@ public interface IRepositorioFuncionario {
 	boolean existe(String cpf);
 	boolean checarLogin(Usuario u);
 	List<Funcionario> mostrarFuncio();
+	void salvaArquivo();
 	
 }

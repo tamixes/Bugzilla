@@ -25,5 +25,7 @@ public interface IRepositorioEncomenda {
 	public void defineTarifaBase(double tarifa);
 	
 	public boolean existe(Encomenda e);
+	
+	void salvaArquivo();
 
 }

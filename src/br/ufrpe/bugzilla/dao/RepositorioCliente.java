@@ -1,5 +1,12 @@
 package br.ufrpe.bugzilla.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
@@ -7,8 +14,10 @@ import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
 
-public class RepositorioCliente implements IRepositorioCliente{
+public class RepositorioCliente implements IRepositorioCliente, Serializable{
 
+	
+	private static final long serialVersionUID = 5720207618632548503L;
 	private ArrayList<Cliente> clientes;
 	private static RepositorioCliente instance;
 	
@@ -20,7 +29,7 @@ public class RepositorioCliente implements IRepositorioCliente{
 	public static RepositorioCliente getInstance(){
 		
 		if(instance == null){
-			instance = new RepositorioCliente();
+			instance = RepositorioCliente.lerArquivo();
 		}
 		return instance;
 	}
@@ -133,6 +142,82 @@ public class RepositorioCliente implements IRepositorioCliente{
 		return i;
 		
 	}
-
+	
+	// PERSISTÊNCIA DE DADOS
+	
+	
+		private static RepositorioCliente lerArquivo(){
+		RepositorioCliente instanciaLocal = null;
+			
+		File arquivo = new File("repositorioCliente.dat");
+			
+			FileInputStream fis = null;
+			ObjectInputStream ois = null;
+			
+			try{
+				
+				fis = new FileInputStream(arquivo);
+				ois = new ObjectInputStream(fis);
+				
+				Object o = ois.readObject();
+				
+				instanciaLocal = (RepositorioCliente) o;
+				
+			}catch(Exception e){
+				instanciaLocal = new RepositorioCliente();
+			}finally{
+				
+				if(ois!=null){
+					try{
+						ois.close();
+						
+					}catch(IOException e){
+						
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			return instanciaLocal;
+		}
+		
+		
+		
+	
+		public void salvaArquivo() {
+	
+			if(instance==null){
+				return;
+			}
+			
+			File arquivo = new File("repositorioCliente.dat");
+			FileOutputStream fos = null;
+		    ObjectOutputStream oos = null;
+		    
+		    try{
+		    	if(!arquivo.exists())
+		    		arquivo.createNewFile();
+		    	
+		    	fos = new FileOutputStream(arquivo);
+		    	oos = new ObjectOutputStream(fos);
+		    	oos.writeObject(instance);
+		    }catch(Exception e){
+		    	e.printStackTrace();
+		    	
+		    }finally{
+		    	if(oos!=null){
+		    		
+		    		try{
+		    			oos.close();
+		    		}catch(IOException e){
+		    			
+		    		}
+		    	}
+		    	
+		    }		
+		}
 	
 }

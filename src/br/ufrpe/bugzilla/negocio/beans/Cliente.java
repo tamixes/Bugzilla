@@ -1,9 +1,12 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
+import java.io.Serializable;
+
 import br.ufrpe.bugzilla.colecoes.TipoCliente;
 
-public class Cliente {
+public class Cliente implements Serializable{
 
+	private static final long serialVersionUID = 106664972565974585L;
 	private String nome;
 	private static int geraId = 1;
 	private int id;
