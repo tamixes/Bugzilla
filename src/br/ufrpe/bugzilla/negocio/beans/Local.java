@@ -1,7 +1,13 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
-public class Local {
+import java.io.Serializable;
+
+public class Local implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2827046348593130271L;
 	private String nome;
 	//vai ser utilizada para calcular distancia em km
 	private double latitude;
