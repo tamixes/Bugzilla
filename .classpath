@@ -17,6 +17,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/jfoenix.jar"/>
-	<classpathentry kind="lib" path="C:/Users/diego/git/Bugzilla/lib/itextpdf-5.5.11.jar"/>
+	<classpathentry kind="lib" path="lib/itextpdf-5.5.11.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
