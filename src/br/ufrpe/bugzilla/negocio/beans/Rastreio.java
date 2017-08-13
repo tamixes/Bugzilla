@@ -65,7 +65,7 @@ public class Rastreio implements Serializable{
 		String resultado = null;
 		String data = this.DateToString(this.dataHora);
 		
-		resultado = data + " | "+ this.localAtual  + " | " + situacao;
+		resultado = data + " | "+ this.localAtual  + " | " + this.situacao;
 		
 		return resultado;
 	}

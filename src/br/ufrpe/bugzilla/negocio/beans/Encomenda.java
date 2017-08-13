@@ -1,8 +1,11 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import br.ufrpe.bugzilla.colecoes.TipoCliente;
 
 public class Encomenda implements Serializable{
 	
@@ -167,7 +170,7 @@ public class Encomenda implements Serializable{
 		String result = "";
 
 		for (int i = 0; i < this.rastreio.size(); i++) {
-			result = result + rastreio.get(i) + "\n";
+			result += "\t" + rastreio.get(i) + "\n";
 		}
 		return result;
 	}
@@ -183,11 +186,11 @@ public class Encomenda implements Serializable{
 	}
 
 	public String toString() {
-		String resultado = new String("EUAHEUAH");
+		String resultado = "";
 		
 		resultado =
-				  "Dados da encomenda:\n" 
-				+ "Remetente:"                  + this.getRemetente().getNome() + "\n"
+				  "\t - - - - - -Dados da encomenda- - - - - -\n\n" 
+				+ "\t Remetente: "                  + this.getRemetente().getNome() + "\n"
 				+ "\t Nome do destinatário: " 	+ this.destinatario.getNome() + "\n"
 				+ "\t Destino do produto: " 	+ "Central Bugzilla em " + this.localDestino.getNome() + "\n"
 				+ "\t Destino final: " 	+ this.destinatario.getEndereco() + "\n"
@@ -196,7 +199,10 @@ public class Encomenda implements Serializable{
 				+ "\t Peso do produto: " 		+ this.peso + "kg\n"
 				+ "\t Codigo de rastreamento: " 		+ this.codigo + "\n"
 				+ "\t Prazo de entrega: " 		+ this.prazoEntrega + " dias\n"
-				+ "\t Valor: R$" 		            + this.tarifa + "\n";
+				+ "\t Valor: R$" 		            + String.format("%.2f", this.tarifa) + "\n"
+				+ "\n\n"
+				+ "\t - - - - - -Rastreamento- - - - - -\n\n"
+				+ this.getRelatorio();
 		
 		return resultado;
 	}
@@ -225,5 +231,5 @@ public class Encomenda implements Serializable{
 		
 		return t;
 	}
-	
+
 }
