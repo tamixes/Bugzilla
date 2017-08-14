@@ -85,7 +85,7 @@ public class Menu {
 							boolean ok = false;
 							
 							do{
-								String limpaBuffer = scan.nextLine();
+								scan.nextLine(); //limpaBuffer
 								System.out.println();
 	
 								System.out.println("Instruções:\nNo campo CPF, somente informe os numeros, não é necessário digitar pontos e hífem\n");
@@ -106,7 +106,7 @@ public class Menu {
 								LocalDate dataFunc = LocalDate.of(anoNascimento, mesNascimento, diaNascimento);
 	
 								
-								limpaBuffer = scan.nextLine();
+								scan.nextLine(); //limpaBuffer
 								System.out.println("Fone: ");
 								String telefoneFunc = scan.nextLine();
 								
@@ -115,7 +115,7 @@ public class Menu {
 								String rua = scan.nextLine();
 								System.out.print("Numero: ");
 								int num = scan.nextInt();
-								String limpaBuffer2 = scan.nextLine();
+								scan.nextLine(); //limpaBuffer
 								System.out.print("Bairro: ");
 								String bairro = scan.nextLine();
 								System.out.print("Cidade: ");
@@ -130,7 +130,7 @@ public class Menu {
 								System.out.println("Salário: ");
 								double salarioFunc = scan.nextDouble();
 								
-								String limpaBuffer3 = scan.nextLine();
+								scan.nextLine(); //limpaBuffer
 								System.out.println("Login: ");
 								String loginFunc = scan.nextLine();
 								
@@ -173,7 +173,7 @@ public class Menu {
 						
 						case 2:{
 							
-						String limpaBuffer = scan.nextLine();
+						scan.nextLine(); //limpaBuffer
 						System.out.println("Remover funcionário");
 						System.out.println("Informe o cpf do funcionario que deseja remover: ");
 						String busca = scan.nextLine();
@@ -211,7 +211,7 @@ public class Menu {
 							
 						case 3:{
 							
-							String limpaBuffer = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.println("Visualizar dados de um funcionário");
 							System.out.println("Buscar por cpf: ");
 							String busca = scan.nextLine();
@@ -237,7 +237,7 @@ public class Menu {
 						
 						case 4:{
 							
-							String limpaBuffer = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.println("Atualizar dados de um funcionário");
 							System.out.println("Informe o cpf do funcionario que deseja: ");
 							String busca = scan.nextLine();
@@ -341,7 +341,7 @@ public class Menu {
 						opClient = scan.nextInt();
 						if (opClient == 1) {
 
-							String limpaBuffer = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.println();
 
 							System.out.println(
@@ -361,7 +361,7 @@ public class Menu {
 							String rua = scan.nextLine();
 							System.out.print("Numero: ");
 							int num = scan.nextInt();
-							String limpaBuffer2 = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.print("Bairro: ");
 							String bairro = scan.nextLine();
 							System.out.print("Cidade: ");
@@ -401,7 +401,7 @@ public class Menu {
 							}
 
 						} else if (opClient == 2) {
-							String limpaBuffer = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.println();
 
 							System.out.println(
@@ -421,7 +421,7 @@ public class Menu {
 							String rua = scan.nextLine();
 							System.out.print("Numero: ");
 							int num = scan.nextInt();
-							String limpaBuffer2 = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.print("Bairro: ");
 							String bairro = scan.nextLine();
 							System.out.print("Cidade: ");
@@ -467,7 +467,7 @@ public class Menu {
 						break;
 						
 						case 2:{
-							String limpaBuffer = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.println("Remover Cliente");
 							System.out.println("Informe o ID do cliente que deseja remover: ");
 							int busca = scan.nextInt();
@@ -682,7 +682,7 @@ public class Menu {
 						
 						case 2:{
 							
-							String limpaBuffer = scan.nextLine();
+							scan.nextLine(); //limpaBuffer
 							System.out.println("Remover Central");
 							System.out.println("Informe o nome da central que deseja remover: ");
 							String busca = scan.nextLine();
@@ -884,7 +884,7 @@ public class Menu {
 									}
 								}
 								
-								Encomenda encomenda = new Encomenda(leituraCliente2,peso,tipo,leituraLocal1,leituraLocal2,prazo,leituraCliente2);
+								Encomenda encomenda = new Encomenda(leituraCliente1,leituraCliente2,peso,tipo,leituraLocal1,leituraLocal2,prazo);
 								
 								try{
 									
@@ -958,7 +958,7 @@ public class Menu {
 								System.out.println();
 								System.out.println(leitura);
 								System.out.println();
-								System.out.println(leitura.getRelatorio());
+								System.out.println(leitura.getRastreamento());
 								scan.nextLine();
 								
 							} catch (ObjectNaoExisteException e) {

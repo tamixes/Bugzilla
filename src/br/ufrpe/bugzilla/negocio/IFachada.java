@@ -10,14 +10,6 @@ import br.ufrpe.bugzilla.negocio.beans.*;
 
 public interface IFachada {
 	
-	//Administrador
-	void cadastrarAdministrador(Administrador adm) throws ObjectJaExisteException;
-	Administrador buscarAdministrador(String cpf) throws ObjectNaoExisteException;
-	boolean verificaLoginAdministrador(Usuario usuario);
-	void removerAdministrador(Administrador adm) throws ErroAoRemoverException;
-	void alterarAdministrador(Administrador adm) throws ErroAoAtualizarException;
-	List<Administrador> listarAdministradores();
-
 	//Funcionario
 	void addFuncionario(Funcionario func) throws ObjectJaExisteException;
 	Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException;

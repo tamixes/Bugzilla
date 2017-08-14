@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Fachada implements IFachada {
 
-	private CadastroAdministrador cadastroAdministrador;
 	private CadastroFuncionario cadastroFuncionario;
 	private ControladorEncomenda controleEncomenda;
 	private ControladorLocal controleLocal;
@@ -19,7 +18,6 @@ public class Fachada implements IFachada {
 	private static Fachada instance;
 
 	private Fachada() {
-		this.cadastroAdministrador = CadastroAdministrador.getInstance();
 		this.cadastroFuncionario = CadastroFuncionario.getInstance();
 		this.controleEncomenda = ControladorEncomenda.getInstance();
 		this.controleLocal = ControladorLocal.getInstance();
@@ -58,34 +56,7 @@ public class Fachada implements IFachada {
 	public void defineTarifaBase(double tarifa) {
 		controleEncomenda.defineTarifaBase(tarifa);
 	}
-
-	/** ADMINISTRADOR **/
-	public void cadastrarAdministrador(Administrador adm) throws ObjectJaExisteException {
-		this.cadastroAdministrador.cadastrarAdministrador(adm);
-
-	}
-
-	public Administrador buscarAdministrador(String cpf) throws ObjectNaoExisteException {
-		return this.cadastroAdministrador.buscaAdministrador(cpf);
-	}
-
-	public boolean verificaLoginAdministrador(Usuario usuario) {
-		return this.cadastroAdministrador.verificaLogin(usuario);
-	}
-
-	public void removerAdministrador(Administrador adm) throws ErroAoRemoverException {
-		this.removerAdministrador(adm);
-
-	}
-
-	public void alterarAdministrador(Administrador adm) throws ErroAoAtualizarException {
-		this.cadastroAdministrador.alterarAdministrador(adm);
-
-	}
-
-	public List<Administrador> listarAdministradores() {
-		return this.cadastroAdministrador.listaAdministrador();
-	}
+	
 
 	/** FUNCIONÁRIO **/
 	public void addFuncionario(Funcionario func) throws ObjectJaExisteException {

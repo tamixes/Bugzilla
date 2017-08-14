@@ -1,11 +1,9 @@
 package br.ufrpe.bugzilla.negocio.beans;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import br.ufrpe.bugzilla.colecoes.TipoCliente;
 
 public class Encomenda implements Serializable{
 	
@@ -38,7 +36,7 @@ public class Encomenda implements Serializable{
 		
 	}
 
-	public Encomenda(Cliente destinatario, double peso, String tipo, Local partida, Local destino, int prazo, Cliente remetente) {
+	public Encomenda(Cliente remetente, Cliente destinatario, double peso, String tipo, Local partida, Local destino, int prazo) {
 		this.codigo = "BUG" + geraCodigo + "BR";
 		geraCodigo++;
 
@@ -166,10 +164,11 @@ public class Encomenda implements Serializable{
 		this.rastreio.add(rastreio);
 	}
 
-	public String getRelatorio() {
+	//alterei o for para mostrar os últimos rastreios primeiro
+	public String getRastreamento() {
 		String result = "";
 
-		for (int i = 0; i < this.rastreio.size(); i++) {
+		for (int i = this.rastreio.size()-1; i >= 0; --i) {
 			result += "\t" + rastreio.get(i) + "\n";
 		}
 		return result;
@@ -202,7 +201,7 @@ public class Encomenda implements Serializable{
 				+ "\t Valor: R$" 		            + String.format("%.2f", this.tarifa) + "\n"
 				+ "\n\n"
 				+ "\t - - - - - -Rastreamento- - - - - -\n\n"
-				+ this.getRelatorio();
+				+ this.getRastreamento();
 		
 		return resultado;
 	}
