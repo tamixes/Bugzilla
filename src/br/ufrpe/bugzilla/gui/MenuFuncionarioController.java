@@ -34,7 +34,19 @@ public class MenuFuncionarioController implements Initializable{
 	
 	@FXML
 	public void addCliente(ActionEvent event){
+		((Node) (event.getSource())).getScene().getWindow().hide();
+		Parent p = null;
 		
+		try {
+			p = FXMLLoader.load(getClass().getResource("CadastroCliente.fxml"));
+			Scene scene = new Scene(p);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.setTitle("Bugzilla Encomendas");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	@FXML

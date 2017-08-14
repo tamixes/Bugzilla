@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.CadastroClienteControlador">
+   <children>
+      <JFXTextField fx:id="nome_cliente" layoutY="133.0" prefHeight="25.0" prefWidth="273.0" promptText="Nome:" />
+      <JFXTextField fx:id="cnpj_cliente" layoutX="292.0" layoutY="134.0" promptText="CNPJ:" />
+      <JFXTextField fx:id="cpf_cliente" layoutX="447.0" layoutY="135.0" promptText="CPF:" />
+      <JFXTextField fx:id="telefone_cliente" layoutX="1.0" layoutY="160.0" promptText="Telefone:" />
+      <JFXTextField fx:id="rua_cliente" layoutX="177.0" layoutY="160.0" prefHeight="25.0" prefWidth="227.0" promptText="Rua:" />
+      <JFXTextField fx:id="bairro_cliente" layoutX="429.0" layoutY="160.0" prefHeight="25.0" prefWidth="162.0" promptText="Bairro:" />
+      <JFXTextField fx:id="cidade_cliente" layoutX="1.0" layoutY="185.0" promptText="Cidade:" />
+      <JFXTextField fx:id="numero_cliente" layoutX="505.0" layoutY="188.0" prefHeight="25.0" prefWidth="86.0" promptText="Número:" />
+      <JFXTextField fx:id="cep_cliente" layoutX="343.0" layoutY="187.0" promptText="CEP:" />
+      <JFXTextField fx:id="estado_cliente" layoutX="176.0" layoutY="186.0" promptText="Estado:" />
+      <JFXButton fx:id="voltar_cliente" layoutX="522.0" layoutY="298.0" onAction="#voltarCliente" text="Voltar" />
+      <JFXButton fx:id="enviar_cliente" layoutX="452.0" layoutY="298.0" onAction="#enviarCliente" text="Enviar" />
+      <Label fx:id="aviso" layoutX="30.0" layoutY="302.0" prefHeight="57.0" prefWidth="310.0" />
+      <Label layoutX="30.0" layoutY="33.0" prefHeight="38.0" prefWidth="194.0" text="Cadastro de Cliente" />
+   </children>
+</AnchorPane>
