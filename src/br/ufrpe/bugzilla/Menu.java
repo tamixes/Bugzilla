@@ -526,7 +526,7 @@ public class Menu {
 							}
 							else{
 								
-								System.out.println("Funcionário não existe!");
+								System.out.println("Cliente não existe!");
 							}
 							
 							
@@ -548,17 +548,17 @@ public class Menu {
 								System.out.println("Nome: ");
 								String nomeCliente = scan.nextLine();
 
-								/***
+								if(atualiza.getTipo() == TipoCliente.FIS) {
 									System.out.println("CPF: ");
 									String cpfCliente = scan.nextLine();
 									atualiza.setCpf(cpfCliente);
-								
-								
+								}
+								else {
 									System.out.println("CNPJ: ");
 									String cnpjCliente = scan.nextLine();
 									atualiza.setCnpj(cnpjCliente);
-								***/
-								
+								}
+																
 
 								System.out.println("Telefone: ");
 								String telCliente = scan.nextLine();
