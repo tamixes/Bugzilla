@@ -107,6 +107,17 @@ public class RepositorioFuncionario implements IRepositorioFuncionario, Serializ
 	
 	}
 	
+	public boolean checarLoginADM(Usuario u) {
+		boolean resultado = false;
+		for(int i=0; i<funcionario.size(); i++){
+				if (this.funcionario.get(i).getUsuario().equals(u) && this.funcionario.get(i).isAdm()) {
+					resultado =  true;
+				}
+			}
+		
+		return resultado;
+	}
+	
 	// PERSISTÊNCIA DE DADOS
 	
 	

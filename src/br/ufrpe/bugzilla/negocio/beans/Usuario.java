@@ -33,6 +33,10 @@ public class Usuario implements Serializable{
 	}
 	
 	public boolean equals(Usuario outro){
+		
+		if(outro==this){
+			return true;
+		}
 		if(this.login.equalsIgnoreCase(outro.getLogin()) && this.senha.equals(outro.getSenha())){
 			return true;
 		}

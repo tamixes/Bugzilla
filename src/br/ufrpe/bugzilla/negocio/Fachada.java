@@ -81,6 +81,10 @@ public class Fachada implements IFachada {
 	public boolean verificaLoginFuncionario(Usuario usuario) {
 		return this.cadastroFuncionario.login(usuario.getLogin(), usuario.getSenha());
 	}
+	
+	public boolean verificaLoginADM(Usuario usuario){
+		return this.cadastroFuncionario.loginADM(usuario);
+	}
 
 	public List<Funcionario> listarFuncionarios() {
 		return this.cadastroFuncionario.mostrarfunc();

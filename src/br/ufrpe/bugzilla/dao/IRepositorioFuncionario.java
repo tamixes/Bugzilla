@@ -17,6 +17,7 @@ public interface IRepositorioFuncionario {
 	void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException;
 	boolean existe(String cpf);
 	boolean checarLogin(Usuario u);
+	boolean checarLoginADM(Usuario u);
 	List<Funcionario> mostrarFuncio();
 	void salvaArquivo();
 	

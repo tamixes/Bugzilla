@@ -45,9 +45,6 @@ public class Funcionario extends Pessoa implements Serializable{
 		
 		return resultado;
 	}
-	/*public TipoDeFuncionario getTipo() {
-		return tipo;
-	}*/
 	
 	@Override
 	public String toString(){
