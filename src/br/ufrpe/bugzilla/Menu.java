@@ -547,7 +547,7 @@ public class Menu {
 								System.out.println("----Digite os novos dados");
 								System.out.println("Nome: ");
 								String nomeCliente = scan.nextLine();
-
+								
 								if(atualiza.getTipo() == TipoCliente.FIS) {
 									System.out.println("CPF: ");
 									String cpfCliente = scan.nextLine();

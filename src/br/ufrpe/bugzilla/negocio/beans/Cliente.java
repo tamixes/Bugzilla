@@ -34,6 +34,7 @@ public class Cliente implements Serializable{
 			this.cpf = cpf;
 			this.telefone = telefone;
 			this.endereco = end;
+			this.tipo = tipo;
 		}
 
 	}
@@ -87,7 +88,7 @@ public class Cliente implements Serializable{
 	}
 
 	public TipoCliente getTipo() {
-		return tipo;
+		return this.tipo;
 	}
 
 	public String formataCpf(String cpf) {
