@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import br.ufrpe.bugzilla.colecoes.TipoCliente;
+import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
 import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
 import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
@@ -155,7 +156,7 @@ public class Menu {
 								}
 								System.out.println(erro);
 							} else {
-								Funcionario func = new Funcionario(nomeFunc, cpfFunc, dataFunc, telefoneFunc, enderecoFunc, salarioFunc, new Usuario(loginFunc,senhaFunc));
+								Funcionario func = new Funcionario(nomeFunc, cpfFunc, dataFunc, telefoneFunc, enderecoFunc, salarioFunc, new Usuario(loginFunc,senhaFunc), TipoDeFuncionario.ADM);
 								try {
 									bugentregas.addFuncionario(func);
 								} catch (ObjectJaExisteException e) {

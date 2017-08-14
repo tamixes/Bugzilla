@@ -8,16 +8,16 @@ public class Funcionario extends Pessoa implements Serializable{
 	
 	private static final long serialVersionUID = 4726347881805729324L;
 	private double salario;
-	//private TipoDeFuncionario tipo;
+	private TipoDeFuncionario tipo;
 	
-	public Funcionario(String nome, String cpf, LocalDate nascimento, String telefone,Endereco endereco, double salario, Usuario usuario/*,TipoDeFuncionario tipo*/){
+	public Funcionario(String nome, String cpf, LocalDate nascimento, String telefone,Endereco endereco, double salario, Usuario usuario, TipoDeFuncionario tipo){
 		
 		super(nome, cpf, nascimento, telefone, endereco, usuario);
 		this.salario = salario;
 	}
 	
 	public Funcionario(){
-		this(null, null, null, null, null, 0, null);
+		this(null, null, null, null, null, 0, null, null);
 	}
 
 	public Usuario getUsuario() {
@@ -36,6 +36,15 @@ public class Funcionario extends Pessoa implements Serializable{
 		this.salario = salario;
 	}
 	
+	public boolean isAdm() {
+		boolean resultado = false;
+		
+		if(this.tipo == TipoDeFuncionario.ADM) {
+			resultado = true;
+		}
+		
+		return resultado;
+	}
 	/*public TipoDeFuncionario getTipo() {
 		return tipo;
 	}*/
