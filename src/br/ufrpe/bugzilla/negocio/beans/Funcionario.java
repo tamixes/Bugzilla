@@ -14,6 +14,7 @@ public class Funcionario extends Pessoa implements Serializable{
 		
 		super(nome, cpf, nascimento, telefone, endereco, usuario);
 		this.salario = salario;
+		this.tipo = tipo;
 	}
 	
 	public Funcionario(){

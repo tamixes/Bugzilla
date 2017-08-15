@@ -2,6 +2,7 @@ package br.ufrpe.bugzilla.gui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.*;
 
 public class Login extends Application{
@@ -13,6 +14,7 @@ public class Login extends Application{
 			Scene scene = new Scene(r);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.initStyle(StageStyle.TRANSPARENT);
 			stage.show();
 			
 			

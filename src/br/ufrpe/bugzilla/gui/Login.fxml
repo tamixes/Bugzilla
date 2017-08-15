@@ -1,44 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="522.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="522.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.LoginController">
    <children>
       <Label fx:id="erro_tela" layoutX="172.0" layoutY="244.0" prefHeight="17.0" prefWidth="250.0" />
-      <JFXButton fx:id="adm_login" layoutX="153.0" layoutY="209.0" onAction="#loginAdm" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #00BFFF;" text="Administrador">
+      <JFXButton fx:id="adm_login" buttonType="RAISED" layoutX="135.0" layoutY="293.0" onAction="#loginAdm" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #11B5E4;" text="Administrador" textFill="WHITE">
          <font>
-            <Font name="Tahoma" size="12.0" />
+            <Font name="Tahoma Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="func_login" layoutX="300.0" layoutY="209.0" onAction="#loginFunc" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #00BFFF;" text="Funcionário">
+      <JFXButton fx:id="func_login" buttonType="RAISED" layoutX="299.0" layoutY="293.0" onAction="#loginFunc" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #11B5E4;" text="Funcionário" textFill="WHITE">
          <font>
-            <Font name="Tahoma" size="12.0" />
+            <Font name="Tahoma Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="159.0" layoutY="97.0" prefHeight="25.0" prefWidth="237.0" text="Bugzilla Encomendas" textFill="WHITE">
-         <font>
-            <Font name="Century Gothic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="199.0" layoutY="147.0" text="Escolha o tipo de login:" textFill="WHITE">
+      <Label layoutX="203.0" layoutY="245.0" text="Escolha o tipo de login:" textFill="WHITE">
          <font>
             <Font name="Candara" size="12.0" />
          </font>
       </Label>
+      <ImageView fitHeight="214.0" fitWidth="380.0" layoutX="72.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo_bugzilla.png" />
+         </image>
+      </ImageView>
+      <FontAwesomeIconView fx:id="closeBtn" fill="#ce00ff" glyphName="CLOSE" layoutX="496.0" layoutY="25.0" onMouseClicked="#close" size="28" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>

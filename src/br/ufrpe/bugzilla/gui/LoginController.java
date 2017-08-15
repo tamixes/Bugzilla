@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable{
 
@@ -64,6 +67,11 @@ public class LoginController implements Initializable{
 	@FXML
 	public void erro_tela(ActionEvent event){
 		
+	}
+	
+	@FXML
+	public void close(MouseEvent event){
+		Platform.exit();
 	}
 	
 	

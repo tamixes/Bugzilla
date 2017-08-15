@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="259.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.LoginFuncionarioController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="259.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.LoginFuncionarioController">
    <children>
       <Label fx:id="erro_func" layoutX="11.0" layoutY="279.0" prefHeight="42.0" prefWidth="245.0" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="12.0" />
          </font></Label>
-      <JFXTextField fx:id="login_func" focusColor="WHITE" layoutX="52.0" layoutY="78.0" promptText="Login:" />
-      <JFXPasswordField fx:id="senha_func" focusColor="WHITE" layoutX="52.0" layoutY="129.0" promptText="Senha:" />
-      <JFXButton fx:id="entrar_fun" buttonType="RAISED" layoutX="180.0" layoutY="215.0" onAction="#entrarFunc" style="-fx-background-color: #00BFFF;" text="Entrar">
+      <JFXTextField fx:id="login_func" focusColor="WHITE" labelFloat="true" layoutX="52.0" layoutY="78.0" promptText="Login:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></JFXTextField>
+      <JFXPasswordField fx:id="senha_func" focusColor="WHITE" labelFloat="true" layoutX="52.0" layoutY="129.0" promptText="Senha:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></JFXPasswordField>
+      <JFXButton fx:id="entrar_fun" buttonType="RAISED" layoutX="180.0" layoutY="215.0" onAction="#entrarFunc" style="-fx-background-color: #00BFFF;" text="Entrar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>

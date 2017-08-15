@@ -1,13 +1,20 @@
 package br.ufrpe.bugzilla.gui;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
+import br.ufrpe.bugzilla.dao.RepositorioFuncionario;
+import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
+import br.ufrpe.bugzilla.negocio.beans.Endereco;
+import br.ufrpe.bugzilla.negocio.beans.Funcionario;
+import br.ufrpe.bugzilla.negocio.beans.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +24,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginFuncionarioController implements Initializable{
 
@@ -37,10 +45,22 @@ public class LoginFuncionarioController implements Initializable{
 		login = login_func.getText();
 		senha = senha_func.getText();
 		
-		if(login_func.getText().equals("") || senha_func.getText().equals("")){
+		/*Funcionario Definido para Testes já salvo em arquivo
+		Endereco endereco  = new Endereco();
+		Funcionario func = new Funcionario("Tamires", "12581069490", LocalDate.now(), "88664646",
+				endereco, 1.800, new Usuario("tamires","12345"), TipoDeFuncionario.FUNC);
+		try {
+			Fachada.getInstance().addFuncionario(func);
+			RepositorioFuncionario.getInstance().salvaArquivo();
+		} catch (ObjectJaExisteException e1) {
+			
+			e1.printStackTrace();
+		}*/
+		
+		if(login.equals("") || senha.equals("")){
 			erro_func.setText("Preencha os campos corretamente!");
 		
-		}else if(login.equalsIgnoreCase("funcionario") && senha.equals("4321")){
+		}else if(Fachada.getInstance().verificaLoginFuncionario(new Usuario(login,senha))){
 			erro_func.setText("Foi");
 			((Node) (event.getSource())).getScene().getWindow().hide();
 			Parent p = null;			
@@ -70,6 +90,7 @@ public class LoginFuncionarioController implements Initializable{
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.initStyle(StageStyle.TRANSPARENT);
 			stage.show();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
