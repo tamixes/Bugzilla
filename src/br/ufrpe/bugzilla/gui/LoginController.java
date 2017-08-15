@@ -30,15 +30,16 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	public void loginAdm(ActionEvent event){
-		((Node) (event.getSource())).getScene().getWindow().hide();
+		//((Node) (event.getSource())).getScene().getWindow().hide();
         Parent p1 = null;
         try {
 			p1 = FXMLLoader.load(getClass().getResource("LoginAdministrador.fxml"));
-			Stage stage = new Stage();
+			Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow(); //antes recebia new Stage;
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
-			stage.initStyle(StageStyle.TRANSPARENT);
+			//stage.initStyle(StageStyle.TRANSPARENT); não precisa mais remover a
+			//barra do windows(só precisava qnd criava uma nova janela), pq já foi removida antes nessa stage.
 			stage.show();
 			
 			
