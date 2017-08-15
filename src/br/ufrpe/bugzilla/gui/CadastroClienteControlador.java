@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import br.ufrpe.bugzilla.dao.RepositorioCliente;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
@@ -57,6 +58,8 @@ public class CadastroClienteControlador implements Initializable {
 				Cliente cliente = new Cliente(nome, cnpj, cpf, telefone, end, null);
 				try {
 					Fachada.getInstance().cadastrarCliente(cliente);
+					//teste
+					RepositorioCliente.getInstance().salvaArquivo();
 					((Node) (event.getSource())).getScene().getWindow().hide();
 					try {
 						Parent p = FXMLLoader.load(getClass().getResource("MenuFuncionario.fxml"));

@@ -53,7 +53,7 @@ public class TelaInicialFuncionarioController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		this.numCentral.setText(String.valueOf(Fachada.getInstance().contadorCentral()));
-		this.numCliente.setText(String.valueOf(Fachada.getInstance().contadorEncomenda()));
+		this.numCliente.setText(String.valueOf(Fachada.getInstance().contadorCliente()));
 		this.numEnc.setText(String.valueOf(Fachada.getInstance().contadorEncomenda()));
 		
 		this.nomeFuncOuAdm.setText(LoginFuncionarioController.getNome());
