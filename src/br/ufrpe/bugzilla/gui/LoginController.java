@@ -50,14 +50,14 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	public void loginFunc(ActionEvent event){
-		((Node) (event.getSource())).getScene().getWindow().hide();
+		//((Node) (event.getSource())).getScene().getWindow().hide();
 		Parent p1 = null;
         try {
 			p1 = FXMLLoader.load(getClass().getResource("LoginFuncionario.fxml"));
-			Stage stage = new Stage();
+			Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
-			stage.initStyle(StageStyle.TRANSPARENT);
+			//stage.initStyle(StageStyle.TRANSPARENT);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.show();
 			
