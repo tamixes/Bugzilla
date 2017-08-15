@@ -17,7 +17,7 @@
    <children>
       <JFXTextField fx:id="nome_func" focusColor="WHITE" layoutX="8.0" layoutY="85.0" prefHeight="25.0" prefWidth="314.0" promptText="Nome:" unFocusColor="#2660a4" />
       <JFXTextField fx:id="cpf_func" focusColor="WHITE" layoutX="370.0" layoutY="84.0" prefHeight="25.0" prefWidth="191.0" promptText="CPF:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="nascimento_fun" focusColor="WHITE" layoutX="8.0" layoutY="125.0" promptText="Nascimento:" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="nascimento_func" focusColor="WHITE" layoutX="8.0" layoutY="125.0" promptText="Nascimento:" unFocusColor="#2660a4" />
       <JFXTextField fx:id="telefone_func" focusColor="WHITE" layoutX="191.0" layoutY="125.0" promptText="Telefone:" unFocusColor="#2660a4" />
       <JFXTextField fx:id="rua_func" focusColor="WHITE" layoutX="8.0" layoutY="209.0" prefHeight="25.0" prefWidth="342.0" promptText="Rua:" unFocusColor="#2660a4" />
       <JFXTextField fx:id="bairro_func" focusColor="WHITE" layoutX="398.0" layoutY="209.0" prefHeight="25.0" prefWidth="238.0" promptText="Bairro:" unFocusColor="#2660a4" />

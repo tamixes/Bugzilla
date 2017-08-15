@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class TelaFuncionarioController implements Initializable{
@@ -120,18 +121,20 @@ public class TelaFuncionarioController implements Initializable{
 	// Event Listener on JFXButton[#add_func].onAction
 	@FXML
 	public void addFunc(ActionEvent event) {
-		((Node) (event.getSource())).getScene().getWindow().hide();
-		Parent p = null;
+		Parent p1 = null;
 		
-		try {
-			p = FXMLLoader.load(getClass().getResource("CadastroFuncionario.fxml"));
-			Scene scene = new Scene(p);
+		try{
+			p1 = FXMLLoader.load(getClass().getResource("CadastroFuncionario.fxml"));
 			Stage stage = new Stage();
+			//bloqueia outras janelas
+			stage.initModality(Modality.APPLICATION_MODAL);
+			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.show();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 	// Event Listener on JFXButton[#buscar_func].onAction
