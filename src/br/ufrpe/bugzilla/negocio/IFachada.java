@@ -15,6 +15,8 @@ public interface IFachada {
 	Funcionario buscarFuncionario(String cpf) throws ObjectNaoExisteException;
 	boolean verificaLoginFuncionario(Usuario usuario);
 	boolean verificaLoginADM(Usuario usuario);
+	String nomePorLogin(Usuario u);
+	String nomePorLoginADM(Usuario u);
 	void removerFuncionario(Funcionario func) throws ErroAoRemoverException;
 	void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException;
 	List<Funcionario> listarFuncionarios();

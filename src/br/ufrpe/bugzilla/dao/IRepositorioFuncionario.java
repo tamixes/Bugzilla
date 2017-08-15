@@ -18,6 +18,8 @@ public interface IRepositorioFuncionario {
 	boolean existe(String cpf);
 	boolean checarLogin(Usuario u);
 	boolean checarLoginADM(Usuario u);
+	String nomePorLogin(Usuario u);
+	String nomePorLoginADM(Usuario u);
 	List<Funcionario> mostrarFuncio();
 	void salvaArquivo();
 	long contadorFuncionario();

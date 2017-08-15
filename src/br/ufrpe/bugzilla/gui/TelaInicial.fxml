@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.TelaInicialController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.TelaInicialController">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="130.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -119,7 +113,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="numFunc" layoutX="41.0" layoutY="35.0" text="10" textFill="#05e0ff">
+            <Label fx:id="numFunc" layoutX="41.0" layoutY="35.0" text="0" textFill="#05e0ff">
                <font>
                   <Font name="System Bold" size="80.0" />
                </font>
@@ -133,7 +127,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="numCliente" layoutX="41.0" layoutY="35.0" text="10" textFill="#05e0ff">
+            <Label fx:id="numCliente" layoutX="41.0" layoutY="35.0" text="0" textFill="#05e0ff">
                <font>
                   <Font name="System Bold" size="80.0" />
                </font>
@@ -147,7 +141,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="numCentral" layoutX="41.0" layoutY="35.0" text="10" textFill="#05e0ff">
+            <Label fx:id="numCentral" layoutX="41.0" layoutY="35.0" text="0" textFill="#05e0ff">
                <font>
                   <Font name="System Bold" size="80.0" />
                </font>
@@ -161,7 +155,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="numEnc" layoutX="40.0" layoutY="34.0" text="10" textFill="#05e0ff">
+            <Label fx:id="numEnc" layoutX="40.0" layoutY="34.0" text="0" textFill="#05e0ff">
                <font>
                   <Font name="System Bold" size="80.0" />
                </font>

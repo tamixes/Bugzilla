@@ -102,6 +102,16 @@ public class Fachada implements IFachada {
 	public long contadorFuncionario(){
 		return this.cadastroFuncionario.contadorFuncionario();
 	}
+	
+	public String nomePorLogin(Usuario u) {
+		
+		return this.cadastroFuncionario.nomePorLogin(u);
+	}
+
+	public String nomePorLoginADM(Usuario u) {
+		
+		return this.cadastroFuncionario.nomePorLoginADM(u);
+	}
 
 	/** LOCAL **/
 
@@ -181,5 +191,6 @@ public class Fachada implements IFachada {
 		
 		return this.controleCliente.contadorCliente();
 	}
+
 
 }

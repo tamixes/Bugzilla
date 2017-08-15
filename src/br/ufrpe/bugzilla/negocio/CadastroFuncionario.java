@@ -80,6 +80,15 @@ public class CadastroFuncionario{
 		return this.repositorio.checarLoginADM(usuario);
 	}
 	
+	public String nomePorLogin(Usuario u){
+		
+		return this.repositorio.nomePorLogin(u);
+	}
+	public String nomePorLoginADM(Usuario u){
+		
+		return this.repositorio.nomePorLoginADM(u);
+	}
+	
 	public boolean existe(String cpf){
 		if(cpf==null){
 			throw new IllegalArgumentException("Inválido!");

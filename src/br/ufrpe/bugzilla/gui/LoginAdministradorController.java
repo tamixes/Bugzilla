@@ -30,6 +30,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class LoginAdministradorController implements Initializable{
+	
+	//guarda o nome de quem logou
+		private static String nome;
 
 	@FXML
 	private JFXTextField login_adm;
@@ -64,6 +67,8 @@ public class LoginAdministradorController implements Initializable{
 		}
 		else if(Fachada.getInstance().verificaLoginADM(new Usuario(login,senha))){
 			erro.setText("");
+			//recebe o nome de quem logou
+			nome = Fachada.getInstance().nomePorLoginADM(new Usuario(login,senha));
 			((Node) (event.getSource())).getScene().getWindow().hide();
 			Parent p = null;
 			try {
@@ -105,7 +110,11 @@ public class LoginAdministradorController implements Initializable{
 		Platform.exit();
 	}
 	
-	
+	//get do nome de quem logou
+	public static String getNome() {
+		return nome;
+	}
+
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		

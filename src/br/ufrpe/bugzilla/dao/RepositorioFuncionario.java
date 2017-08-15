@@ -118,6 +118,28 @@ public class RepositorioFuncionario implements IRepositorioFuncionario, Serializ
 		return resultado;
 	}
 	
+	public String nomePorLogin(Usuario u) {
+		String resultado = "";
+		for(int i=0; i<funcionario.size(); i++){
+				if (this.funcionario.get(i).getUsuario().equals(u)) {
+					resultado =  funcionario.get(i).getNome();
+				}
+			}
+		
+		return resultado;
+	}
+	
+	public String nomePorLoginADM(Usuario u) {
+		String resultado = "";
+		for(int i=0; i<funcionario.size(); i++){
+				if (this.funcionario.get(i).getUsuario().equals(u) && this.funcionario.get(i).isAdm()) {
+					resultado =  funcionario.get(i).getNome();
+				}
+			}
+		
+		return resultado;
+	}
+	
 	public long contadorFuncionario() {
     	
     	long contador=0;
