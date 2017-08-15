@@ -1,6 +1,5 @@
 package br.ufrpe.bugzilla;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -98,12 +97,7 @@ public class Menu {
 								
 	
 								System.out.print("Data de Nascimento:\n" + "Dia: ");
-								int diaNascimento = scan.nextInt();
-								System.out.print("Mês: ");
-								int mesNascimento = scan.nextInt();
-								System.out.print("Ano: ");
-								int anoNascimento = scan.nextInt();
-								LocalDate dataFunc = LocalDate.of(anoNascimento, mesNascimento, diaNascimento);
+								String dataFunc = scan.nextLine();
 	
 								
 								scan.nextLine(); //limpaBuffer

@@ -10,9 +10,9 @@ public class Funcionario extends Pessoa implements Serializable{
 	private double salario;
 	private TipoDeFuncionario tipo;
 	
-	public Funcionario(String nome, String cpf, LocalDate nascimento, String telefone,Endereco endereco, double salario, Usuario usuario, TipoDeFuncionario tipo){
+	public Funcionario(String nome, String cpf, String localDate, String telefone,Endereco endereco, double salario, Usuario usuario, TipoDeFuncionario tipo){
 		
-		super(nome, cpf, nascimento, telefone, endereco, usuario);
+		super(nome, cpf, localDate, telefone, endereco, usuario);
 		this.salario = salario;
 		this.tipo = tipo;
 	}

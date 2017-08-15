@@ -51,9 +51,9 @@ public class LoginAdministradorController implements Initializable{
 		login = login_adm.getText();
 		senha = senha_adm.getText();
 		
-		/*Admin Definido para Testes já salvo em arquivo
-				Endereco endereco  = new Endereco();
-				Funcionario func = new Funcionario("Diego", "12145847512", LocalDate.now(), "88664646",
+		//Admin Definido para Testes já salvo em arquivo
+				/*Endereco endereco  = new Endereco();
+				Funcionario func = new Funcionario("Diego", "12145847512", "15/08/2120", "88664646",
 						endereco, 1.800, new Usuario("diego","admin"), TipoDeFuncionario.ADM);
 				try {
 					Fachada.getInstance().addFuncionario(func);

@@ -59,12 +59,14 @@ public class CadastroClienteControlador implements Initializable {
 				Endereco end = new Endereco(rua, bairro, cidade, estado, cep, num);
 				//teste
 				Cliente cliente = new Cliente(nome, cnpj, cpf, telefone, end, TipoCliente.FIS);
+				
 				try {
 					Fachada.getInstance().cadastrarCliente(cliente);
 					//teste
 					RepositorioCliente.getInstance().salvaArquivo();
 					System.out.println("Salvo");
 					((Node) (event.getSource())).getScene().getWindow().hide();
+					
 				} catch (ObjectJaExisteException e) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("Warning");

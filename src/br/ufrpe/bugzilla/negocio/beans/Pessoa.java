@@ -1,18 +1,17 @@
 package br.ufrpe.bugzilla.negocio.beans;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 public class Pessoa implements Serializable{
   
 	private static final long serialVersionUID = -4044140878567748490L;
 	private String nome;
     private String cpf; 
-    private LocalDate dataNascimento;
+    private String dataNascimento;
     private String telefone; 
     private Endereco end; 
     protected Usuario usuario;
   
-  public Pessoa(String nome, String cpf, LocalDate dataNascimento, String telefone, Endereco end, Usuario usuario){
+  public Pessoa(String nome, String cpf, String dataNascimento, String telefone, Endereco end, Usuario usuario){
 	  this.nome = nome;
 	  this.cpf = cpf;
 	  this.dataNascimento = dataNascimento;
@@ -49,12 +48,12 @@ public class Pessoa implements Serializable{
 	}
 	
 	
-	public LocalDate getDataNascimento(){
+	public String getDataNascimento(){
 		return dataNascimento;
 	}
 	
 	
-	public void setDataNascimento(LocalDate dataNascimento){
+	public void setDataNascimento(String dataNascimento){
 		this.dataNascimento = dataNascimento;
 	}
 	
@@ -74,7 +73,7 @@ public class Pessoa implements Serializable{
 		this.end = end;
 	}
 
-	public String dataAnivo(){
+	/*public String dataAnivo(){
 		int dia = dataNascimento.getDayOfMonth();
 		int mes = dataNascimento.getMonthValue();
 		int ano = dataNascimento.getYear(); 
@@ -83,7 +82,7 @@ public class Pessoa implements Serializable{
 		
 		return resultado;
 		
-	}
+	}*/
 	public String formataCpf(String cpf){
 		
 		String p1 = cpf.substring(0, 3);
@@ -97,7 +96,7 @@ public class Pessoa implements Serializable{
 	 
 	public String toString(){
 		
-		String resultado = String.format("Nome: %s\nCPF: %s\nData de Nascimento: %s\nEndereco: %s", nome, this.formataCpf(this.cpf), this.dataAnivo(), end);
+		String resultado = String.format("Nome: %s\nCPF: %s\nData de Nascimento: %s\nEndereco: %s", nome, this.formataCpf(this.cpf), dataNascimento, end);
 		
 		return resultado; 
 	}

@@ -7,9 +7,14 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
+import br.ufrpe.bugzilla.dao.RepositorioFuncionario;
+import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.gui.telas.TelaInicial;
 import br.ufrpe.bugzilla.gui.telas.TelaInicialFuncionario;
 import br.ufrpe.bugzilla.negocio.Fachada;
+import br.ufrpe.bugzilla.negocio.beans.Endereco;
+import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -46,9 +51,9 @@ public class LoginFuncionarioController implements Initializable{
 		login = login_func.getText();
 		senha = senha_func.getText();
 		
-		/*Funcionario Definido para Testes já salvo em arquivo
-		Endereco endereco  = new Endereco();
-		Funcionario func = new Funcionario("Tamires", "12581069490", LocalDate.now(), "88664646",
+		//Funcionario Definido para Testes já salvo em arquivo
+		/*Endereco endereco  = new Endereco();
+		Funcionario func = new Funcionario("Tamires", "12581069490", "21/12/2121", "88664646",
 				endereco, 1.800, new Usuario("tamires","12345"), TipoDeFuncionario.FUNC);
 		try {
 			Fachada.getInstance().addFuncionario(func);
