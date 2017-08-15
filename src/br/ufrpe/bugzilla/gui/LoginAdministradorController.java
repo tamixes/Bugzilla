@@ -67,7 +67,7 @@ public class LoginAdministradorController implements Initializable{
 			((Node) (event.getSource())).getScene().getWindow().hide();
 			Parent p = null;
 			try {
-				p = FXMLLoader.load(getClass().getResource("MenuAdministrador.fxml"));
+				p = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
 				Scene scene = new Scene(p);
 				Stage stage = new Stage();
 				stage.setScene(scene);

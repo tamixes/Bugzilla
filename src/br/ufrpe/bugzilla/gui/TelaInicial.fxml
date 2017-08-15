@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.TelaInicialController">
+   <children>
+      <AnchorPane prefHeight="700.0" prefWidth="130.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="home" fitHeight="54.0" fitWidth="54.0" layoutX="60.0" layoutY="188.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
+               <image>
+                  <Image url="@img/icons8-Home-100.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="24.0" layoutY="275.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
+               <children>
+                  <ImageView fx:id="funcBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#funcOpcoes" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-Customer-96.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="24.0" layoutY="593.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
+               <children>
+                  <ImageView fx:id="encBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#encOpcoes" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-Product-96.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="23.0" layoutY="488.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
+               <children>
+                  <ImageView fx:id="centralBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#centralOpcoes" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-Map%20Marker-96.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="23.0" layoutY="383.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
+               <children>
+                  <ImageView fx:id="clienteBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#clienteOpcoes" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-Contact%20Details-96.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="160.0" prefWidth="165.0" style="-fx-background-color: #404040;">
+               <children>
+                  <Circle fill="#fffffff2" layoutX="83.0" layoutY="68.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="94.0" fitWidth="93.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-Admin-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nomeFuncOuAdm" layoutX="69.0" layoutY="129.0" text="NOME" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+      <ImageView fitHeight="485.0" fitWidth="685.0" layoutX="314.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/truck1600.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="786.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo_bugzilla.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="205.0" layoutY="481.0" prefHeight="160.0" prefWidth="173.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="34.0" layoutY="14.0" text="FUNCIONÁRIOS" textFill="#2699f2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="numFunc" layoutX="41.0" layoutY="35.0" text="10" textFill="#05e0ff">
+               <font>
+                  <Font name="System Bold" size="80.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="402.0" layoutY="481.0" prefHeight="160.0" prefWidth="173.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="56.0" layoutY="14.0" text="CLIENTES" textFill="#2699f2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="numCliente" layoutX="41.0" layoutY="35.0" text="10" textFill="#05e0ff">
+               <font>
+                  <Font name="System Bold" size="80.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="600.0" layoutY="481.0" prefHeight="160.0" prefWidth="173.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="53.0" layoutY="14.0" text="CENTRAIS" textFill="#2699f2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="numCentral" layoutX="41.0" layoutY="35.0" text="10" textFill="#05e0ff">
+               <font>
+                  <Font name="System Bold" size="80.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="800.0" layoutY="481.0" prefHeight="160.0" prefWidth="173.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="34.0" layoutY="14.0" text="ENCOMENDAS" textFill="#2699f2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="numEnc" layoutX="40.0" layoutY="34.0" text="10" textFill="#05e0ff">
+               <font>
+                  <Font name="System Bold" size="80.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
