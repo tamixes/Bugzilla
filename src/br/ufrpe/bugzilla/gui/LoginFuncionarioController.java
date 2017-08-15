@@ -1,20 +1,15 @@
 package br.ufrpe.bugzilla.gui;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
-import br.ufrpe.bugzilla.dao.RepositorioFuncionario;
-import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
-import br.ufrpe.bugzilla.negocio.beans.Endereco;
-import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -97,9 +93,10 @@ public class LoginFuncionarioController implements Initializable{
 		}
 	}
 	
-	
-	
-	
+	@FXML
+	public void close(MouseEvent event){
+		Platform.exit();
+	}
 	
 	
 	

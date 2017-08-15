@@ -38,6 +38,7 @@ public class LoginController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.initStyle(StageStyle.TRANSPARENT);
 			stage.show();
 			
 			
@@ -55,6 +56,7 @@ public class LoginController implements Initializable{
 			Stage stage = new Stage();
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
+			stage.initStyle(StageStyle.TRANSPARENT);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.show();
 			

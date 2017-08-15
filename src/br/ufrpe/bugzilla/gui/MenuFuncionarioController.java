@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class MenuFuncionarioController implements Initializable{
 
@@ -136,6 +137,7 @@ public class MenuFuncionarioController implements Initializable{
 			Scene scene = new Scene(p);
 			Stage stage = new Stage();
 			stage.setScene(scene);
+			stage.initStyle(StageStyle.TRANSPARENT);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.show();
 		} catch (Exception e) {

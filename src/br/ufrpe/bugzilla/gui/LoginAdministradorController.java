@@ -16,6 +16,7 @@ import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -99,6 +100,10 @@ public class LoginAdministradorController implements Initializable{
 		}
 	}
 	
+	@FXML
+	public void close(MouseEvent event){
+		Platform.exit();
+	}
 	
 	
 	public void initialize(URL location, ResourceBundle resources) {
