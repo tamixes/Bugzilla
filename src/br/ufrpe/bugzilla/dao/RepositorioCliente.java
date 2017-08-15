@@ -9,12 +9,11 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import br.ufrpe.bugzilla.colecoes.TipoCliente;
+
 import br.ufrpe.bugzilla.exceptions.ErroAoAtualizarException;
 import br.ufrpe.bugzilla.exceptions.ErroAoRemoverException;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
-import br.ufrpe.bugzilla.negocio.beans.Endereco;
 
 public class RepositorioCliente implements IRepositorioCliente, Serializable{
 
