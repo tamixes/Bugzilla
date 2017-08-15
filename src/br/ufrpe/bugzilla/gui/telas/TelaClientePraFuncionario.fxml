@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.TelaClientePraFuncionarioController">
+   <children>
+      <AnchorPane prefHeight="700.0" prefWidth="130.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="home" fitHeight="54.0" fitWidth="54.0" layoutX="60.0" layoutY="188.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icons8-Home-100.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <AnchorPane layoutX="24.0" layoutY="533.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
+               <children>
+                  <ImageView fx:id="encBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#encOpcoes" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-Product-96.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane layoutX="24.0" layoutY="411.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
+               <children>
+                  <ImageView fx:id="centralBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#centralOpcoes" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-Map%20Marker-96.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane layoutX="24.0" layoutY="289.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
+                     <image>
+                        <Image url="@../img/icons8-Contact%20Details-96.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane prefHeight="160.0" prefWidth="165.0" style="-fx-background-color: #404040;">
+               <children>
+                  <Circle fill="#fffffff2" layoutX="83.0" layoutY="68.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="94.0" fitWidth="93.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-User-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nomeFuncOuAdm" layoutX="69.0" layoutY="129.0" text="NOME" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+      <Label layoutX="449.0" layoutY="55.0" text="CLIENTE" textFill="#00e6ff">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="listar_cliente" buttonType="RAISED" layoutX="480.0" layoutY="348.0" onAction="#listarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Clientes" />
+      <JFXButton fx:id="remover_cliente" buttonType="RAISED" layoutX="481.0" layoutY="414.0" onAction="#removerCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Cliente" />
+      <JFXButton fx:id="alterar_cliente" buttonType="RAISED" layoutX="480.0" layoutY="381.0" onAction="#alterarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Cliente" />
+      <JFXButton fx:id="buscar_cliente" buttonType="RAISED" layoutX="480.0" layoutY="315.0" onAction="#buscarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Cliente" />
+      <JFXButton fx:id="add_cliente" buttonType="RAISED" layoutX="480.0" layoutY="281.0" onAction="#addCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Cliente" />
+   </children>
+</AnchorPane>
