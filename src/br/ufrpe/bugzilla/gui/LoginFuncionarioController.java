@@ -23,6 +23,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class LoginFuncionarioController implements Initializable{
+	
+	//guarda o nome de quem logou
+	private static String nome;
 
 	@FXML
 	private JFXPasswordField senha_func;
@@ -57,11 +60,13 @@ public class LoginFuncionarioController implements Initializable{
 			erro_func.setText("Preencha os campos corretamente!");
 		
 		}else if(Fachada.getInstance().verificaLoginFuncionario(new Usuario(login,senha))){
-			erro_func.setText("Foi");
+			erro_func.setText("");
+			//recebe o nome de quem logou
+			nome = Fachada.getInstance().nomePorLogin(new Usuario(login,senha));
 			((Node) (event.getSource())).getScene().getWindow().hide();
 			Parent p = null;			
 			try {
-				p = FXMLLoader.load(getClass().getResource("MenuFuncionario.fxml"));
+				p = FXMLLoader.load(getClass().getResource("TelaInicialFuncionario.fxml"));
 				Scene scene = new Scene(p);
 				Stage stage = new Stage();
 				stage.setScene(scene);
@@ -98,10 +103,10 @@ public class LoginFuncionarioController implements Initializable{
 		Platform.exit();
 	}
 	
-	
-	
-	
-	
+	//get do nome de quem logou
+		public static String getNome() {
+			return nome;
+		}
 	
 	
 	
