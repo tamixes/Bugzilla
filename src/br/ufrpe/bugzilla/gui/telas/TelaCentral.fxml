@@ -37,7 +37,7 @@
             </AnchorPane>
             <AnchorPane layoutX="23.0" layoutY="488.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
                <children>
-                  <ImageView fx:id="centralBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#centralOpcoes" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
                      <image>
                         <Image url="@../img/icons8-Map%20Marker-96.png" />
                      </image>
