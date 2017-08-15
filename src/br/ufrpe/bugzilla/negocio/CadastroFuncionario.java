@@ -61,6 +61,10 @@ public class CadastroFuncionario{
 	public List<Funcionario> mostrarfunc() {
 		return this.repositorio.mostrarFuncio();
 	}
+	
+	public long contadorFuncionario(){
+		return this.repositorio.contadorFuncionario();
+	}
 
 	public boolean login(String login, String senha) {
 		Usuario usuario = new Usuario(login, senha);

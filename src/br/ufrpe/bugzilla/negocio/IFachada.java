@@ -19,6 +19,7 @@ public interface IFachada {
 	void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException;
 	List<Funcionario> listarFuncionarios();
 	boolean existeFunc(String cpf);
+	public long contadorFuncionario();
 	
 	//Encomenda
 	void novaEncomenda(Encomenda encomenda) throws ObjectJaExisteException;
@@ -27,6 +28,7 @@ public interface IFachada {
 	void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Encomenda> listaDeEncomendas();
 	public void defineTarifaBase(double tarifa);
+	public long contadorEncomenda();
 	
 	//Local
 	void cadastrarLocal(Local l) throws ObjectJaExisteException;
@@ -34,6 +36,7 @@ public interface IFachada {
 	void atualizarLocal(Local l) throws ObjectNaoExisteException, ErroAoAtualizarException;
 	void removerLocal(String nome) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Local> listarLocais();
+	public long contadorCentral();
 	
 	//Cliente
 	void cadastrarCliente(Cliente cliente) throws ObjectJaExisteException;
@@ -43,5 +46,6 @@ public interface IFachada {
 	void removerCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Cliente> listarClientes();
 	boolean existeCliente(Cliente cliente);
+	public long contadorCliente();
 	
 }

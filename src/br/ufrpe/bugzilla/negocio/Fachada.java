@@ -34,27 +34,32 @@ public class Fachada implements IFachada {
 
 	/** ENCOMENDA **/
 	public void novaEncomenda(Encomenda encomenda) throws ObjectJaExisteException {
-		controleEncomenda.novaEncomenda(encomenda);
+		this.controleEncomenda.novaEncomenda(encomenda);
 	}
 
 	public Encomenda buscaEncomenda(String codigoDaEncomenda) throws ObjectNaoExisteException {
-		return controleEncomenda.buscaEncomenda(codigoDaEncomenda);
+		return this.controleEncomenda.buscaEncomenda(codigoDaEncomenda);
 	}
 
 	public void atualizaEncomenda(Encomenda encomenda) throws ObjectNaoExisteException, ErroAoAtualizarException {
-		controleEncomenda.atualizaEncomenda(encomenda);
+		this.controleEncomenda.atualizaEncomenda(encomenda);
 	}
 
 	public void removeEncomenda(String codigoDaEncommenda) throws ObjectNaoExisteException, ErroAoRemoverException {
-		controleEncomenda.removeEncomenda(codigoDaEncommenda);
+		this.controleEncomenda.removeEncomenda(codigoDaEncommenda);
 	}
 
 	public ArrayList<Encomenda> listaDeEncomendas() {
-		return controleEncomenda.listaDeEncomendas();
+		return this.controleEncomenda.listaDeEncomendas();
 	}
 
 	public void defineTarifaBase(double tarifa) {
-		controleEncomenda.defineTarifaBase(tarifa);
+		this.controleEncomenda.defineTarifaBase(tarifa);
+	}
+	
+	public long contadorEncomenda(){
+		
+		return this.controleEncomenda.contadorEncomenda();
 	}
 	
 
@@ -93,6 +98,10 @@ public class Fachada implements IFachada {
 	public boolean existeFunc(String cpf) {
 		return this.cadastroFuncionario.existe(cpf);
 	}
+	
+	public long contadorFuncionario(){
+		return this.cadastroFuncionario.contadorFuncionario();
+	}
 
 	/** LOCAL **/
 
@@ -119,6 +128,11 @@ public class Fachada implements IFachada {
 	public ArrayList<Local> listarLocais() {
 
 		return this.controleLocal.listarLocais();
+	}
+	
+	public long contadorCentral(){
+		
+		return this.controleLocal.contadorLocal();
 	}
 
 	/**
@@ -161,6 +175,11 @@ public class Fachada implements IFachada {
 
 		return this.controleCliente.existe(cliente);
 
+	}
+	
+	public long contadorCliente(){
+		
+		return this.controleCliente.contadorCliente();
 	}
 
 }

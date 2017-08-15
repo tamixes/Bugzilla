@@ -80,5 +80,10 @@ public class ControladorLocal {
 
 		return this.repositorio.listarLocais();
 	}
+	
+	public long contadorLocal(){
+		
+		return this.repositorio.contadorLocal();
+	}
 
 }

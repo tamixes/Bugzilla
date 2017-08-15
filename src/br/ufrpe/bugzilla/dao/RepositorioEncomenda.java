@@ -111,6 +111,18 @@ public class RepositorioEncomenda implements IRepositorioEncomenda, Serializable
 		Encomenda.setTarifaBase(tarifa);
 	}
 	
+	public long contadorEncomenda() {
+    	
+    	long contador=0;
+    	
+    	for(Encomenda e : encomendas) {
+    		if(e instanceof Encomenda)
+    			contador++;
+    	}
+    	
+    	return contador;
+    }
+	
 	// PERSISTÊNCIA DE DADOS
 	
 	

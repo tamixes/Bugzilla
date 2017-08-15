@@ -17,6 +17,7 @@ public interface IRepositorioCliente {
 	void removerCliente(Cliente cliente) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Cliente> listarClientes();
 	boolean existe(Cliente cliente);
+	long contadorCliente();
 	void salvaArquivo();
 
 }

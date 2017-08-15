@@ -27,5 +27,7 @@ public interface IRepositorioEncomenda {
 	public boolean existe(Encomenda e);
 	
 	void salvaArquivo();
+	
+	long contadorEncomenda();
 
 }

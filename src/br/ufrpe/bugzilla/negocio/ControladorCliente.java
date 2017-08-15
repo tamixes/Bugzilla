@@ -41,17 +41,6 @@ public class ControladorCliente {
          	
 	}
 	
-//	public void removerLocal(String nome) throws ObjectNaoExisteException{
-//		
-//		if(nome!=null){
-//			repositorio.removerCliente(nome);
-//		}
-//		else{
-//			throw new IllegalArgumentException("Parâmetro inválido");
-//		}
-//		
-//	}
-	
 	public Cliente procurarCliente(String nome) throws ObjectNaoExisteException{
 
 		if(nome != null){
@@ -110,6 +99,10 @@ public class ControladorCliente {
 	public ArrayList<Cliente> listarClientes() {
 
 		return this.repositorio.listarClientes();
+	}
+	
+	public long contadorCliente(){
+		return this.repositorio.contadorCliente();
 	}
 
 }

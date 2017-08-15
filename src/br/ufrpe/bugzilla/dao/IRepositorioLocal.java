@@ -15,6 +15,7 @@ public interface IRepositorioLocal {
 	void removerLocal(String nome) throws ObjectNaoExisteException, ErroAoRemoverException;
 	ArrayList<Local> listarLocais();
 	boolean existe(Local l);
+	long contadorLocal();
 	void salvaArquivo();
 	
 }

@@ -114,6 +114,18 @@ public class RepositorioLocal implements IRepositorioLocal, Serializable {
 		return locais;
 	}
 	
+	public long contadorLocal() {
+    	
+    	long contador=0;
+    	
+    	for(Local l : locais) {
+    		if(l instanceof Local)
+    			contador++;
+    	}
+    	
+    	return contador;
+    }
+	
 	// PERSISTÊNCIA DE DADOS
 	
 	

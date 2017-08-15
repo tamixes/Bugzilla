@@ -20,5 +20,6 @@ public interface IRepositorioFuncionario {
 	boolean checarLoginADM(Usuario u);
 	List<Funcionario> mostrarFuncio();
 	void salvaArquivo();
+	long contadorFuncionario();
 	
 }

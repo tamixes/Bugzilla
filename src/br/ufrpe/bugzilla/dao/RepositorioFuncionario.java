@@ -118,6 +118,18 @@ public class RepositorioFuncionario implements IRepositorioFuncionario, Serializ
 		return resultado;
 	}
 	
+	public long contadorFuncionario() {
+    	
+    	long contador=0;
+    	
+    	for(Funcionario f : funcionario) {
+    		if(f instanceof Funcionario)
+    			contador++;
+    	}
+    	
+    	return contador;
+    }
+	
 	// PERSISTÊNCIA DE DADOS
 	
 	

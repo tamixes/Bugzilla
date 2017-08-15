@@ -81,4 +81,9 @@ public class ControladorEncomenda {
 		
 		this.repositorio.defineTarifaBase(tarifa);
 	}
+	
+	public long contadorEncomenda(){
+		
+		return this.repositorio.contadorEncomenda();
+	}
 }
