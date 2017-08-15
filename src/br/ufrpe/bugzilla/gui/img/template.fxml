@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +12,7 @@
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="130.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="home" fitHeight="54.0" fitWidth="54.0" layoutX="60.0" layoutY="188.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
+            <ImageView fx:id="home" fitHeight="54.0" fitWidth="54.0" layoutX="60.0" layoutY="188.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-Home-100.png" />
                </image>
@@ -68,5 +69,15 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
+      <JFXButton fx:id="add_func" layoutX="477.0" layoutY="250.0" onAction="#addFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Funcionário" />
+      <JFXButton fx:id="buscar_func" layoutX="477.0" layoutY="284.0" onAction="#buscarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Funcionário" />
+      <JFXButton fx:id="alterar_func" layoutX="477.0" layoutY="350.0" onAction="#alterarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Funcionário" />
+      <JFXButton fx:id="remover_func" layoutX="478.0" layoutY="383.0" onAction="#removerFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Funcionário" />
+      <JFXButton fx:id="listar_func" layoutX="477.0" layoutY="317.0" onAction="#listarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Funcionários" />
+      <Label layoutX="355.0" layoutY="49.0" text="FUNCIONÁRIOS" textFill="#00e6ff">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

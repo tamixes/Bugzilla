@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import br.ufrpe.bugzilla.colecoes.TipoCliente;
 import br.ufrpe.bugzilla.dao.RepositorioCliente;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.gui.login.Login;
@@ -56,12 +57,14 @@ public class CadastroClienteControlador implements Initializable {
 			try {
 				int num = Integer.parseInt(numero); 
 				Endereco end = new Endereco(rua, bairro, cidade, estado, cep, num);
-				Cliente cliente = new Cliente(nome, cnpj, cpf, telefone, end, null);
+				//teste
+				Cliente cliente = new Cliente(nome, cnpj, cpf, telefone, end, TipoCliente.FIS);
 				try {
 					Fachada.getInstance().cadastrarCliente(cliente);
 					//teste
 					RepositorioCliente.getInstance().salvaArquivo();
-					((Node) (event.getSource())).getScene().getWindow().hide();;
+					System.out.println("Salvo");
+					((Node) (event.getSource())).getScene().getWindow().hide();
 				} catch (ObjectJaExisteException e) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("Warning");

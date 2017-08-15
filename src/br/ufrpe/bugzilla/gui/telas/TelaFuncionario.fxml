@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.TelaClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.TelaFuncionarioController">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="130.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -69,15 +69,15 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <Label layoutX="439.0" layoutY="45.0" text="CLIENTE" textFill="#00e6ff">
+      <JFXButton fx:id="add_func" layoutX="477.0" layoutY="250.0" onAction="#addFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Funcionário" />
+      <JFXButton fx:id="buscar_func" layoutX="477.0" layoutY="284.0" onAction="#buscarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Funcionário" />
+      <JFXButton fx:id="alterar_func" layoutX="477.0" layoutY="350.0" onAction="#alterarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Funcionário" />
+      <JFXButton fx:id="remover_func" layoutX="478.0" layoutY="383.0" onAction="#removerFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Funcionário" />
+      <JFXButton fx:id="listar_func" layoutX="477.0" layoutY="317.0" onAction="#listarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Funcionários" />
+      <Label layoutX="355.0" layoutY="49.0" text="FUNCIONÁRIOS" textFill="#00e6ff">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <JFXButton fx:id="listar_cliente" buttonType="RAISED" layoutX="470.0" layoutY="338.0" onAction="#listarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Clientes" />
-      <JFXButton fx:id="remover_cliente" buttonType="RAISED" layoutX="471.0" layoutY="404.0" onAction="#removerCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Cliente" />
-      <JFXButton fx:id="alterar_cliente" buttonType="RAISED" layoutX="470.0" layoutY="371.0" onAction="#alterarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Cliente" />
-      <JFXButton fx:id="buscar_cliente" buttonType="RAISED" layoutX="470.0" layoutY="305.0" onAction="#buscarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Cliente" />
-      <JFXButton fx:id="add_cliente" buttonType="RAISED" layoutX="470.0" layoutY="271.0" onAction="#addCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Cliente" />
    </children>
 </AnchorPane>

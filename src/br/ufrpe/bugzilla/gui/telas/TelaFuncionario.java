@@ -5,15 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-public class TelaCliente extends Application{
+public class TelaFuncionario extends Application{
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		
 		try{
-			Parent r = FXMLLoader.load(getClass().getResource("TelaCliente.fxml"));
+			Parent r = FXMLLoader.load(getClass().getResource("TelaFuncionario.fxml"));
 			Scene scene = new Scene(r);
 			
 			stage.setScene(scene);
