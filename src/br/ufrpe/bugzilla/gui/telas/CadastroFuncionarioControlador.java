@@ -1,4 +1,4 @@
-package br.ufrpe.bugzilla.gui;
+package br.ufrpe.bugzilla.gui.telas;
 
 import java.net.URL;
 import java.util.ResourceBundle;

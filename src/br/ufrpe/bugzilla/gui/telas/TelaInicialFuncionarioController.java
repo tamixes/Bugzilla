@@ -1,8 +1,9 @@
-package br.ufrpe.bugzilla.gui;
+package br.ufrpe.bugzilla.gui.telas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.ufrpe.bugzilla.gui.login.LoginFuncionarioController;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

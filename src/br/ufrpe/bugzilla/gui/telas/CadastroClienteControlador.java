@@ -1,4 +1,4 @@
-package br.ufrpe.bugzilla.gui;
+package br.ufrpe.bugzilla.gui.telas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import br.ufrpe.bugzilla.dao.RepositorioCliente;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
+import br.ufrpe.bugzilla.gui.login.Login;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
@@ -60,17 +61,7 @@ public class CadastroClienteControlador implements Initializable {
 					Fachada.getInstance().cadastrarCliente(cliente);
 					//teste
 					RepositorioCliente.getInstance().salvaArquivo();
-					((Node) (event.getSource())).getScene().getWindow().hide();
-					try {
-						Parent p = FXMLLoader.load(getClass().getResource("MenuFuncionario.fxml"));
-						Scene scene = new Scene(p);
-						Stage stage = new Stage();
-						stage.setScene(scene);
-						stage.setTitle("Bugzilla Encomendas");
-						stage.show();
-					} catch (Exception e) {
-						System.out.println(e.getMessage());
-					}
+					((Node) (event.getSource())).getScene().getWindow().hide();;
 				} catch (ObjectJaExisteException e) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("Warning");
@@ -79,7 +70,7 @@ public class CadastroClienteControlador implements Initializable {
 					alert.showAndWait();
 				}
 				
-			} catch (Exception e) {
+				} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 		}else{
@@ -93,7 +84,7 @@ public class CadastroClienteControlador implements Initializable {
 		Parent p = null;
 		
 		try {
-			p = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			p = FXMLLoader.load(Login.class.getResource("Login.fxml"));
 			Scene scene = new Scene(p);
 			Stage stage = new Stage();
 			stage.setScene(scene);

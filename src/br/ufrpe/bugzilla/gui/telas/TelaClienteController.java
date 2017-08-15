@@ -1,4 +1,4 @@
-package br.ufrpe.bugzilla.gui;
+package br.ufrpe.bugzilla.gui.telas;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.ufrpe.bugzilla.gui.login.LoginAdministradorController;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -18,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class TelaClienteController implements Initializable{
@@ -97,7 +99,9 @@ public class TelaClienteController implements Initializable{
 		
 		try{
 			p1 = FXMLLoader.load(getClass().getResource("CadastroCliente.fxml"));
-			Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+			Stage stage = new Stage();
+			//bloqueia outras janelas
+			stage.initModality(Modality.APPLICATION_MODAL);
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");

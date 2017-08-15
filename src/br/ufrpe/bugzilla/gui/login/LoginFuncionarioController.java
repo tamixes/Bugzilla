@@ -1,20 +1,15 @@
-package br.ufrpe.bugzilla.gui;
-
+package br.ufrpe.bugzilla.gui.login;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
-import br.ufrpe.bugzilla.dao.RepositorioFuncionario;
-import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
+import br.ufrpe.bugzilla.gui.telas.TelaInicial;
+import br.ufrpe.bugzilla.gui.telas.TelaInicialFuncionario;
 import br.ufrpe.bugzilla.negocio.Fachada;
-import br.ufrpe.bugzilla.negocio.beans.Endereco;
-import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -29,50 +24,51 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class LoginAdministradorController implements Initializable{
+public class LoginFuncionarioController implements Initializable{
 	
 	//guarda o nome de quem logou
-		private static String nome;
+	private static String nome;
 
 	@FXML
-	private JFXTextField login_adm;
+	private JFXPasswordField senha_func;
 	@FXML
-	private JFXPasswordField senha_adm;
-	@FXML 
-	private JFXButton entrar_adm, voltar_adm;
+	private JFXTextField login_func;
 	@FXML
-	private Label erro;
+	private JFXButton entrar_func, voltar_func;
+	@FXML
+	private Label erro_func;
+	
 	
 	@FXML
-	private void entrarAdm(ActionEvent event){
+	private void entrarFunc(ActionEvent event){
 		String login, senha;
 		
-		login = login_adm.getText();
-		senha = senha_adm.getText();
+		login = login_func.getText();
+		senha = senha_func.getText();
 		
-		/*Admin Definido para Testes já salvo em arquivo
-				Endereco endereco  = new Endereco();
-				Funcionario func = new Funcionario("Diego", "12145847512", LocalDate.now(), "88664646",
-						endereco, 1.800, new Usuario("diego","admin"), TipoDeFuncionario.ADM);
-				try {
-					Fachada.getInstance().addFuncionario(func);
-					RepositorioFuncionario.getInstance().salvaArquivo();
-				} catch (ObjectJaExisteException e1) {
-					
-					e1.printStackTrace();
-				}*/
+		/*Funcionario Definido para Testes já salvo em arquivo
+		Endereco endereco  = new Endereco();
+		Funcionario func = new Funcionario("Tamires", "12581069490", LocalDate.now(), "88664646",
+				endereco, 1.800, new Usuario("tamires","12345"), TipoDeFuncionario.FUNC);
+		try {
+			Fachada.getInstance().addFuncionario(func);
+			RepositorioFuncionario.getInstance().salvaArquivo();
+		} catch (ObjectJaExisteException e1) {
+			
+			e1.printStackTrace();
+		}*/
 		
 		if(login.equals("") || senha.equals("")){
-			erro.setText("Preencha os campos corretamente!");
-		}
-		else if(Fachada.getInstance().verificaLoginADM(new Usuario(login,senha))){
-			erro.setText("");
+			erro_func.setText("Preencha os campos corretamente!");
+		
+		}else if(Fachada.getInstance().verificaLoginFuncionario(new Usuario(login,senha))){
+			erro_func.setText("");
 			//recebe o nome de quem logou
-			nome = Fachada.getInstance().nomePorLoginADM(new Usuario(login,senha));
+			nome = Fachada.getInstance().nomePorLogin(new Usuario(login,senha));
 			((Node) (event.getSource())).getScene().getWindow().hide();
-			Parent p = null;
+			Parent p = null;			
 			try {
-				p = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
+				p = FXMLLoader.load(TelaInicialFuncionario.class.getResource("TelaInicialFuncionario.fxml"));
 				Scene scene = new Scene(p);
 				Stage stage = new Stage();
 				stage.setScene(scene);
@@ -81,14 +77,13 @@ public class LoginAdministradorController implements Initializable{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 		}else{
-			erro.setText("Inválido!\nTente Novamente!");
+			erro_func.setText("Inválido!\nTente Novamente!");
 		}
 	}
 	
 	@FXML
-	private void voltarAdm(ActionEvent event){
+	private void voltarFunc(ActionEvent event){
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		Parent p = null;
 		
@@ -111,13 +106,19 @@ public class LoginAdministradorController implements Initializable{
 	}
 	
 	//get do nome de quem logou
-	public static String getNome() {
-		return nome;
-	}
-
+		public static String getNome() {
+			return nome;
+		}
+	
+	
+	
+	
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	
 
 }

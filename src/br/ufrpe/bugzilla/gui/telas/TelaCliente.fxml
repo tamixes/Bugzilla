@@ -8,20 +8,20 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.TelaClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.TelaClienteController">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="130.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="home" fitHeight="54.0" fitWidth="54.0" layoutX="60.0" layoutY="188.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
                <image>
-                  <Image url="@img/icons8-Home-100.png" />
+                  <Image url="@../img/icons8-Home-100.png" />
                </image>
             </ImageView>
             <AnchorPane layoutX="24.0" layoutY="275.0" prefHeight="93.0" prefWidth="126.0" style="-fx-background-color: #dee4ea;">
                <children>
                   <ImageView fx:id="funcBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#funcOpcoes" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-Customer-96.png" />
+                        <Image url="@../img/icons8-Customer-96.png" />
                      </image>
                   </ImageView>
                </children>
@@ -30,7 +30,7 @@
                <children>
                   <ImageView fx:id="encBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#encOpcoes" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-Product-96.png" />
+                        <Image url="@../img/icons8-Product-96.png" />
                      </image>
                   </ImageView>
                </children>
@@ -39,7 +39,7 @@
                <children>
                   <ImageView fx:id="centralBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#centralOpcoes" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-Map%20Marker-96.png" />
+                        <Image url="@../img/icons8-Map%20Marker-96.png" />
                      </image>
                   </ImageView>
                </children>
@@ -48,7 +48,7 @@
                <children>
                   <ImageView fx:id="clienteBtn" fitHeight="80.0" fitWidth="80.0" layoutX="23.0" layoutY="7.0" onMouseClicked="#clienteOpcoes" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-Contact%20Details-96.png" />
+                        <Image url="@../img/icons8-Contact%20Details-96.png" />
                      </image>
                   </ImageView>
                </children>
@@ -58,7 +58,7 @@
                   <Circle fill="#fffffff2" layoutX="83.0" layoutY="68.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
                   <ImageView fitHeight="94.0" fitWidth="93.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/icons8-Admin-96.png" />
+                        <Image url="@../img/icons8-Admin-96.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="nomeFuncOuAdm" layoutX="69.0" layoutY="129.0" text="NOME" textFill="WHITE">

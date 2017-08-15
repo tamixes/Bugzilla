@@ -1,4 +1,4 @@
-package br.ufrpe.bugzilla.gui;
+package br.ufrpe.bugzilla.gui.login;
 
 import java.net.URL;
 import java.util.ResourceBundle;

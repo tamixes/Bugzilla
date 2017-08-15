@@ -1,8 +1,10 @@
-package br.ufrpe.bugzilla.gui;
+package br.ufrpe.bugzilla.gui.telas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.ufrpe.bugzilla.gui.login.Login;
+import br.ufrpe.bugzilla.gui.login.LoginAdministradorController;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +49,7 @@ public class TelaInicialController implements Initializable {
 		Parent p = null;
 		
 		try {
-			p = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			p = FXMLLoader.load(Login.class.getResource("Login.fxml"));
 			Scene scene = new Scene(p);
 			Stage stage = new Stage();
 			stage.setScene(scene);

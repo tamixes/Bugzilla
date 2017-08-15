@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="522.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.LoginAdministradorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="522.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.login.LoginAdministradorController">
    <children>
       <Label fx:id="erro_tela" layoutX="172.0" layoutY="244.0" prefHeight="17.0" prefWidth="250.0" />
       <ImageView fitHeight="214.0" fitWidth="380.0" layoutX="72.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">

@@ -1,4 +1,4 @@
-package br.ufrpe.bugzilla.gui;
+package br.ufrpe.bugzilla.gui.login;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
