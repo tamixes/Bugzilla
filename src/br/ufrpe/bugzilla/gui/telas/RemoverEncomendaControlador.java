@@ -46,6 +46,7 @@ public class RemoverEncomendaControlador implements Initializable{
 		}
 	}
 	
+	@FXML
 	public void removerEncomenda(ActionEvent event) {
 		
 		try {
