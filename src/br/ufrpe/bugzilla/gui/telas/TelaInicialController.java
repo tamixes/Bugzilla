@@ -3,7 +3,7 @@ package br.ufrpe.bugzilla.gui.telas;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.ufrpe.bugzilla.gui.login.Login;
+
 import br.ufrpe.bugzilla.gui.login.LoginAdministradorController;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import javafx.fxml.FXML;
@@ -18,7 +18,6 @@ import javafx.scene.image.ImageView;
 
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class TelaInicialController implements Initializable {
 	@FXML
@@ -45,20 +44,7 @@ public class TelaInicialController implements Initializable {
 	// Event Listener on ImageView[#home].onMouseClicked
 	@FXML
 	public void home(MouseEvent event) {
-		((Node) (event.getSource())).getScene().getWindow().hide();
-		Parent p = null;
-		
-		try {
-			p = FXMLLoader.load(Login.class.getResource("Login.fxml"));
-			Scene scene = new Scene(p);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.initStyle(StageStyle.TRANSPARENT);
-			stage.setTitle("Bugzilla Encomendas");
-			stage.show();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+		//faz nada
 	}
 	// Event Listener on ImageView[#funcBtn].onMouseClicked
 	@FXML
