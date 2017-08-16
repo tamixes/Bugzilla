@@ -74,10 +74,12 @@
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
+      <JFXButton fx:id="add_enc" layoutX="478.0" layoutY="271.0" onAction="#addEnc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Encomenda" />
       <JFXButton fx:id="buscar_enc" layoutX="478.0" layoutY="305.0" onAction="#buscarEnc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Encomenda" />
+      <JFXButton fx:id="listar_enc" layoutX="478.0" layoutY="338.0" onAction="#listarEnc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Encomendas" />      
       <JFXButton fx:id="alterar_enc" layoutX="478.0" layoutY="371.0" onAction="#alterarEnc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Encomenda" />
       <JFXButton fx:id="remover_enc" layoutX="478.0" layoutY="404.0" onAction="#removerEnc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Encomenda" />
-      <JFXButton fx:id="listar_enc" layoutX="478.0" layoutY="338.0" onAction="#listarEnc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Encomendas" />
-      <JFXButton fx:id="add_enc" layoutX="478.0" layoutY="271.0" onAction="#addEnc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Encomenda" />
+
+      
    </children>
 </AnchorPane>
