@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.ufrpe.bugzilla.gui.login.LoginAdministradorController;
 import br.ufrpe.bugzilla.gui.login.LoginFuncionarioController;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -145,6 +146,6 @@ public class TelaEncomendaController implements Initializable{
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		this.nomeFuncOuAdm.setText(LoginFuncionarioController.getNome());
+		this.nomeFuncOuAdm.setText(LoginAdministradorController.getNome());
 	}
 }
