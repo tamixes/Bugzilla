@@ -54,6 +54,7 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){
@@ -72,6 +73,7 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){
@@ -90,6 +92,7 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){
@@ -109,6 +112,7 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){
@@ -143,6 +147,7 @@ Parent p1 = null;
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){

@@ -78,6 +78,7 @@ public class LoginFuncionarioController implements Initializable{
 				Stage stage = new Stage();
 				stage.setScene(scene);
 				stage.setTitle("Bugzilla Encomendas");
+				stage.setResizable(false);
 				stage.show();
 			} catch (Exception e) {
 				e.printStackTrace();

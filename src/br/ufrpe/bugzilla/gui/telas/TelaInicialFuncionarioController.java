@@ -52,6 +52,7 @@ public class TelaInicialFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){
@@ -70,6 +71,7 @@ public class TelaInicialFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){
@@ -88,6 +90,7 @@ public class TelaInicialFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			stage.setResizable(false);
 			stage.show();
 			
 		}catch(Exception e){
