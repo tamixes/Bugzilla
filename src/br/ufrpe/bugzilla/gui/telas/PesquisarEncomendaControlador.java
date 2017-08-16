@@ -28,7 +28,7 @@ public class PesquisarEncomendaControlador implements Initializable{
 	public void pesquisarCliente(ActionEvent event){
 		
 		if(this.cod_encomenda.getText().isEmpty()){
-			this.aviso.setText("Digite um nome para busca...");
+			this.aviso.setText("Digite um código para busca...");
 		}else{
 			try{
 				Encomenda c = Fachada.getInstance().buscaEncomenda(this.cod_encomenda.getText());
