@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.TelaBuscaClienteIDControlador">
+   <children>
+      <JFXTextField fx:id="txt_busca" focusColor="WHITE" layoutX="220" layoutY="155" prefHeight="25.0" prefWidth="130" promptText="ID:" text="0" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>   
+      <Label fx:id="aviso" layoutX="58.0" layoutY="276.0" prefHeight="150" prefWidth="410.0" textFill="WHITE" />
+      <Label layoutX="150" layoutY="14.0" prefHeight="38.0" prefWidth="301.0" text="Cadastro de Encomenda" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="25.0" />
+         </font></Label>
+      <Label layoutX="220" layoutY="125" prefHeight="15" prefWidth="150" text="Busca ID do cliente" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="15.0" />
+         </font></Label>
+
+       
+       <JFXButton fx:id="btn_buscar" buttonType="RAISED" layoutX="220" layoutY="205" onAction="#buscaID" style="-fx-background-color: #11B5E4;" text="Buscar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+         
+       <JFXButton fx:id="btn_cancela" buttonType="RAISED" layoutX="290" layoutY="205" onAction="#voltarEncomenda" style="-fx-background-color: #11B5E4;" text="Cancelar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+       <JFXButton fx:id="btn_cadastra" buttonType="RAISED" layoutX="220" layoutY="450.0" onAction="#iniciaCadastro" style="-fx-background-color: #11B5E4;" text="Cadastrar Encomenda" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>   
+   </children>
+</AnchorPane>
