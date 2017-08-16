@@ -78,6 +78,7 @@ public class LoginFuncionarioController implements Initializable{
 				Stage stage = new Stage();
 				stage.setScene(scene);
 				stage.setTitle("Bugzilla Encomendas");
+				stage.setResizable(false);
 				stage.show();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -89,13 +90,13 @@ public class LoginFuncionarioController implements Initializable{
 	
 	@FXML
 	private void voltarFunc(ActionEvent event){
-		((Node) (event.getSource())).getScene().getWindow().hide();
+		//((Node) (event.getSource())).getScene().getWindow().hide();
 		Parent p = null;
 		
 		try {
 			p = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(p);
-			Stage stage = new Stage();
+			Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.initStyle(StageStyle.TRANSPARENT);

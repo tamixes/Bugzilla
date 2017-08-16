@@ -89,10 +89,11 @@ public class CadastroClienteControlador implements Initializable {
 		Parent p = null;
 		
 		try {
-			p = FXMLLoader.load(Login.class.getResource("Login.fxml"));
+			p = FXMLLoader.load(Login.class.getResource("TelaCliente.fxml"));
 			Scene scene = new Scene(p);
 			Stage stage = new Stage();
 			stage.setScene(scene);
+			stage.setResizable(false);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.show();
 		} catch (Exception e) {

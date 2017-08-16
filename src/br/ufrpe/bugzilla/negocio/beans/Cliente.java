@@ -52,7 +52,7 @@ public class Cliente implements Serializable{
 	}
 
 	public String getCnpj() {
-		return this.formataCnpj(cnpj);
+		return this.cnpj;
 	}
 
 	public void setCnpj(String cnpj) {
@@ -60,7 +60,7 @@ public class Cliente implements Serializable{
 	}
 
 	public String getCpf() {
-		return this.formataCpf(cpf);
+		return this.cpf;
 	}
 
 	public void setCpf(String cpf) {
@@ -150,8 +150,7 @@ public class Cliente implements Serializable{
 
 		Cliente other = (Cliente) obj;
 
-		if (this.id == other.id && ( this.cnpj.equals(other.cnpj) || this.cpf.equals(other.cpf) ) && this.endereco.equals(other.endereco)
-				&& this.nome.equalsIgnoreCase(other.nome)) {
+		if (this.id == other.id && this.nome.equalsIgnoreCase(other.nome)) {
 
 			return true;
 		}

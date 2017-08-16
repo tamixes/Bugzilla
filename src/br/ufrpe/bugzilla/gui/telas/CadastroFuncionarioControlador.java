@@ -50,6 +50,7 @@ public class CadastroFuncionarioControlador implements Initializable{
 			Scene scene = new Scene(p);
 			Stage stage = new Stage();
 			stage.setScene(scene);
+			stage.setResizable(false);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.show();
 		} catch (Exception e) {
@@ -70,6 +71,7 @@ public class CadastroFuncionarioControlador implements Initializable{
 		login = login_func.getText();
 		senha = senha_func.getText();
 		nascimento = nascimento_func.getText();
+		
 		rua = rua_func.getText();
 		bairro = bairro_func.getText();
 		cidade = cidade_func.getText();
