@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
@@ -13,40 +8,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="659.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.CadastroFuncionarioControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="659.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.CadastroFuncionarioControlador">
    <children>
-      <JFXTextField fx:id="nome_func" focusColor="WHITE" layoutX="8.0" layoutY="85.0" prefHeight="25.0" prefWidth="314.0" promptText="Nome:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="cpf_func" focusColor="WHITE" layoutX="370.0" layoutY="84.0" prefHeight="25.0" prefWidth="191.0" promptText="CPF:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="nascimento_func" focusColor="WHITE" layoutX="8.0" layoutY="125.0" promptText="Nascimento:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="telefone_func" focusColor="WHITE" layoutX="191.0" layoutY="125.0" promptText="Telefone:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="rua_func" focusColor="WHITE" layoutX="8.0" layoutY="209.0" prefHeight="25.0" prefWidth="342.0" promptText="Rua:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="bairro_func" focusColor="WHITE" layoutX="398.0" layoutY="209.0" prefHeight="25.0" prefWidth="238.0" promptText="Bairro:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="cidade_func" focusColor="WHITE" layoutX="8.0" layoutY="245.0" prefHeight="25.0" prefWidth="150.0" promptText="Cidade:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="estado_func" focusColor="WHITE" layoutX="191.0" layoutY="245.0" promptText="Estado:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="cep_func" focusColor="WHITE" layoutX="353.0" layoutY="245.0" promptText="CEP:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="numero_func" focusColor="WHITE" layoutX="520.0" layoutY="245.0" prefHeight="25.0" prefWidth="83.0" promptText="Número:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="salario_func" focusColor="WHITE" layoutX="371.0" layoutY="125.0" prefHeight="25.0" prefWidth="135.0" promptText="Salário:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="login_func" focusColor="WHITE" layoutX="8.0" layoutY="340.0" promptText="Login:" unFocusColor="#2660a4" />
-      <JFXCheckBox fx:id="seta_adm" layoutX="343.0" layoutY="351.0" text="Administrador" />
+      <JFXTextField fx:id="nome_func" focusColor="WHITE" layoutX="8.0" layoutY="85.0" prefHeight="25.0" prefWidth="314.0" promptText="Nome:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="cpf_func" focusColor="WHITE" layoutX="370.0" layoutY="84.0" prefHeight="25.0" prefWidth="191.0" promptText="CPF:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="nascimento_func" focusColor="WHITE" layoutX="8.0" layoutY="125.0" promptText="Nascimento:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="telefone_func" focusColor="WHITE" layoutX="191.0" layoutY="125.0" promptText="Telefone:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="rua_func" focusColor="WHITE" layoutX="8.0" layoutY="209.0" prefHeight="25.0" prefWidth="342.0" promptText="Rua:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="bairro_func" focusColor="WHITE" layoutX="398.0" layoutY="209.0" prefHeight="25.0" prefWidth="238.0" promptText="Bairro:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="cidade_func" focusColor="WHITE" layoutX="8.0" layoutY="245.0" prefHeight="25.0" prefWidth="150.0" promptText="Cidade:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="estado_func" focusColor="WHITE" layoutX="191.0" layoutY="245.0" promptText="Estado:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="cep_func" focusColor="WHITE" layoutX="353.0" layoutY="245.0" promptText="CEP:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="numero_func" focusColor="WHITE" layoutX="520.0" layoutY="245.0" prefHeight="25.0" prefWidth="83.0" promptText="Número:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="salario_func" focusColor="WHITE" layoutX="371.0" layoutY="125.0" prefHeight="25.0" prefWidth="135.0" promptText="Salário:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="login_func" focusColor="WHITE" layoutX="8.0" layoutY="340.0" promptText="Login:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXCheckBox fx:id="seta_adm" checkedColor="#19c971" layoutX="343.0" layoutY="351.0" text="Administrador" textFill="#11b5e4" />
       <JFXButton fx:id="voltar_cadastro" buttonType="RAISED" layoutX="572.0" layoutY="387.0" onAction="#voltarCadastro" style="-fx-background-color: #00BFFF;" text="Voltar" textFill="WHITE" />
       <JFXButton fx:id="enviar_cadastro" buttonType="RAISED" layoutX="503.0" layoutY="387.0" onAction="#enviarCadastro" style="-fx-background-color: #00BFFF;" text="Enviar" textFill="WHITE" />
-      <Label fx:id="aviso" layoutX="134.0" layoutY="387.0" prefHeight="40.0" prefWidth="376.0" />
-      <Label layoutX="203.0" layoutY="7.0" prefHeight="40.0" prefWidth="220.0" text="Cadastro de Funcionário" textFill="WHITE">
+      <Label fx:id="aviso" layoutX="83.0" layoutY="380.0" prefHeight="40.0" prefWidth="376.0" />
+      <Label layoutX="189.0" layoutY="7.0" prefHeight="40.0" prefWidth="238.0" text="CADASTRO DE FUNCIONÁRIO" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Label>
-      <JFXPasswordField fx:id="senha_func" focusColor="WHITE" layoutX="173.0" layoutY="341.0" promptText="Senha:" unFocusColor="#2660a4" />
-      <Label layoutX="8.0" layoutY="185.0" text="Endereço:" textFill="WHITE">
+      <JFXPasswordField fx:id="senha_func" focusColor="WHITE" layoutX="173.0" layoutY="341.0" promptText="Senha:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <Label layoutX="8.0" layoutY="184.0" text="Endereço:" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="8.0" layoutY="57.0" text="Dados Pessoais:" textFill="WHITE">
+      <Label layoutX="8.0" layoutY="47.0" text="Dados Pessoais:" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="8.0" layoutY="295.0" text="Login:" textFill="WHITE">
+      <Label layoutX="8.0" layoutY="303.0" text="Login:" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="12.0" />
          </font>
