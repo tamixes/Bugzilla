@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="610.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.AtualizarClienteController">
+   <children>
+      <JFXTextField fx:id="nome_cliente" focusColor="WHITE" labelFloat="true" layoutX="7.0" layoutY="82.0" prefHeight="25.0" prefWidth="273.0" promptText="Nome:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="cnpj_cliente" focusColor="WHITE" labelFloat="true" layoutX="333.0" layoutY="82.0" prefHeight="25.0" prefWidth="227.0" promptText="CNPJ:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="cpf_cliente" focusColor="WHITE" labelFloat="true" layoutX="7.0" layoutY="121.0" prefHeight="25.0" prefWidth="273.0" promptText="CPF:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="telefone_cliente" focusColor="WHITE" labelFloat="true" layoutX="334.0" layoutY="121.0" prefHeight="25.0" prefWidth="227.0" promptText="Telefone:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="rua_cliente" focusColor="WHITE" labelFloat="true" layoutX="7.0" layoutY="215.0" prefHeight="25.0" prefWidth="298.0" promptText="Rua:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="bairro_cliente" focusColor="WHITE" labelFloat="true" layoutX="364.0" layoutY="216.0" prefHeight="25.0" prefWidth="209.0" promptText="Bairro:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="cidade_cliente" focusColor="WHITE" labelFloat="true" layoutX="7.0" layoutY="265.0" promptText="Cidade:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="cep_cliente" focusColor="WHITE" labelFloat="true" layoutX="330.0" layoutY="265.0" promptText="CEP:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXTextField fx:id="estado_cliente" focusColor="WHITE" labelFloat="true" layoutX="169.0" layoutY="265.0" promptText="Estado:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXButton fx:id="remover_cliente" buttonType="RAISED" layoutX="538.0" layoutY="391.0" onAction="#removerCliente" style="-fx-background-color: #11B5E4;" text="Remover" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXButton fx:id="enviar_cliente" buttonType="RAISED" layoutX="538.0" layoutY="345.0" onAction="#enviarCliente" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #11B5E4;" text="Salvar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <Label fx:id="aviso" layoutX="156.0" layoutY="33.0" onMouseClicked="#initialize" prefHeight="48.0" prefWidth="310.0" textFill="WHITE" />
+      <Label layoutX="208.0" prefHeight="38.0" prefWidth="193.0" text="CADASTRO DE CLIENTE" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="16.0" />
+         </font></Label>
+      <Label layoutX="7.0" layoutY="42.0" text="Dados Pessoais:" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="7.0" layoutY="171.0" text="Endereço:" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="numero_cliente" focusColor="WHITE" labelFloat="true" layoutX="481.0" layoutY="265.0" prefHeight="25.0" prefWidth="114.0" promptText="Número:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <ScrollPane layoutY="337.0" prefHeight="199.0" prefWidth="532.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="514.0">
+               <children>
+                  <TableView fx:id="tabela_cliente" fixedCellSize="3.0" prefHeight="200.0" prefWidth="511.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
