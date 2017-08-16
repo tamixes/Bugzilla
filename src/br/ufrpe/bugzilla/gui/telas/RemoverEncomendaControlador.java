@@ -57,7 +57,7 @@ public class RemoverEncomendaControlador implements Initializable{
 			
 			((Node) (event.getSource())).getScene().getWindow().hide();
 		} catch(Exception e) {
-			e.getStackTrace();
+			e.getStackTrace();//
 		}
 		
 	}
