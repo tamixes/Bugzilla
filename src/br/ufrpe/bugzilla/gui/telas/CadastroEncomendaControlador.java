@@ -116,7 +116,7 @@ public class CadastroEncomendaControlador implements Initializable {
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		//
 	}
 
 }
