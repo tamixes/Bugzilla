@@ -150,8 +150,7 @@ public class Cliente implements Serializable{
 
 		Cliente other = (Cliente) obj;
 
-		if (this.id == other.id && ( this.cnpj.equals(other.cnpj) || this.cpf.equals(other.cpf) ) && this.endereco.equals(other.endereco)
-				&& this.nome.equalsIgnoreCase(other.nome)) {
+		if (this.id == other.id && this.nome.equalsIgnoreCase(other.nome)) {
 
 			return true;
 		}
