@@ -2,57 +2,23 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.CadastroEncomendaControlador">
    <children>
-
-      <JFXTextField fx:id="nome_destinatario" focusColor="WHITE" layoutY="130.0" prefHeight="25.0" prefWidth="400.0" promptText="Nome" unFocusColor="#2660a4">
+      <JFXTextField fx:id="tipo_enc" focusColor="WHITE" labelFloat="true" layoutX="14.0" layoutY="361.0" prefHeight="25.0" prefWidth="160" promptText="Tipo" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="telefone_dest" focusColor="WHITE" layoutX="430" layoutY="130.0" prefHeight="25.0" prefWidth="130" promptText="Telefone" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>
-      <JFXTextField fx:id="rua_dest" focusColor="WHITE" layoutY="220.0" prefHeight="25.0" prefWidth="273.0" promptText="Rua" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>
-      <JFXTextField fx:id="numero_dest" focusColor="WHITE" layoutX="313" layoutY="220.0" prefHeight="25.0" prefWidth="100.0" promptText="Numero" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>
-      <JFXTextField fx:id="cep_dest" focusColor="WHITE" layoutX="433" layoutY="220.0" prefHeight="25.0" prefWidth="127.0" promptText="CEP" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>
-      <JFXTextField fx:id="bairro_dest" focusColor="WHITE" layoutY="280.0" prefHeight="25.0" prefWidth="160" promptText="Bairro" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>   
-      <JFXTextField fx:id="cidade_dest" focusColor="WHITE" layoutX="200" layoutY="280.0" prefHeight="25.0" prefWidth="160" promptText="Cidade" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>    
-      <JFXTextField fx:id="estado_dest" focusColor="WHITE" layoutX="400" layoutY="280.0" prefHeight="25.0" prefWidth="160" promptText="Estado" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>
-      <JFXTextField fx:id="tipo_enc" focusColor="WHITE" layoutY="360" prefHeight="25.0" prefWidth="160" promptText="Tipo" unFocusColor="#2660a4">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextField>
-      <JFXTextField fx:id="peso_enc" focusColor="WHITE" layoutX="200" layoutY="360" prefHeight="25.0" prefWidth="160" promptText="Peso" unFocusColor="#2660a4">
+      <JFXTextField fx:id="peso_enc" focusColor="WHITE" layoutX="214.0" layoutY="361.0" prefHeight="25.0" prefWidth="160" promptText="Peso" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>       
-      <JFXTextField fx:id="prazo_enc" focusColor="WHITE" layoutX="400" layoutY="360.0" prefHeight="25.0" prefWidth="160" promptText="Prazo em dias" unFocusColor="#2660a4">
+      <JFXTextField fx:id="prazo_enc" focusColor="WHITE" layoutX="414.0" layoutY="361.0" prefHeight="25.0" prefWidth="160" promptText="Prazo em dias" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>    
@@ -65,16 +31,16 @@
          <font>
             <Font name="Tahoma" size="15.0" />
          </font></Label>   
-      <Label fx:id="info_dest" layoutY="100" prefHeight="15" prefWidth="150" text="Dados do destinatario" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="info_dest" layoutX="33.0" layoutY="128.0" prefHeight="15" prefWidth="150" text="Remetente" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="15.0" />
          </font></Label>  
          
-       <Label fx:id="end_dest" layoutY="190" prefHeight="15" prefWidth="150" text="Endereco" textAlignment="CENTER" textFill="WHITE">
+       <Label fx:id="end_dest" layoutX="33.0" layoutY="217.0" prefHeight="15" prefWidth="150" text="Central de Partida" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="15.0" />
          </font></Label>
-       <Label fx:id="dados_enc" layoutY="330" prefHeight="15" prefWidth="150" text="Dados do pacote" textAlignment="CENTER" textFill="WHITE">
+       <Label fx:id="dados_enc" layoutX="14.0" layoutY="312.0" prefHeight="15" prefWidth="150" text="Dados do pacote" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="15.0" />
          </font></Label>
@@ -86,5 +52,19 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
+      <Label fx:id="end_dest1" layoutX="263.0" layoutY="217.0" prefHeight="15" prefWidth="150" text="Central de Destino" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="info_dest1" layoutX="268.0" layoutY="128.0" prefHeight="15" prefWidth="150" text="Destinatário" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="remetente" layoutX="33.0" layoutY="164.0" prefWidth="150.0" />
+      <ComboBox fx:id="destinatario" layoutX="268.0" layoutY="164.0" prefWidth="150.0" />
+      <ComboBox fx:id="partida" layoutX="33.0" layoutY="259.0" prefWidth="150.0" />
+      <ComboBox fx:id="destino" layoutX="268.0" layoutY="259.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

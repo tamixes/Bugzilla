@@ -75,7 +75,7 @@ public class TelaBuscaClienteIDControlador implements Initializable {
 	public void iniciaCadastro(ActionEvent event){
 		Parent p1 = null;
 		CadastroEncomendaControlador controle = new CadastroEncomendaControlador();
-		controle.setID(guardaId);
+		//controle.setID(guardaId);
 			
 		try{		
 			p1 =FXMLLoader.load(getClass().getResource("CadastroEncomenda.fxml"));

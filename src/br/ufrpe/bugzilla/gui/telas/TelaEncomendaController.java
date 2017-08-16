@@ -149,7 +149,7 @@ public class TelaEncomendaController implements Initializable{
 		Parent p1 = null;
 		
 		try{
-			p1 = FXMLLoader.load(getClass().getResource("BuscaClienteID.fxml"));
+			p1 = FXMLLoader.load(getClass().getResource("CadastroEncomenda.fxml"));
 			Stage stage = new Stage();
 			//bloqueia outras janelas
 			stage.initModality(Modality.APPLICATION_MODAL);
