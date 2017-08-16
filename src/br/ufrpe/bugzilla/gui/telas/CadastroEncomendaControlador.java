@@ -1,5 +1,6 @@
 package br.ufrpe.bugzilla.gui.telas;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,7 +17,10 @@ import br.ufrpe.bugzilla.gui.login.Login;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
+import br.ufrpe.bugzilla.negocio.beans.Local;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
+import br.ufrpe.bugzilla.negocio.beans.GeraPDF;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,62 +30,64 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class CadastroEncomendaControlador implements Initializable {
-	private static String id_cliente;
+	
 	@FXML
-	private JFXTextField nome_destinatario, telefone_dest, rua_dest, numero_dest, cep_dest, bairro_dest, cidade_dest,
-			estado_dest, peso_enc, tipo_enc, prazo_enc;
+	private JFXTextField peso_enc, tipo_enc, prazo_enc;
 	@FXML
 	private Label aviso, dados, info_dest, end_dest, dados_enc;
 	@FXML
 	private JFXButton enviar_encomenda, volta_encomenda2;
 	@FXML
 	private JFXDatePicker prazo;
+	@FXML
+	private ComboBox<Local> destino, partida;
+	@FXML
+	private ComboBox<Cliente> remetente, destinatario;
 	
 
 	@FXML
 	public void enviarEncomenda(ActionEvent event) {
 		
-		String nomeDest = nome_destinatario.getText();
-		String telefoneDest = telefone_dest.getText();
-
-		String rua = rua_dest.getText();
-		String num = numero_dest.getText();
-		String cep = cep_dest.getText();
-		String bairro = bairro_dest.getText();
-		String cidade = cidade_dest.getText();
-		String estado = estado_dest.getText();
 
 		String peso = peso_enc.getText();
 		String prazo = prazo_enc.getText();
 		String tipo = tipo_enc.getText();
 
-		if (!nomeDest.equals("") && !telefoneDest.equals("") && !rua.equals("") && !num.equals("") && !cep.equals("")
-				&& !bairro.equals("") && !cidade.equals("") && !estado.equals("") && !peso.equals("")
-				&& !prazo.equals("") && !tipo.equals("")) {
+		if (!peso.equals("")
+				&& !prazo.equals("") && !tipo.equals("") && remetente.getValue()!=null && remetente.getValue()!=null 
+				&& destinatario.getValue()!=null && partida.getValue()!=null && destino.getValue()!=null ) {
 			try {
 				double pesoDouble = Double.parseDouble(peso);
-				int numero = Integer.parseInt(num);
-				int idRemetente = Integer.parseInt(id_cliente);
 				int prazoDias = Integer.parseInt(prazo);
-				Endereco end = new Endereco(rua, bairro, cidade, estado, cep, numero);
-				Fachada.getInstance().procurarCliente(idRemetente);
 				
-				
-				Cliente destinatario = new Cliente(nomeDest, null, null, telefoneDest, end, TipoCliente.FIS);
-				Cliente remetente = Fachada.getInstance().procurarCliente(idRemetente);
 				
 				//TODO Colocar o local no constrututor da encomenda
-				Encomenda encomenda = new Encomenda(remetente, destinatario, pesoDouble, tipo, null, null, prazoDias);
+				Encomenda encomenda = new Encomenda(remetente.getValue(), destinatario.getValue(), pesoDouble, tipo, partida.getValue(), destino.getValue(), prazoDias);
 				try {
 					Fachada.getInstance().novaEncomenda(encomenda);
 					//teste
 					RepositorioEncomenda.getInstance().salvaArquivo();
 					System.out.println("Salvo");
 					((Node) (event.getSource())).getScene().getWindow().hide();
+					
+					//gera pdf
+					try{
+					GeraPDF.geradorPDF(encomenda);
+					
+					}catch(Exception e){
+						System.out.println("Erro ao salvar PDF: " + e.getMessage());
+					}
+					
 				} catch(ObjectJaExisteException e) {
 					
 				}
@@ -110,13 +116,56 @@ public class CadastroEncomendaControlador implements Initializable {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	public void setID(String id) {
-		this.id_cliente = id;
-	}
 
 	public void initialize(URL location, ResourceBundle resources) {
 		//
+		
+		//evita que apareça todo o toString do objeto
+			Callback<ListView<Local>, ListCell<Local>> factory = new Callback<ListView<Local>, ListCell<Local>>() {
+				public ListCell<Local> call(ListView<Local> lv) {
+					return new ListCell<Local>() {
+
+					    @Override
+					    protected void updateItem(Local item, boolean empty) {
+					        super.updateItem(item, empty);
+					        setText(empty ? "" : item.getNome());
+					    }
+
+					};
+				}
+			};
+			
+			partida.setItems(FXCollections.observableArrayList(Fachada.getInstance().listarLocais()));
+			partida.setCellFactory(factory);
+			partida.setButtonCell(factory.call(null));
+			
+			destino.setItems(FXCollections.observableArrayList(Fachada.getInstance().listarLocais()));
+			destino.setCellFactory(factory);
+			destino.setButtonCell(factory.call(null));
+			
+			//evita que apareça todo o toString do objeto
+			Callback<ListView<Cliente>, ListCell<Cliente>> factory2 = new Callback<ListView<Cliente>, ListCell<Cliente>>() {
+				public ListCell<Cliente> call(ListView<Cliente> lv) {
+					return new ListCell<Cliente>() {
+
+					    @Override
+					    protected void updateItem(Cliente item, boolean empty) {
+					        super.updateItem(item, empty);
+					        setText(empty ? "" : item.getNome());
+					    }
+
+					};
+				}
+			};
+			
+			remetente.setItems(FXCollections.observableArrayList(Fachada.getInstance().listarClientes()));
+			remetente.setCellFactory(factory2);
+			remetente.setButtonCell(factory2.call(null));
+			
+			destinatario.setItems(FXCollections.observableArrayList(Fachada.getInstance().listarClientes()));
+			destinatario.setCellFactory(factory2);
+			destinatario.setButtonCell(factory2.call(null));
+		
 	}
 
 }

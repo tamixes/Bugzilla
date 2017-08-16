@@ -49,17 +49,20 @@ public class Local implements Serializable {
 	}
 
 	public String toString() {
-		return "\nLocal: " + nome + "\nLocalização: " + "(" + this.getLongitude() + ", " + this.getLatitude() + ")";
+		return this.nome + "\nLocalização: (" + latitude + ", " + longitude + ")";
 	}
 	
 	public boolean equals(Object obj){
 		if(this == obj)
 			return true;
-		Local other = (Local) obj;
 		
-		if(this.nome.equalsIgnoreCase(other.getNome()) && this.longitude == 
-				other.getLongitude() && this.latitude == other.getLatitude()){
-			return true;
+		if(obj instanceof Local){
+			Local other = (Local) obj;
+		
+			if(this.nome.equalsIgnoreCase(other.getNome()) && this.longitude == 
+					other.getLongitude() && this.latitude == other.getLatitude()){
+				return true;
+			}
 		}
 		return false;
 	}

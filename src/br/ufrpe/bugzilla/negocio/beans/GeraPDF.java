@@ -13,6 +13,8 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import br.ufrpe.bugzilla.gui.login.Login;
+
 public class GeraPDF {
 	
 	public static void geradorPDF(Encomenda enc){
@@ -20,11 +22,10 @@ public class GeraPDF {
 		Document documento = new Document();
 		
 		try{
-			
 			PdfWriter.getInstance(documento, new FileOutputStream("encomenda.pdf"));
 			
 			documento.open();
-			Image img = Image.getInstance("logo2_bugzilla.png");
+			Image img = Image.getInstance(Login.class.getResource("logo2_bugzilla.png"));
 			documento.add(img);
 			documento.add(new Paragraph ("\n\n\n"));
 			documento.add(new Paragraph("Informações da Encomenda " + enc.getCodigo() + "\n\n\n\n"));
@@ -32,11 +33,11 @@ public class GeraPDF {
 			
 		}catch(DocumentException e){
 			System.out.println(e.getMessage());
-		}catch(FileNotFoundException e){
-			System.out.println(e.getMessage());
 		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			documento.close();
