@@ -7,6 +7,7 @@ import com.itextpdf.text.log.SysoCounter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import br.ufrpe.bugzilla.dao.RepositorioEncomenda;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
@@ -46,15 +47,16 @@ public class RemoverEncomendaControlador implements Initializable{
 		}
 	}
 	
+	@FXML
 	public void removerEncomenda(ActionEvent event) {
 		
 		try {
 			Fachada.getInstance().removeEncomenda(cod_encomenda.getText());
-			Alert alert = new Alert(AlertType.CONFIRMATION);
+			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setHeaderText("Encomenda Removida!");
 			alert.setTitle("Encomenda Removida");
 			alert.showAndWait();
-			
+			RepositorioEncomenda.getInstance().salvaArquivo();
 			((Node) (event.getSource())).getScene().getWindow().hide();
 		} catch(Exception e) {
 			e.getStackTrace();//
