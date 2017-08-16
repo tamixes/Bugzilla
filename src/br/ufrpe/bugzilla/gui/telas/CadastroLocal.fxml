@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="417.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.CadastroLocalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="417.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.CadastroLocalController">
    <children>
-      <JFXTextField fx:id="nome_local" layoutX="142.0" layoutY="91.0" promptText="Nome:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="lat_local" layoutX="142.0" layoutY="158.0" promptText="Latitude:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="long_local" layoutX="142.0" layoutY="235.0" promptText="Longitude:" unFocusColor="#2660a4" />
-      <JFXButton fx:id="voltar_local" layoutX="267.0" layoutY="338.0" onAction="#voltarLocal" style="-fx-background-color: #00BFFF;" text="Voltar" textFill="WHITE" />
-      <JFXButton fx:id="enviar_local" layoutX="337.0" layoutY="338.0" onAction="#enviarLocal" style="-fx-background-color: #00BFFF;" text="Enviar" textFill="WHITE" />
+      <JFXTextField fx:id="nome_local" layoutX="61.0" layoutY="99.0" promptText="Nome:" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="lat_local" layoutX="61.0" layoutY="166.0" promptText="Latitude:" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="long_local" layoutX="61.0" layoutY="243.0" promptText="Longitude:" unFocusColor="#2660a4" />
+      <JFXButton fx:id="voltar_local" layoutX="61.0" layoutY="338.0" onAction="#voltarLocal" style="-fx-background-color: #00BFFF;" text="Voltar" textFill="WHITE" />
+      <JFXButton fx:id="enviar_local" layoutX="129.0" layoutY="338.0" onAction="#enviarLocal" style="-fx-background-color: #00BFFF;" text="Enviar" textFill="WHITE" />
       <Label layoutX="142.0" layoutY="38.0" prefHeight="17.0" prefWidth="107.0" text="Cadastro Local" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="aviso" layoutX="25.0" layoutY="323.0" prefHeight="40.0" prefWidth="155.0" textFill="WHITE" />
+      <Label fx:id="aviso" layoutX="240.0" layoutY="331.0" prefHeight="40.0" prefWidth="155.0" textFill="WHITE" />
+      <JFXButton fx:id="site" buttonType="RAISED" layoutX="240.0" layoutY="171.0" onAction="#entrar_site" prefHeight="40.0" prefWidth="155.0" style="-fx-background-color: #009999;" text="Consultar Coordenadas" textFill="WHITE" />
    </children>
 </AnchorPane>

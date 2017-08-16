@@ -1,5 +1,9 @@
 package br.ufrpe.bugzilla.gui.telas;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,7 +34,7 @@ public class CadastroLocalController implements Initializable{
 	@FXML
 	private Label aviso;
 	@FXML
-	private JFXButton voltar_local, enviar_local;
+	private JFXButton voltar_local, enviar_local, site;
 	
 	
 	@FXML
@@ -89,8 +93,23 @@ public class CadastroLocalController implements Initializable{
 	}
 	
 	
-	
-	
+	@FXML
+	public void entrar_site(ActionEvent event){
+		
+		URI link = null;
+		try {
+			link = new URI("www.mapcoordinates.net/pt");
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		try {
+			Desktop.getDesktop().browse(link);
+		} catch (IOException e) {
+			System.out.println("Erro ao abrir link");
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	
