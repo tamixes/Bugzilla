@@ -57,10 +57,10 @@ public class AtualizarClienteController implements Initializable{
 		clientes = FXCollections.observableArrayList(controller.listarClientes());
 		
 		
-		nome = new TableColumn<Cliente, String>("nome");
+		nome = new TableColumn<>("nome");
 		nome.setResizable(true);
 		
-		cpf = new TableColumn<Cliente, String>("cpf");
+		cpf = new TableColumn<>("cpf");
 		cpf.setResizable(true);
 		
 		tabela_cliente.getColumns().addAll(nome, cpf);
@@ -74,17 +74,17 @@ public class AtualizarClienteController implements Initializable{
 
 			c = tabela_cliente.getSelectionModel().getSelectedItem();
 			nome_cliente.setText(c.getNome());
-			nome_cliente.setEditable(false);
+			nome_cliente.setEditable(true);
 			cpf_cliente.setText(c.getCpf());
-			cpf_cliente.setEditable(false);
+			cpf_cliente.setEditable(true);
 			cnpj_cliente.setText(c.getCnpj());
-			cnpj_cliente.setEditable(false);
+			cnpj_cliente.setEditable(true);
 			rua_cliente.setText(c.getEndereco().getRua());
 			cidade_cliente.setText(c.getEndereco().getCidade());
 			bairro_cliente.setText(c.getEndereco().getBairro());
 			estado_cliente.setText(c.getEndereco().getEstado());
 			telefone_cliente.setText(c.getTelefone());
-			telefone_cliente.setEditable(false);
+			telefone_cliente.setEditable(true);
 		});
 
 		
@@ -112,6 +112,7 @@ public class AtualizarClienteController implements Initializable{
 			
 			try {
 				Fachada.getInstance().atualizarCliente(cliente);
+				
 			} catch (ObjectNaoExisteException e) {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("Warning Dialog");
@@ -150,7 +151,8 @@ public class AtualizarClienteController implements Initializable{
 			Cliente cliente = new Cliente(nome, cnpj, cpf, telefone, endereco, TipoCliente.FIS);
 			
 			try {
-				Fachada.getInstance().removerCliente(cliente);;
+				Fachada.getInstance().removerCliente(cliente);
+				this.atualizarList();
 			} catch (ObjectNaoExisteException e) {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("Warning Dialog");

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.AtualizarLocaisController">
+   <children>
+      <JFXTextField fx:id="nome_local" focusColor="WHITE" layoutX="14.0" layoutY="98.0" promptText="Nome:" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="altitude_local" focusColor="WHITE" layoutX="187.0" layoutY="98.0" promptText="Altitude:" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="longitude_local" focusColor="WHITE" layoutX="382.0" layoutY="98.0" promptText="Logitude:" unFocusColor="#2660a4" />
+      <AnchorPane layoutX="7.0" layoutY="186.0" prefHeight="200.0" prefWidth="489.0">
+         <children>
+            <TableView fx:id="tabela_local" prefHeight="200.0" prefWidth="489.0" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="atualizar_local" buttonType="RAISED" layoutX="517.0" layoutY="200.0" onAction="#atualizarLocal" style="-fx-background-color: #11B5E4;" text="Atualizar" textFill="WHITE" />
+      <JFXButton fx:id="remover_local" buttonType="RAISED" layoutX="517.0" layoutY="234.0" onAction="#removerLocal" style="-fx-background-color: #11B5E4;" text="Remover" textFill="WHITE" />
+      <Label layoutX="238.0" layoutY="28.0" text="Gerenciar Locais" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
