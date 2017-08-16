@@ -6,17 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.PesquisarEncomendaControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.RemoverEncomendaControlador">
    <children>
       <JFXTextField fx:id="cod_encomenda" focusColor="WHITE" labelFloat="true" layoutX="192.0" layoutY="105.0" prefHeight="25.0" prefWidth="202.0" promptText="Codigo:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
       <JFXButton fx:id="pesquisar_encomenda" layoutX="258.0" layoutY="146.0" onAction="#pesquisarEncomenda" style="-fx-background-color: #11B5E4;" text="Pesquisar" textFill="WHITE" />
+      <JFXButton fx:id="remover_encomenda" layoutX="258.0" layoutY="350.0" onAction="#removerEncomenda" style="-fx-background-color: #11B5E4;" text="Remover" textFill="WHITE" />
       <Label fx:id="aviso" layoutX="360.0" layoutY="133.0" prefHeight="51.0" prefWidth="202.0" textFill="WHITE" />
       <Label fx:id="sysout" layoutX="41.0" layoutY="185.0" prefHeight="187.0" prefWidth="533.0" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="198.0" layoutY="30.0" text="Pesquisar Encomenda" textFill="WHITE">
+      <Label layoutX="198.0" layoutY="30.0" text="Remover Encomenda" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="17.0" />
          </font>

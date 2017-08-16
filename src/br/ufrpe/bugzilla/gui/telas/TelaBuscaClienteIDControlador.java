@@ -43,25 +43,20 @@ public class TelaBuscaClienteIDControlador implements Initializable {
 		Cliente cliente = new Cliente();
 		String idd = txt_busca.getText();
 		guardaId = txt_busca.getText();
+		Fachada fc = Fachada.getInstance();
+		
 		if(!txt_busca.getText().equals("")) {
 			id = Integer.parseInt(txt_busca.getText());
+			
 			try {
-			cliente = Fachada.getInstance().procurarCliente(id);
-			aviso.setText(cliente.toString());
-			btn_cadastra.setVisible(true);
+				cliente = fc.procurarCliente(id);
+				aviso.setText(cliente.toString());
+				btn_cadastra.setVisible(true);
+				
 			} catch(ObjectNaoExisteException e) {
+				
 				System.out.println(e.getMessage());
 				aviso.setText("Cliente não Existe!");
-				btn_cadastra.setVisible(false);
-			}
-			catch(NullPointerException e) {
-				System.out.println(e.getMessage());
-				aviso.setText("Cliente não Existe!");
-				btn_cadastra.setVisible(false);
-			}
-			catch(NumberFormatException e) {
-				System.out.println(e.getMessage());
-				aviso.setText("ID inválido!");
 				btn_cadastra.setVisible(false);
 			}
 		} else {
