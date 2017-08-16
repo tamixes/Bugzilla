@@ -49,11 +49,10 @@ public class AtualizarClienteController implements Initializable{
 	private Fachada controller; 
 	
 	
-	
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		/*controller = Fachada.getInstance();
+		
+		controller = Fachada.getInstance();
 		tabela_cliente.setEditable(false);
 		clientes = FXCollections.observableArrayList(controller.listarClientes());
 		
@@ -86,7 +85,7 @@ public class AtualizarClienteController implements Initializable{
 			estado_cliente.setText(c.getEndereco().getEstado());
 			telefone_cliente.setText(c.getTelefone());
 			telefone_cliente.setEditable(false);
-		});*/
+		});
 
 		
 	}
