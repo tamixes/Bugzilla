@@ -52,7 +52,7 @@ public class Cliente implements Serializable{
 	}
 
 	public String getCnpj() {
-		return this.formataCnpj(cnpj);
+		return this.cnpj;
 	}
 
 	public void setCnpj(String cnpj) {
@@ -60,7 +60,7 @@ public class Cliente implements Serializable{
 	}
 
 	public String getCpf() {
-		return this.formataCpf(cpf);
+		return this.cpf;
 	}
 
 	public void setCpf(String cpf) {
