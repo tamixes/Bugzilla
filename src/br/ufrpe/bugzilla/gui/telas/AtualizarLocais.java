@@ -11,7 +11,7 @@ public class AtualizarLocais extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		try {
-			Parent r = FXMLLoader.load(getClass().getResource("AtualizarCliente.fxml"));
+			Parent r = FXMLLoader.load(getClass().getResource("AtualizarLocais.fxml"));
 			Scene scene = new Scene(r);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");

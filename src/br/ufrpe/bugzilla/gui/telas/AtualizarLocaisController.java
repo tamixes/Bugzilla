@@ -67,10 +67,10 @@ public class AtualizarLocaisController implements Initializable {
 			l = tabela_local.getSelectionModel().getSelectedItem();
 			nome_local.setText(l.getNome());
 			nome_local.setEditable(true);
-		//	latitude_local.setText(l.getLatitude());
-		//	latitude_local.setEditable(true);
-		//	longitude_local.setText(l.getLongitude());
-		//	longitude_local.setEditable(true);
+			latitude_local.setText(String.valueOf(l.getLatitude()));
+			latitude_local.setEditable(true);
+			longitude_local.setText(String.valueOf(l.getLongitude()));
+			longitude_local.setEditable(true);
 		});
 	}
 	

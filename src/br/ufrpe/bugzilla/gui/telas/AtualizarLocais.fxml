@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.AtualizarLocaisController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.AtualizarLocaisController">
    <children>
-      <JFXTextField fx:id="nome_local" focusColor="WHITE" layoutX="14.0" layoutY="98.0" promptText="Nome:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="altitude_local" focusColor="WHITE" layoutX="187.0" layoutY="98.0" promptText="Altitude:" unFocusColor="#2660a4" />
-      <JFXTextField fx:id="longitude_local" focusColor="WHITE" layoutX="382.0" layoutY="98.0" promptText="Logitude:" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="nome_local" focusColor="WHITE" labelFloat="true" layoutX="14.0" layoutY="98.0" promptText="Nome:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="latitude_local" focusColor="WHITE" labelFloat="true" layoutX="187.0" layoutY="98.0" promptText="Latitude:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="longitude_local" focusColor="WHITE" labelFloat="true" layoutX="382.0" layoutY="98.0" promptText="Logitude:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
       <AnchorPane layoutX="7.0" layoutY="186.0" prefHeight="200.0" prefWidth="489.0">
          <children>
             <TableView fx:id="tabela_local" prefHeight="200.0" prefWidth="489.0" />
