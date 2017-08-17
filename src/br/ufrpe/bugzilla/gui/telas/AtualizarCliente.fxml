@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="610.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.AtualizarClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="610.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.AtualizarClienteController">
    <children>
       <JFXTextField fx:id="nome_cliente" focusColor="WHITE" labelFloat="true" layoutX="7.0" layoutY="82.0" prefHeight="25.0" prefWidth="273.0" promptText="Nome:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
@@ -25,11 +18,11 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="cpf_cliente" focusColor="WHITE" labelFloat="true" layoutX="7.0" layoutY="121.0" prefHeight="25.0" prefWidth="273.0" promptText="CPF:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="cpf_cliente" focusColor="WHITE" labelFloat="true" layoutX="7.0" layoutY="121.0" prefHeight="25.0" prefWidth="193.0" promptText="CPF:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="telefone_cliente" focusColor="WHITE" labelFloat="true" layoutX="334.0" layoutY="121.0" prefHeight="25.0" prefWidth="227.0" promptText="Telefone:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="telefone_cliente" focusColor="WHITE" labelFloat="true" layoutX="228.0" layoutY="121.0" prefHeight="25.0" prefWidth="159.0" promptText="Telefone:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
@@ -81,17 +74,15 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <ScrollPane layoutY="337.0" prefHeight="199.0" prefWidth="532.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="514.0">
-               <children>
-                  <TableView fx:id="tabela_cliente" fixedCellSize="40.0" prefHeight="200.0" prefWidth="511.0">
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy></TableView>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+      <JFXTextField fx:id="tipo_cliente" layoutX="435.0" layoutY="121.0" promptText="Tipo:" unFocusColor="#2660a4" />
+      <AnchorPane layoutX="7.0" layoutY="322.0" prefHeight="214.0" prefWidth="528.0">
+         <children>
+            <TableView fx:id="tabela_cliente" fixedCellSize="40.0" layoutX="9.0" layoutY="7.0" prefHeight="200.0" prefWidth="511.0">
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

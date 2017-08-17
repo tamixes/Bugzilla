@@ -28,7 +28,7 @@ public class AtualizarFuncionarioController implements Initializable{
 	@FXML
 	private JFXButton atualizar_cadastro, remover_cadastro; 
 	@FXML
-	private JFXTextField nome_func, cpf_func, telefone_func, rua_func, bairro_func, nascimento_func;
+	private JFXTextField nome_func, cpf_func, telefone_func, rua_func, bairro_func, nascimento_func, tipo_func;
 	@FXML
 	private JFXTextField cidade_func, estado_func, cep_func, numero_func, salario_func, login_func, senha_func;
 	@FXML
@@ -95,17 +95,19 @@ public class AtualizarFuncionarioController implements Initializable{
 		cep_func.setText(f.getEnd().getCep());
 		cep_func.setEditable(true);
 		
-		//numero_func.setText(f.getEnd().getNumero());
-		//numero_func.setEditable(true);
+		numero_func.setText(String.valueOf(f.getEnd().getNumero()));
+		numero_func.setEditable(true);
 		
-		//salario_func.setText(f.getSalario());
-		//salario_func.setEditable(true);
+		salario_func.setText(String.valueOf(f.getSalario()));
+		salario_func.setEditable(true);
 		
 		login_func.setText(f.getUsuario().getLogin());
 		login_func.setEditable(true);
 		
 		senha_func.setText(f.getUsuario().getSenha());
 		senha_func.setEditable(true);
+		
+		//tipo_func.setText(f);
 		
 		});
 		
@@ -116,7 +118,7 @@ public class AtualizarFuncionarioController implements Initializable{
 		
 		String nome, cpf, telefone, login, senha, nascimento;
 		String rua, bairro, cidade, estado, cep, numero, salario;
-		
+		TipoDeFuncionario f = null;
 		
 		nome = nome_func.getText();
 		cpf = cpf_func.getText();
