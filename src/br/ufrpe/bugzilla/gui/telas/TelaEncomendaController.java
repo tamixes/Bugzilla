@@ -170,7 +170,21 @@ public class TelaEncomendaController implements Initializable{
 	// Event Listener on JFXButton[#listar_enc].onAction
 	@FXML
 	public void listarEnc(ActionEvent event) {
+		Parent p1 = null;
 		
+		try{
+			p1 = FXMLLoader.load(getClass().getResource("ListaEncomendas.fxml"));
+			Stage stage = new Stage();
+			
+			stage.initModality(Modality.APPLICATION_MODAL);
+			Scene scene = new Scene(p1);
+			stage.setScene(scene);
+			stage.setTitle("Bugzilla Encomendas");
+			stage.show();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	// Event Listener on JFXButton[#add_enc].onAction
 	@FXML

@@ -30,8 +30,8 @@ public class ListaEncomendasControlador implements Initializable{
 	private TableColumn<Encomenda, String> remetente;
 	@FXML
 	private TableColumn<Encomenda, String> destinatario;
-	@FXML
-	private TableColumn<Encomenda, String> codigo;
+//	@FXML
+//	private TableColumn<Encomenda, String> codigo;
 	@FXML
 	private ObservableList<Encomenda> encomenda;
 	
@@ -49,14 +49,11 @@ public class ListaEncomendasControlador implements Initializable{
 		destinatario =  new TableColumn<>("Destinatario");
 		destinatario.setResizable(true);
 		
-		codigo =  new TableColumn<>("Código");
-		codigo.setResizable(true);
-		
-		lista_enc.getColumns().addAll(remetente, destinatario, codigo);
+		lista_enc.getColumns().addAll(remetente, destinatario);
 		
 		remetente.setCellValueFactory(new PropertyValueFactory<Encomenda, String>("Remetente"));
 		destinatario.setCellValueFactory(new PropertyValueFactory<Encomenda, String>("Destinatario"));
-		codigo.setCellValueFactory(new PropertyValueFactory<Encomenda, String>("Código"));
+
 		
 		lista_enc.setItems(encomenda);
 	}
