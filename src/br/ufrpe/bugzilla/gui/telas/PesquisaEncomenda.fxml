@@ -21,5 +21,6 @@
             <Font name="Tahoma Bold" size="17.0" />
          </font>
       </Label>
+      <JFXButton fx:id="rastrear" buttonType="RAISED" layoutX="461.0" layoutY="347.0" onAction="#rastrear" style="-fx-background-color: #11B5E4;" text="Rastreamento" textFill="WHITE" />
    </children>
 </AnchorPane>

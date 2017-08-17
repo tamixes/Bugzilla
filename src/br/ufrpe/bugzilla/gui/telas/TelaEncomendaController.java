@@ -181,7 +181,7 @@ public class TelaEncomendaController implements Initializable{
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
 			stage.show();
-			
+			//
 		}catch(Exception e){
 			e.printStackTrace();
 		}
