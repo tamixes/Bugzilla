@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.RastreioEncomendaController">
+   <children>
+      <JFXTextField fx:id="situacao" focusColor="WHITE" labelFloat="true" layoutX="14.0" layoutY="98.0" promptText="Situação:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <JFXTextField fx:id="local" focusColor="WHITE" labelFloat="true" layoutX="187.0" layoutY="98.0" promptText="Local:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4" />
+      <AnchorPane layoutX="7.0" layoutY="186.0" prefHeight="200.0" prefWidth="489.0">
+         <children>
+            <ListView fx:id="lista" prefHeight="200.0" prefWidth="490.0" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="adicionar" buttonType="RAISED" layoutX="517.0" layoutY="200.0" onAction="#adicionar" style="-fx-background-color: #11B5E4;" text="Adicionar" textFill="WHITE" />
+      <JFXButton fx:id="remover" buttonType="RAISED" layoutX="517.0" layoutY="234.0" onAction="#remover" style="-fx-background-color: #11B5E4;" text="Remover" textFill="WHITE" />
+      <Label layoutX="223.0" layoutY="26.0" text="Rastreio Encomenda" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="entregue" layoutX="377.0" layoutY="102.0" mnemonicParsing="false" text="Entregue" textFill="#00ffd0" />
+   </children>
+</AnchorPane>
