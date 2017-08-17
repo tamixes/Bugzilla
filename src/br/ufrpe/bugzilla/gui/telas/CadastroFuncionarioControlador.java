@@ -94,6 +94,8 @@ public class CadastroFuncionarioControlador implements Initializable{
 			
 			if(this.tipoFunc.getSelectionModel().getSelectedItem().equals(TipoDeFuncionario.ADM)){
 				f = TipoDeFuncionario.ADM;
+			}else{
+				f = TipoDeFuncionario.FUNC;
 			}
 			try {
 				int num = Integer.parseInt(numero);
