@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import com.jfoenix.controls.JFXTextField;
-import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
 import br.ufrpe.bugzilla.dao.RepositorioFuncionario;
 import br.ufrpe.bugzilla.negocio.Fachada;
@@ -97,10 +96,10 @@ public class AtualizarFuncionarioController implements Initializable{
 		cep_func.setEditable(true);
 		
 		//numero_func.setText(f.getEnd().getNumero());
-		numero_func.setEditable(true);
+		//numero_func.setEditable(true);
 		
 		//salario_func.setText(f.getSalario());
-		salario_func.setEditable(true);
+		//salario_func.setEditable(true);
 		
 		login_func.setText(f.getUsuario().getLogin());
 		login_func.setEditable(true);
