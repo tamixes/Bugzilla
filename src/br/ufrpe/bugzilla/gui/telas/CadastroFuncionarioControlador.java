@@ -93,7 +93,7 @@ public class CadastroFuncionarioControlador implements Initializable{
 				
 				try {
 					Fachada.getInstance().addFuncionario(func);
-					//RepositorioFuncionario.getInstance().salvaArquivo();
+					RepositorioFuncionario.getInstance().salvaArquivo();
 					((Node) (event.getSource())).getScene().getWindow().hide();
 					
 					

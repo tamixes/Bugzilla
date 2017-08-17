@@ -89,6 +89,8 @@ public class AtualizarLocaisController implements Initializable {
 			Local local = new Local(nome, lat, log);
 			try {
 				Fachada.getInstance().atualizarLocal(local);
+				RepositorioLocal.getinstance().salvaArquivo();
+				this.atualizarLista();
 				
 			} catch (ObjectNaoExisteException e) {
 				Alert alert = new Alert(AlertType.WARNING);

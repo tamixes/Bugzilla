@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import br.ufrpe.bugzilla.colecoes.TipoCliente;
+import br.ufrpe.bugzilla.dao.RepositorioCliente;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
@@ -112,6 +113,8 @@ public class AtualizarClienteController implements Initializable{
 			
 			try {
 				Fachada.getInstance().atualizarCliente(cliente);
+				RepositorioCliente.getInstance().salvaArquivo();
+				this.atualizarList();
 				
 			} catch (ObjectNaoExisteException e) {
 				Alert alert = new Alert(AlertType.WARNING);
@@ -152,6 +155,7 @@ public class AtualizarClienteController implements Initializable{
 			
 			try {
 				Fachada.getInstance().removerCliente(cliente);
+				RepositorioCliente.getInstance().salvaArquivo();
 				this.atualizarList();
 			} catch (ObjectNaoExisteException e) {
 				Alert alert = new Alert(AlertType.WARNING);
