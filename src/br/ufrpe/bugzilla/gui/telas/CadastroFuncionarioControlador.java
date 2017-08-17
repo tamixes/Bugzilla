@@ -3,7 +3,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
@@ -14,6 +13,8 @@ import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
 import br.ufrpe.bugzilla.negocio.beans.Funcionario;
 import br.ufrpe.bugzilla.negocio.beans.Usuario;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 public class CadastroFuncionarioControlador implements Initializable{
@@ -35,11 +37,16 @@ public class CadastroFuncionarioControlador implements Initializable{
 	@FXML
 	private JFXTextField cidade_func, estado_func, cep_func, numero_func, salario_func, login_func;
 	@FXML
-	private JFXCheckBox seta_adm;
+	private ChoiceBox<TipoDeFuncionario> tipoFunc;
 	@FXML
 	private Label aviso;
 	@FXML
 	private JFXPasswordField senha_func;
+	
+	ObservableList<String> tipolist  = FXCollections.observableArrayList();
+	ObservableList<String> estados = FXCollections.observableArrayList();
+	
+	
 	@FXML
 	private void voltarCadastro(ActionEvent event){
 		((Node) (event.getSource())).getScene().getWindow().hide();
@@ -63,7 +70,7 @@ public class CadastroFuncionarioControlador implements Initializable{
 	private void enviarCadastro(ActionEvent event){
 		String nome, cpf, telefone, login, senha, nascimento;
 		String rua, bairro, cidade, estado, cep, numero, salario;
-		
+		TipoDeFuncionario f = null;
 		
 		nome = nome_func.getText();
 		cpf = cpf_func.getText();
@@ -83,13 +90,19 @@ public class CadastroFuncionarioControlador implements Initializable{
 		
 		if(!nome.equals("") && !cpf.equals("") && !telefone.equals("") && !login.equals("") && !senha.equals("") && !nascimento.equals("") 
 				&& !rua.equals("") && !bairro.equals("") && !cidade.equals("") && !numero.equals("") 
-					&& !estado.equals("") && !cep.equals("") && !salario.equals("")){
+					&& !estado.equals("") && !cep.equals("") && !salario.equals("") && !this.tipoFunc.getSelectionModel().getSelectedItem().equals("")){
+			
+			if(this.tipoFunc.getSelectionModel().getSelectedItem().equals(TipoDeFuncionario.ADM)){
+				f = TipoDeFuncionario.ADM;
+			}else{
+				f = TipoDeFuncionario.FUNC;
+			}
 			try {
 				int num = Integer.parseInt(numero);
 				double sal = Double.parseDouble(salario);
 				Endereco end = new Endereco(rua, bairro, cidade, estado, cep, num);
 				Usuario user = new Usuario(login, senha);
-				Funcionario func = new Funcionario(nome, cpf, nascimento, telefone, end, sal, user, TipoDeFuncionario.FUNC);
+				Funcionario func = new Funcionario(nome, cpf, nascimento, telefone, end, sal, user, f);
 				
 				try {
 					Fachada.getInstance().addFuncionario(func);
@@ -117,8 +130,7 @@ public class CadastroFuncionarioControlador implements Initializable{
 	
 	
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
+		tipoFunc.getItems().setAll(TipoDeFuncionario.values());
 	}
 
 }

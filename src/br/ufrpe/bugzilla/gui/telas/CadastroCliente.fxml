@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
@@ -7,41 +13,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.CadastroClienteControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bugzilla.gui.telas.CadastroClienteControlador">
    <children>
-      <JFXTextField fx:id="nome_cliente" focusColor="WHITE" labelFloat="true" layoutX="4.0" layoutY="111.0" prefHeight="25.0" prefWidth="273.0" promptText="Nome:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="nome_cliente" focusColor="WHITE" labelFloat="true" layoutX="4.0" layoutY="100.0" prefHeight="25.0" prefWidth="273.0" promptText="Nome:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="cnpj_cliente" focusColor="WHITE" labelFloat="true" layoutX="330.0" layoutY="111.0" prefHeight="25.0" prefWidth="227.0" promptText="CNPJ:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="cnpj_cliente" focusColor="WHITE" labelFloat="true" layoutX="330.0" layoutY="100.0" prefHeight="25.0" prefWidth="227.0" promptText="CNPJ:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="cpf_cliente" focusColor="WHITE" labelFloat="true" layoutX="4.0" layoutY="150.0" prefHeight="25.0" prefWidth="273.0" promptText="CPF:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="cpf_cliente" focusColor="WHITE" labelFloat="true" layoutX="4.0" layoutY="139.0" prefHeight="25.0" prefWidth="273.0" promptText="CPF:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="telefone_cliente" focusColor="WHITE" labelFloat="true" layoutX="331.0" layoutY="150.0" prefHeight="25.0" prefWidth="227.0" promptText="Telefone:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="telefone_cliente" focusColor="WHITE" labelFloat="true" layoutX="331.0" layoutY="139.0" prefHeight="25.0" prefWidth="227.0" promptText="Telefone:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="rua_cliente" focusColor="WHITE" labelFloat="true" layoutX="4.0" layoutY="244.0" prefHeight="25.0" prefWidth="298.0" promptText="Rua:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="rua_cliente" focusColor="WHITE" labelFloat="true" layoutX="6.0" layoutY="220.0" prefHeight="25.0" prefWidth="298.0" promptText="Rua:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="bairro_cliente" focusColor="WHITE" labelFloat="true" layoutX="361.0" layoutY="245.0" prefHeight="25.0" prefWidth="209.0" promptText="Bairro:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="bairro_cliente" focusColor="WHITE" labelFloat="true" layoutX="363.0" layoutY="221.0" prefHeight="25.0" prefWidth="209.0" promptText="Bairro:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="cidade_cliente" focusColor="WHITE" labelFloat="true" layoutX="4.0" layoutY="294.0" promptText="Cidade:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="cidade_cliente" focusColor="WHITE" labelFloat="true" layoutX="6.0" layoutY="270.0" promptText="Cidade:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="cep_cliente" focusColor="WHITE" labelFloat="true" layoutX="327.0" layoutY="294.0" promptText="CEP:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="cep_cliente" focusColor="WHITE" labelFloat="true" layoutX="329.0" layoutY="270.0" promptText="CEP:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
-      <JFXTextField fx:id="estado_cliente" focusColor="WHITE" labelFloat="true" layoutX="166.0" layoutY="294.0" promptText="Estado:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="estado_cliente" focusColor="WHITE" labelFloat="true" layoutX="168.0" layoutY="270.0" promptText="Estado:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
@@ -53,7 +59,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <Label fx:id="aviso" layoutX="108.0" layoutY="336.0" prefHeight="48.0" prefWidth="310.0" textFill="WHITE" />
+      <Label fx:id="aviso" layoutX="145.0" layoutY="336.0" prefHeight="48.0" prefWidth="310.0" textFill="WHITE" />
       <Label layoutX="204.0" layoutY="14.0" prefHeight="38.0" prefWidth="193.0" text="CADASTRO DE CLIENTE" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="16.0" />
@@ -63,15 +69,16 @@
             <Font name="Tahoma" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="4.0" layoutY="200.0" text="Endereço:" textFill="WHITE">
+      <Label layoutX="6.0" layoutY="188.0" text="Endereço:" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="12.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="numero_cliente" focusColor="WHITE" labelFloat="true" layoutX="478.0" layoutY="294.0" prefHeight="25.0" prefWidth="114.0" promptText="Número:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
+      <JFXTextField fx:id="numero_cliente" focusColor="WHITE" labelFloat="true" layoutX="478.0" layoutY="270.0" prefHeight="25.0" prefWidth="114.0" promptText="Número:" style="-fx-text-inner-color: #11B5E4;" unFocusColor="#2660a4">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
+      <ChoiceBox fx:id="tipoCliente" layoutX="6.0" layoutY="311.0" prefWidth="150.0" style="-fx-background-color: #11B5E4;" />
    </children>
 </AnchorPane>

@@ -7,12 +7,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import br.ufrpe.bugzilla.colecoes.TipoCliente;
+import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
 import br.ufrpe.bugzilla.dao.RepositorioCliente;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
 import br.ufrpe.bugzilla.gui.login.Login;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -35,10 +39,15 @@ public class CadastroClienteControlador implements Initializable {
 	private Label aviso;
 	@FXML
 	private JFXButton enviar_cliente, voltar_cliente; 
+	@FXML
+	private ChoiceBox<TipoCliente> tipoCliente;
 	
+	ObservableList<String> tipolist  = FXCollections.observableArrayList();
+	ObservableList<String> estados = FXCollections.observableArrayList();
 	@FXML
 	public void enviarCliente(ActionEvent event){
 		String nome, cnpj, cpf, telefone, rua, bairro, cidade, cep, estado, numero;
+		TipoCliente c = null; 
 		
 		nome = nome_cliente.getText();
 		cnpj = cnpj_cliente.getText();
@@ -53,12 +62,18 @@ public class CadastroClienteControlador implements Initializable {
 		cep = cep_cliente.getText();
 		
 		if(!nome.equals("") && !cnpj.equals("") && !cpf.equals("") && !telefone.equals("") && !rua.equals("")
-				&& !bairro.equals("") && !cidade.equals("") && !numero.equals("") && !estado.equals("")){
+				&& !bairro.equals("") && !cidade.equals("") && !numero.equals("") && !estado.equals("") && !this.tipoCliente.getSelectionModel().getSelectedItem().equals("")){
+			
+			if(this.tipoCliente.getSelectionModel().getSelectedItem().equals(TipoCliente.JUR)){
+				c = TipoCliente.JUR;
+			}else{
+				c = TipoCliente.FIS;
+			}
 			try {
 				int num = Integer.parseInt(numero); 
 				Endereco end = new Endereco(rua, bairro, cidade, estado, cep, num);
 				//teste
-				Cliente cliente = new Cliente(nome, cnpj, cpf, telefone, end, TipoCliente.FIS);
+				Cliente cliente = new Cliente(nome, cnpj, cpf, telefone, end, c);
 				
 				try {
 					Fachada.getInstance().cadastrarCliente(cliente);
@@ -107,7 +122,7 @@ public class CadastroClienteControlador implements Initializable {
 	
 	
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		tipoCliente.getItems().setAll(TipoCliente.values());
 		
 	}
 
