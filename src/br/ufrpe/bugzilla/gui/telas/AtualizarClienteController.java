@@ -29,7 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class AtualizarClienteController implements Initializable{
 
 	@FXML
-	private JFXTextField nome_cliente, cnpj_cliente, cpf_cliente, telefone_cliente, rua_cliente;
+	private JFXTextField nome_cliente, cnpj_cliente, cpf_cliente, telefone_cliente, rua_cliente, tipo_cliente;
 	@FXML
 	private JFXTextField bairro_cliente, cidade_cliente, numero_cliente, estado_cliente, cep_cliente;
 	@FXML
@@ -81,11 +81,20 @@ public class AtualizarClienteController implements Initializable{
 			cnpj_cliente.setText(c.getCnpj());
 			cnpj_cliente.setEditable(true);
 			rua_cliente.setText(c.getEndereco().getRua());
+			rua_cliente.setEditable(true);
 			cidade_cliente.setText(c.getEndereco().getCidade());
+			cidade_cliente.setEditable(true);
 			bairro_cliente.setText(c.getEndereco().getBairro());
+			bairro_cliente.setEditable(true);
 			estado_cliente.setText(c.getEndereco().getEstado());
+			estado_cliente.setEditable(true);
 			telefone_cliente.setText(c.getTelefone());
 			telefone_cliente.setEditable(true);
+			numero_cliente.setText(String.valueOf(c.getEndereco().getNumero()));
+			numero_cliente.setEditable(true);
+			cep_cliente.setText(c.getEndereco().getCep());
+			cep_cliente.setEditable(true);
+			//tipo_cliente.setText(c.getTipo().toString());
 		});
 
 		
