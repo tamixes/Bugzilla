@@ -82,15 +82,30 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <Label layoutX="449.0" layoutY="55.0" text="CLIENTE" textFill="#00e6ff">
+      <Label layoutX="449.0" layoutY="50.0" text="CLIENTE" textFill="#00e6ff">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <JFXButton fx:id="listar_cliente" buttonType="RAISED" layoutX="480.0" layoutY="348.0" onAction="#listarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Clientes" />
-      <JFXButton fx:id="remover_cliente" buttonType="RAISED" layoutX="481.0" layoutY="414.0" onAction="#removerCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Cliente" />
-      <JFXButton fx:id="alterar_cliente" buttonType="RAISED" layoutX="480.0" layoutY="381.0" onAction="#alterarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Cliente" />
-      <JFXButton fx:id="buscar_cliente" buttonType="RAISED" layoutX="480.0" layoutY="315.0" onAction="#buscarCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Cliente" />
-      <JFXButton fx:id="add_cliente" buttonType="RAISED" layoutX="480.0" layoutY="281.0" onAction="#addCliente" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Cliente" />
+      <JFXButton fx:id="alterar_cliente" buttonType="RAISED" layoutX="700.0" layoutY="514.0" onAction="#alterarCliente" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 10;" text="Alterar Cliente" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="buscar_cliente" buttonType="RAISED" layoutX="465.0" layoutY="514.0" onAction="#buscarCliente" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 10;" text="Buscar Cliente" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="add_cliente" buttonType="RAISED" layoutX="232.0" layoutY="514.0" onAction="#addCliente" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 10;" text="Adicionar Cliente" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="373.0" fitWidth="715.0" layoutX="368.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/user_manual1600.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
