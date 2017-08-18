@@ -80,7 +80,7 @@ public class CadastroEncomendaControlador implements Initializable {
 					
 					try {
 						Alert alert = new Alert(AlertType.INFORMATION);
-						alert.setHeaderText("Encomenda cadastrada com sucesso!");
+						alert.setHeaderText("Encomenda cadastrada com sucesso!\nCódigo da encomenda: " + encomenda.getCodigo());
 						alert.setTitle("Encomenda cadastrada");
 						alert.showAndWait();
 						((Node) (event.getSource())).getScene().getWindow().hide();
