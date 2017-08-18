@@ -82,15 +82,35 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <Label layoutX="435.0" layoutY="59.0" text="CENTRAIS" textFill="#00e6ff">
+      <Label layoutX="435.0" layoutY="40.0" text="CENTRAIS" textFill="#00e6ff">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <JFXButton fx:id="add_central" layoutX="489.0" layoutY="281.0" onAction="#addCentral" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Central" />
-      <JFXButton fx:id="listar_central" layoutX="489.0" layoutY="348.0" onAction="#listarCentral" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Centrais" />
-      <JFXButton fx:id="remover_central" layoutX="489.0" layoutY="414.0" onAction="#removerCentral" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Central" />
-      <JFXButton fx:id="alterar_central" layoutX="489.0" layoutY="381.0" onAction="#alterarCentral" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Central" />
-      <JFXButton fx:id="buscar_central" layoutX="489.0" layoutY="315.0" onAction="#buscarCentral" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Central" />
+      <JFXButton fx:id="add_central" buttonType="RAISED" layoutX="198.0" layoutY="530.0" onAction="#addCentral" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 10;" text="Adicionar Central" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="remover_central" buttonType="RAISED" layoutX="801.0" layoutY="530.0" onAction="#removerCentral" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 10;" text="Remover Central" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="alterar_central" buttonType="RAISED" layoutX="605.0" layoutY="530.0" onAction="#alterarCentral" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 10;" text="Alterar Central" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="buscar_central" buttonType="RAISED" layoutX="400.0" layoutY="530.0" onAction="#buscarCentral" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF; -fx-background-radius: 10;" text="Buscar Central" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="417.0" fitWidth="798.0" layoutX="346.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/point_objects1600.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
