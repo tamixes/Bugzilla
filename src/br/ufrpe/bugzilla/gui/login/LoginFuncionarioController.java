@@ -25,6 +25,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -78,6 +79,8 @@ public class LoginFuncionarioController implements Initializable{
 				Stage stage = new Stage();
 				stage.setScene(scene);
 				stage.setTitle("Bugzilla Encomendas");
+				Image icon = new Image("bug.png");
+			    stage.getIcons().add(icon);
 				stage.setResizable(false);
 				stage.show();
 			} catch (Exception e) {

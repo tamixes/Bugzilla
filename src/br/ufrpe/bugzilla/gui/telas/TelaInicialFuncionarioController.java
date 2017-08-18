@@ -11,8 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.input.MouseEvent;
@@ -97,6 +98,16 @@ public class TelaInicialFuncionarioController implements Initializable{
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	public void info(MouseEvent event){
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setHeaderText("Diego Patrik\nTamires Carvalho\nThyerry Nunes");
+		alert.setTitle("Créditos");
+		alert.showAndWait();
+	}
+	
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		this.numCentral.setText(String.valueOf(Fachada.getInstance().contadorCentral()));

@@ -10,6 +10,7 @@ import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Cliente;
 import br.ufrpe.bugzilla.negocio.beans.Encomenda;
+import br.ufrpe.bugzilla.negocio.beans.GeraPDF;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -33,7 +35,7 @@ public class PesquisarEncomendaControlador implements Initializable{
 	@FXML
 	private Label aviso,sysout;
 	@FXML
-	private JFXButton pesquisar_encomenda, rastrear; 
+	private JFXButton pesquisar_encomenda, rastrear, pdf; 
 	
 	@FXML
 	public void pesquisarEncomenda(ActionEvent event){
@@ -47,6 +49,7 @@ public class PesquisarEncomendaControlador implements Initializable{
 				this.aviso.setText("");
 				this.sysout.setText(c.toString());
 				rastrear.setVisible(true);
+				pdf.setVisible(true);
 			}catch(ObjectNaoExisteException e){
 				System.out.println(e.getMessage());
 				this.aviso.setText("Não encontrado!");
@@ -66,6 +69,8 @@ public class PesquisarEncomendaControlador implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.setResizable(false);
 			stage.show();
 			
@@ -74,10 +79,20 @@ public class PesquisarEncomendaControlador implements Initializable{
 		}
 		
 	}
+	@FXML
+	public void gerarPDF(ActionEvent event){
+		try{
+			GeraPDF.geradorPDF(Fachada.getInstance().buscaEncomenda(PesquisarEncomendaControlador.codigo));
+		}catch(Exception e){
+			e.printStackTrace();
+			this.aviso.setText("Erro ao gerar PDF");
+		}
+	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		rastrear.setVisible(false);
+		pdf.setVisible(false);
 	}
 
 }

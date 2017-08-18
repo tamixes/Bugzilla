@@ -73,8 +73,8 @@ public class Fachada implements IFachada {
 		return this.cadastroFuncionario.buscarFuncionario(cpf);
 	}
 
-	public void removerFuncionario(Funcionario func) throws ErroAoRemoverException {
-		this.cadastroFuncionario.removerFuncionario(func);
+	public void removerFuncionario(String cpf) throws ErroAoRemoverException {
+		this.cadastroFuncionario.removerFuncionario(cpf);
 
 	}
 

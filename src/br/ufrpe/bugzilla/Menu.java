@@ -188,7 +188,7 @@ public class Menu {
 								switch(escolha){
 									case 1:
 									try {
-										bugentregas.removerFuncionario(deleta);
+										bugentregas.removerFuncionario(deleta.getCpf());
 									} catch (ErroAoRemoverException e) {
 										System.out.println(e.getMessage());
 										e.printStackTrace();

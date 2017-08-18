@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -162,5 +163,6 @@
             </Label>
          </children>
       </AnchorPane>
+      <FontAwesomeIconView fx:id="info" fill="#54f2ff" glyphName="INFO" layoutX="966.0" layoutY="48.0" onMouseClicked="#info" size="40" />
    </children>
 </AnchorPane>

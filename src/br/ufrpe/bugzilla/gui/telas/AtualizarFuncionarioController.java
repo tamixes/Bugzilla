@@ -190,7 +190,7 @@ public class AtualizarFuncionarioController implements Initializable{
 			Funcionario func = new Funcionario(nome, cpf, nascimento, telefone, end, sal, user, TipoDeFuncionario.FUNC);
 			
 			try {
-				Fachada.getInstance().removerFuncionario(func);
+				Fachada.getInstance().removerFuncionario(func.getCpf());
 				RepositorioFuncionario.getInstance().salvaArquivo();
 				
 			} catch (Exception e) {

@@ -17,7 +17,7 @@ public interface IFachada {
 	boolean verificaLoginADM(Usuario usuario);
 	String nomePorLogin(Usuario u);
 	String nomePorLoginADM(Usuario u);
-	void removerFuncionario(Funcionario func) throws ErroAoRemoverException;
+	void removerFuncionario(String cpf) throws ErroAoRemoverException;
 	void alterarFuncionario(Funcionario func) throws ErroAoAtualizarException;
 	List<Funcionario> listarFuncionarios();
 	boolean existeFunc(String cpf);

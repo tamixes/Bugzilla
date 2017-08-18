@@ -40,10 +40,10 @@ public class CadastroFuncionario{
 		return resultado; 
 	}
 
-	public void removerFuncionario(Funcionario func) throws ErroAoRemoverException{
-		if(func != null){
-			if(this.repositorio.existe(func.getCpf()) != false){
-				this.repositorio.removerFuncionario(func.getCpf());
+	public void removerFuncionario(String cpf) throws ErroAoRemoverException{
+		if(cpf != null){
+			if(this.repositorio.existe(cpf) != false){
+				this.repositorio.removerFuncionario(cpf);
 			}
 		}
 		

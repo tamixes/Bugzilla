@@ -69,15 +69,31 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <JFXButton fx:id="add_func" layoutX="477.0" layoutY="250.0" onAction="#addFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Adicionar Funcionário" />
-      <JFXButton fx:id="buscar_func" layoutX="477.0" layoutY="284.0" onAction="#buscarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Buscar Funcionário" />
-      <JFXButton fx:id="alterar_func" layoutX="477.0" layoutY="350.0" onAction="#alterarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Alterar Funcionário" />
-      <JFXButton fx:id="remover_func" layoutX="478.0" layoutY="383.0" onAction="#removerFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Remover Funcionário" />
-      <JFXButton fx:id="listar_func" layoutX="477.0" layoutY="317.0" onAction="#listarFunc" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #00BFFF;" text="Listar Funcionários" />
-      <Label layoutX="355.0" layoutY="49.0" text="FUNCIONÁRIOS" textFill="#00e6ff">
+      <JFXButton fx:id="add_func" buttonType="RAISED" layoutX="197.0" layoutY="500.0" onAction="#addFunc" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF;" text="Adicionar Funcionário" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="buscar_func" buttonType="RAISED" layoutX="393.0" layoutY="500.0" onAction="#buscarFunc" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF;" text="Buscar Funcionário" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="alterar_func" buttonType="RAISED" layoutX="595.0" layoutY="500.0" onAction="#alterarFunc" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF;" text="Alterar Funcionário" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="remover_func" buttonType="RAISED" layoutX="793.0" layoutY="500.0" onAction="#removerFunc" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #00BFFF;" text="Remover Funcionário" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <Label layoutX="355.0" layoutY="50.0" text="FUNCIONÁRIOS" textFill="#00e6ff">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
+      <ImageView fitHeight="332.0" fitWidth="557.0" layoutX="377.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/circled_user_male1600.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -7,10 +7,9 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import br.ufrpe.bugzilla.dao.RepositorioEncomenda;
-import br.ufrpe.bugzilla.dao.RepositorioLocal;
+import br.ufrpe.bugzilla.dao.RepositorioFuncionario;
 import br.ufrpe.bugzilla.exceptions.ObjectNaoExisteException;
 import br.ufrpe.bugzilla.negocio.Fachada;
-import br.ufrpe.bugzilla.negocio.beans.Encomenda;
 import br.ufrpe.bugzilla.negocio.beans.Local;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,23 +19,23 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 
-public class RemoveCentralController implements Initializable{
-
+public class RemoveFuncionarioController implements Initializable{
+	
 	@FXML
-	private JFXTextField central;
+	private JFXTextField cpf;
 	@FXML
 	private Label aviso,sysout;
 	@FXML
-	private JFXButton pesquisar_central, remover; 
+	private JFXButton pesquisar, remover; 
 	
 	@FXML
 	public void pesquisar(ActionEvent event){
 		
-		if(this.central.getText().isEmpty()){
+		if(this.cpf.getText().isEmpty()){
 			this.aviso.setText("Digite um nome para busca...");
 		}else{
 			try{
-				Local l = Fachada.getInstance().procurarLocal(this.central.getText());
+				Local l = Fachada.getInstance().procurarLocal(this.cpf.getText());
 				this.aviso.setText("");
 				this.sysout.setText(l.toString());
 				this.remover.setVisible(true);
@@ -52,12 +51,12 @@ public class RemoveCentralController implements Initializable{
 	public void remover(ActionEvent event) {
 		
 		try {
-			Fachada.getInstance().removerLocal(central.getText());
+			Fachada.getInstance().removerFuncionario(this.cpf.getText());
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setHeaderText("Central Removida com sucesso!");
-			alert.setTitle("Central Removida");
+			alert.setHeaderText("Funcionário Removido com sucesso!");
+			alert.setTitle("Funcionário Removido");
 			alert.showAndWait();
-			RepositorioLocal.getinstance().salvaArquivo();
+			RepositorioFuncionario.getInstance().salvaArquivo();
 			((Node) (event.getSource())).getScene().getWindow().hide();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -70,5 +69,6 @@ public class RemoveCentralController implements Initializable{
 		
 		remover.setVisible(false);
 	}
+
 
 }

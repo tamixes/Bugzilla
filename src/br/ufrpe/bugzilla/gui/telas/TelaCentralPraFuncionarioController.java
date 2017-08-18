@@ -15,7 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.input.MouseEvent;
@@ -110,6 +110,8 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.setResizable(false);
 			stage.show();
 			
@@ -130,6 +132,8 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.setResizable(false);
 			stage.show();
 			
@@ -151,6 +155,8 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.setResizable(false);
 			stage.show();
 			
@@ -171,6 +177,8 @@ public class TelaCentralPraFuncionarioController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.setResizable(false);
 			stage.show();
 			

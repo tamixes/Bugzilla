@@ -22,5 +22,10 @@
          </font>
       </Label>
       <JFXButton fx:id="rastrear" buttonType="RAISED" layoutX="461.0" layoutY="347.0" onAction="#rastrear" style="-fx-background-color: #11B5E4;" text="Rastreamento" textFill="WHITE" />
+      <JFXButton fx:id="pdf" buttonType="RAISED" layoutX="465.0" layoutY="288.0" onAction="#gerarPDF" style="-fx-background-color: #5F0F40;" text="Gerar PDF" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

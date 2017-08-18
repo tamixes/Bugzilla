@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.input.MouseEvent;
@@ -135,6 +136,8 @@ public class TelaEncomendaController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.show();
 			
 		}catch(Exception e){
@@ -154,6 +157,8 @@ public class TelaEncomendaController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.show();
 			
 		}catch(Exception e){
@@ -173,6 +178,8 @@ public class TelaEncomendaController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.show();
 			
 		}catch(Exception e){
@@ -192,6 +199,8 @@ public class TelaEncomendaController implements Initializable{
 			Scene scene = new Scene(p1);
 			stage.setScene(scene);
 			stage.setTitle("Bugzilla Encomendas");
+			Image icon = new Image("bug.png");
+		    stage.getIcons().add(icon);
 			stage.show();
 			
 		}catch(Exception e){
