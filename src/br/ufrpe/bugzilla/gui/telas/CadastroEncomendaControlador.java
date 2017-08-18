@@ -63,22 +63,31 @@ public class CadastroEncomendaControlador implements Initializable {
 		String prazo = prazo_enc.getText();
 		String tipo = tipo_enc.getText();
 
-		if (!peso.equals("")
-				&& !prazo.equals("") && !tipo.equals("") && remetente.getValue()!=null && remetente.getValue()!=null 
-				&& destinatario.getValue()!=null && partida.getValue()!=null && destino.getValue()!=null ) {
+		if (!this.peso_enc.getText().isEmpty()
+				|| !this.prazo_enc.getText().isEmpty() || this.tipo_enc.getText().isEmpty() && remetente.getValue()!=null && remetente.getValue()!=null 
+				&& destinatario.getValue()!=null && partida.getValue()!=null && destino.getValue()!=null) {
 			try {
 				double pesoDouble = Double.parseDouble(peso);
 				int prazoDias = Integer.parseInt(prazo);
 				
 				
-				//TODO Colocar o local no constrututor da encomenda
 				Encomenda encomenda = new Encomenda(remetente.getValue(), destinatario.getValue(), pesoDouble, tipo, partida.getValue(), destino.getValue(), prazoDias);
 				try {
 					Fachada.getInstance().novaEncomenda(encomenda);
 					//teste
 					RepositorioEncomenda.getInstance().salvaArquivo();
 					System.out.println("Salvo");
-					((Node) (event.getSource())).getScene().getWindow().hide();
+					
+					try {
+						Alert alert = new Alert(AlertType.INFORMATION);
+						alert.setHeaderText("Encomenda cadastrada com sucesso!");
+						alert.setTitle("Encomenda cadastrada");
+						alert.showAndWait();
+						((Node) (event.getSource())).getScene().getWindow().hide();
+					} catch(Exception e) {
+						System.out.println(e.getMessage());
+						e.getStackTrace();
+					}
 					
 					//gera pdf
 					try{

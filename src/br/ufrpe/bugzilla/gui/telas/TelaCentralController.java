@@ -146,7 +146,7 @@ public class TelaCentralController implements Initializable{
 	// Event Listener on JFXButton[#listar_central].onAction
 	@FXML
 	public void listarCentral(ActionEvent event) {
-Parent p1 = null;
+		Parent p1 = null;
 		
 		try{
 			p1 = FXMLLoader.load(getClass().getResource("ListaLocal.fxml"));

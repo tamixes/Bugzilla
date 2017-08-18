@@ -49,7 +49,7 @@ public class Local implements Serializable {
 	}
 
 	public String toString() {
-		return this.nome + "\nLocalização: (" + latitude + ", " + longitude + ")";
+		return "Central Bugzilla em " + this.nome + "\nLocalização: (" + latitude + ", " + longitude + ")";
 	}
 	
 	public boolean equals(Object obj){
