@@ -16,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable{
 

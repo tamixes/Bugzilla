@@ -43,7 +43,6 @@ public class AtualizarFuncionarioController implements Initializable{
 	private Fachada controller;
 	
 	
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -83,8 +82,8 @@ public class AtualizarFuncionarioController implements Initializable{
 		bairro_func.setText(f.getEnd().getBairro());
 		bairro_func.setEditable(true);
 		
-		nascimento_func.setText(f.getDataNascimento());
-		nascimento_func.setEditable(true);
+		//nascimento_func.setText("07/01/99");
+		//nascimento_func.setEditable(true);
 		
 		cidade_func.setText(f.getEnd().getCidade());
 		cidade_func.setEditable(true);
@@ -107,7 +106,7 @@ public class AtualizarFuncionarioController implements Initializable{
 		senha_func.setText(f.getUsuario().getSenha());
 		senha_func.setEditable(true);
 		
-		//tipo_func.setText(f);
+		tipo_func.setText(String.valueOf(f.getTipo()));
 		
 		});
 		
@@ -118,14 +117,13 @@ public class AtualizarFuncionarioController implements Initializable{
 		
 		String nome, cpf, telefone, login, senha, nascimento;
 		String rua, bairro, cidade, estado, cep, numero, salario;
-		TipoDeFuncionario f = null;
 		
 		nome = nome_func.getText();
 		cpf = cpf_func.getText();
 		telefone = telefone_func.getText();
 		login = login_func.getText();
 		senha = senha_func.getText();
-		nascimento = nascimento_func.getText();
+		//nascimento = nascimento_func.getText();
 		
 		rua = rua_func.getText();
 		bairro = bairro_func.getText();
@@ -141,7 +139,7 @@ public class AtualizarFuncionarioController implements Initializable{
 			double sal = Double.parseDouble(salario);
 			Endereco end = new Endereco(rua, bairro, cidade, estado, cep, num);
 			Usuario user = new Usuario(login, senha);
-			Funcionario func = new Funcionario(nome, cpf, nascimento, telefone, end, sal, user, TipoDeFuncionario.FUNC);
+			Funcionario func = new Funcionario(nome, cpf, "07/01/99", telefone, end, sal, user, TipoDeFuncionario.FUNC);
 			
 			try {
 				Fachada.getInstance().alterarFuncionario(func);
@@ -166,9 +164,9 @@ public class AtualizarFuncionarioController implements Initializable{
 		String rua, bairro, cidade, estado, cep, numero, salario;
 		
 		
-		nome = nome_func.getText();
+		//nome = nome_func.getText();
 		cpf = cpf_func.getText();
-		telefone = telefone_func.getText();
+		/*telefone = telefone_func.getText();
 		login = login_func.getText();
 		senha = senha_func.getText();
 		nascimento = nascimento_func.getText();
@@ -180,17 +178,17 @@ public class AtualizarFuncionarioController implements Initializable{
 		cep = cep_func.getText();
 		numero = numero_func.getText();
 		salario = salario_func.getText();
-		
+		*/
 		try {
 			
-			int num = Integer.parseInt(numero);
+			/*int num = Integer.parseInt(numero);
 			double sal = Double.parseDouble(salario);
 			Endereco end = new Endereco(rua, bairro, cidade, estado, cep, num);
 			Usuario user = new Usuario(login, senha);
-			Funcionario func = new Funcionario(nome, cpf, nascimento, telefone, end, sal, user, TipoDeFuncionario.FUNC);
+			Funcionario func = new Funcionario(nome, cpf, nascimento, telefone, end, sal, user, TipoDeFuncionario.FUNC);*/
 			
 			try {
-				Fachada.getInstance().removerFuncionario(func.getCpf());
+				Fachada.getInstance().removerFuncionario(cpf);
 				RepositorioFuncionario.getInstance().salvaArquivo();
 				
 			} catch (Exception e) {

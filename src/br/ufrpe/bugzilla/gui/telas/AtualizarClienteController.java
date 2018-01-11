@@ -94,7 +94,7 @@ public class AtualizarClienteController implements Initializable{
 			numero_cliente.setEditable(true);
 			cep_cliente.setText(c.getEndereco().getCep());
 			cep_cliente.setEditable(true);
-			//tipo_cliente.setText(c.getTipo().toString());
+			tipo_cliente.setText(c.getTipo().toString());
 		});
 
 		

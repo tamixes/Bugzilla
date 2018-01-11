@@ -10,7 +10,6 @@ import com.jfoenix.controls.JFXTextField;
 import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
 import br.ufrpe.bugzilla.dao.RepositorioFuncionario;
 import br.ufrpe.bugzilla.exceptions.ObjectJaExisteException;
-import br.ufrpe.bugzilla.gui.telas.TelaInicial;
 import br.ufrpe.bugzilla.gui.telas.TelaInicialFuncionario;
 import br.ufrpe.bugzilla.negocio.Fachada;
 import br.ufrpe.bugzilla.negocio.beans.Endereco;
@@ -53,7 +52,7 @@ public class LoginFuncionarioController implements Initializable{
 		senha = senha_func.getText();
 		
 		//Funcionario Definido para Testes já salvo em arquivo
-		/*Endereco endereco  = new Endereco();
+		Endereco endereco  = new Endereco();
 		Funcionario func = new Funcionario("Tamires", "12581069490", "21/12/2121", "88664646",
 				endereco, 1.800, new Usuario("tamires","12345"), TipoDeFuncionario.FUNC);
 		try {
@@ -62,7 +61,7 @@ public class LoginFuncionarioController implements Initializable{
 		} catch (ObjectJaExisteException e1) {
 			
 			e1.printStackTrace();
-		}*/
+		}
 		
 		if(login.equals("") || senha.equals("")){
 			erro_func.setText("Preencha os campos corretamente!");

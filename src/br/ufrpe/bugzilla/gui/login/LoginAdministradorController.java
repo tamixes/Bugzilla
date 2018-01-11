@@ -2,7 +2,6 @@ package br.ufrpe.bugzilla.gui.login;
 
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -63,7 +62,7 @@ public class LoginAdministradorController implements Initializable{
 					
 					e1.printStackTrace();
 				}*/
-		
+	
 		if(login.equals("") || senha.equals("")){
 			erro.setText("Preencha os campos corretamente!");
 		}

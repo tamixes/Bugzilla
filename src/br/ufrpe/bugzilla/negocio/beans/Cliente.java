@@ -115,7 +115,7 @@ public class Cliente implements Serializable{
 		return cnpj;
 	}
 
-	public String toString() {
+	/*public String toString() {
 
 		String resultado = "";
 		if (this.tipo == TipoCliente.JUR) {
@@ -139,6 +139,17 @@ public class Cliente implements Serializable{
 		
 		return resultado;
 
+	}*/
+	
+	//tostring simplificado para listar encomendas
+	public String toString() {
+		
+		String resultado = "";
+		
+		resultado += "\t Nome do cliente: " 	+ this.getNome() + "\n"
+				+ "\t CPF: " 	+ this.getCpf() + "\n";
+		
+		return resultado;
 	}
 
 	public boolean equals(Object obj) {

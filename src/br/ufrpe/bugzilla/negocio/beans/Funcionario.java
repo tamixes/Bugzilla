@@ -1,6 +1,5 @@
 package br.ufrpe.bugzilla.negocio.beans;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import br.ufrpe.bugzilla.colecoes.TipoDeFuncionario;
 
@@ -10,7 +9,7 @@ public class Funcionario extends Pessoa implements Serializable{
 	private double salario;
 	private TipoDeFuncionario tipo;
 	
-	public Funcionario(String nome, String cpf, String localDate, String telefone,Endereco endereco, double salario, Usuario usuario, TipoDeFuncionario tipo){
+	public Funcionario(String nome, String cpf, String localDate, String telefone, Endereco endereco, double salario, Usuario usuario, TipoDeFuncionario tipo){
 		
 		super(nome, cpf, localDate, telefone, endereco, usuario);
 		this.salario = salario;
@@ -19,6 +18,10 @@ public class Funcionario extends Pessoa implements Serializable{
 	
 	public Funcionario(){
 		this(null, null, null, null, null, 0, null, null);
+	}
+	
+	public TipoDeFuncionario getTipo(){
+		return tipo;
 	}
 
 	public Usuario getUsuario() {
